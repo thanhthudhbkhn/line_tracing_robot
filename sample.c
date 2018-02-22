@@ -17,7 +17,7 @@ wait00(short k)
 
 int left_down(void){
     PORTC=0x03; /* both motor on */
-    wait00(0.3); /* 0.03msec wait */
+    wait00(3); /* 0.03msec wait */
     PORTC=0x01; /* right motor on */
     wait00(5); /* 0.18msec wait */
     PORTC=0x00; /* both motor off */
@@ -26,7 +26,7 @@ int left_down(void){
 
 int right_down(void){
     PORTC=0x03; /* both motor on */
-    wait00(0.3); /* 0.03msec wait */
+    wait00(3); /* 0.03msec wait */
     PORTC=0x02; /* left motor on */
     wait00(5); /* 0.18msec wait */
     PORTC=0x00; /* both motor off */
@@ -43,7 +43,9 @@ int straight(void){
 int led_sens(void)
 {
 PORTAbits.RA0 = ~PORTBbits.RB0;           
+PORTAbits.RA1 = ~PORTBbits.RB1;           
 PORTAbits.RA2 = ~PORTBbits.RB2;           
+PORTAbits.RA3 = ~PORTBbits.RB3;           
 PORTAbits.RA4 = ~PORTBbits.RB4;      
 }
 
