@@ -3385,15 +3385,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "81
 [e $ ! && && == -> . . _PORTBbits 0 0 `i -> 0 `i == -> . . _PORTBbits 0 2 `i -> 0 `i == -> . . _PORTBbits 0 3 `i -> 0 `i 342  ]
 {
-[; ;sample.c: 90: PORTC=0x00;
-"90
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 91: PORTC=0x01;
-"91
-[e = _PORTC -> -> 1 `i `uc ]
-[; ;sample.c: 92: PORTC=0x02;
-"92
-[e = _PORTC -> -> 2 `i `uc ]
 "93
 }
 [; ;sample.c: 93: }
@@ -3423,19 +3414,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 103: right_down();
 "103
 [e ( _right_down ..  ]
-"105
+[; ;sample.c: 104: do_nothing();
+"104
+[e ( _do_nothing ..  ]
+"106
 }
 [e :U 345 ]
 [e :U 343 ]
-"106
+"107
 }
 [e :U 339 ]
 "78
 [e $U 340  ]
 [e :U 341 ]
-[; ;sample.c: 105: }
 [; ;sample.c: 106: }
-[; ;sample.c: 108: }
-"108
+[; ;sample.c: 107: }
+[; ;sample.c: 109: }
+"109
 [e :UE 335 ]
 }

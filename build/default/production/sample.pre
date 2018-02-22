@@ -4345,10 +4345,7 @@ led_sens();
 
 if(PORTBbits.RB0==0 && PORTBbits.RB2==0 && PORTBbits.RB3==0){
 
-# 90
-PORTC=0x00;
-PORTC=0x01;
-PORTC=0x02;
+# 93
 }
 else if(PORTBbits.RB0==0 && PORTBbits.RB2==1 && PORTBbits.RB3==1){
 
@@ -4360,8 +4357,10 @@ do_nothing();
 else{
 
 right_down();
+do_nothing();
 
 }
 }
 
 }
+
