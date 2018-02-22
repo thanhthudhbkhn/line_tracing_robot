@@ -19,34 +19,34 @@ int left_down(void){
     PORTC=0x03; /* both motor on */
     wait00(3); /* 0.03msec wait */
     PORTC=0x01; /* right motor on */
-    wait00(5); /* 0.18msec wait */
+    wait00(5); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.79msec wait */
+    wait00(20); /* 0.2msec wait */
 }
 
 int right_down(void){
     PORTC=0x03; /* both motor on */
     wait00(3); /* 0.03msec wait */
     PORTC=0x02; /* left motor on */
-    wait00(5); /* 0.18msec wait */
+    wait00(5); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.79msec wait */
+    wait00(20); /* 0.2msec wait */
 }
 
 int straight(void){
     PORTC=0x03; /* both motor on */
-    wait00(8); /* 0.20msec wait */
+    wait00(8); /* 0.08msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.80msec wait */
+    wait00(20); /* 0.2msec wait */
 }
 
 int led_sens(void)
 {
-PORTAbits.RA0 = ~PORTBbits.RB0;           
-PORTAbits.RA1 = ~PORTBbits.RB1;           
-PORTAbits.RA2 = ~PORTBbits.RB2;           
-PORTAbits.RA3 = ~PORTBbits.RB3;           
-PORTAbits.RA4 = ~PORTBbits.RB4;      
+PORTAbits.RA0 = PORTBbits.RB0;           
+PORTAbits.RA1 = PORTBbits.RB1;           
+PORTAbits.RA2 = PORTBbits.RB2;           
+PORTAbits.RA3 = PORTBbits.RB3;           
+PORTAbits.RA4 = PORTBbits.RB4;      
 }
 
 main(void)

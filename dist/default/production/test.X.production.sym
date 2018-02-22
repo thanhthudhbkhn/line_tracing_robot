@@ -4,12 +4,12 @@ __S1 8 0 ABS 0
 __S2 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
-_main 7F62 0 CODE 0
-__end_of_led_sens 8000 0 CODE 0
+_main 7FB2 0 CODE 0
+__end_of_led_sens 7F70 0 CODE 0
 ___sp 0 0 STACK 2
 start 2000 0 CODE 0
 __size_of_straight 0 0 ABS 0
-__end_of_straight 7EBC 0 CODE 0
+__end_of_straight 7ED8 0 CODE 0
 _TRISA F92 0 ABS 0
 _TRISB F93 0 ABS 0
 _TRISC F94 0 ABS 0
@@ -39,13 +39,13 @@ ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
 _ADCON1 FC1 0 ABS 0
-_wait00 7F20 0 CODE 0
+_wait00 7F70 0 CODE 0
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
-_straight 7E9A 0 CODE 0
+_straight 7EB6 0 CODE 0
 __Hintsave_regs 0 0 BIGRAM 1
 __Lintsave_regs 0 0 BIGRAM 1
-_led_sens 7FB0 0 CODE 0
+_led_sens 7F3C 0 CODE 0
 __Hbigbss 0 0 BIGRAM 1
 __Lbigbss 0 0 BIGRAM 1
 __Hintret 0 0 ABS 0
@@ -81,16 +81,16 @@ __Linit 2000 0 CODE 0
 __Hintcodelo 2000 0 CODE 0
 __Lintcodelo 2000 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main 7FB0 0 CODE 0
+__end_of_main 8000 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
-end_of_initialization 7E94 0 CODE 0
-__end_of_right_down 7F20 0 CODE 0
+end_of_initialization 7EB0 0 CODE 0
+__end_of_right_down 7F3C 0 CODE 0
 _PORTAbits F80 0 ABS 0
 _PORTBbits F81 0 ABS 0
 __size_of_wait00 0 0 ABS 0
-_left_down 7EBC 0 CODE 0
+_left_down 7ED8 0 CODE 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -117,26 +117,26 @@ __Htext0 0 0 ABS 0
 __Ltext0 0 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 7F62 0 CODE 0
+__ptext0 7FB2 0 CODE 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
-__ptext1 7E9A 0 CODE 0
+__ptext1 7EB6 0 CODE 0
 __Htext3 0 0 ABS 0
 __Ltext3 0 0 ABS 0
-__ptext2 7EEE 0 CODE 0
+__ptext2 7F0A 0 CODE 0
 __Htext4 0 0 ABS 0
 __Ltext4 0 0 ABS 0
-__ptext3 7EBC 0 CODE 0
+__ptext3 7ED8 0 CODE 0
 __Htext5 0 0 ABS 0
 __Ltext5 0 0 ABS 0
-__ptext4 7F20 0 CODE 0
-__ptext5 7FB0 0 CODE 0
+__ptext4 7F70 0 CODE 0
+__ptext5 7F3C 0 CODE 0
 wait00@i 6 0 COMRAM 1
 wait00@j 4 0 COMRAM 1
 wait00@k 1 0 COMRAM 1
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
-__end_of__initialization 7E94 0 CODE 0
+__end_of__initialization 7EB0 0 CODE 0
 ___rparam_used 1 0 ABS 0
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
@@ -163,16 +163,16 @@ __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-__pcinit 7E94 0 CODE 0
+__pcinit 7EB0 0 CODE 0
 __ramtop 800 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
 __size_of_main 0 0 ABS 0
 __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
-__end_of_wait00 7F62 0 CODE 0
+__end_of_wait00 7FB2 0 CODE 0
 ___inthi_sp 0 0 STACK 2
 ___intlo_sp 0 0 STACK 2
-_right_down 7EEE 0 CODE 0
+_right_down 7F0A 0 CODE 0
 __smallconst 0 0 SMALLCONST 0
 __size_of_led_sens 0 0 ABS 0
 __Hreset_vec 2000 0 CODE 0
@@ -184,88 +184,90 @@ intlevel0 0 0 CODE 0
 intlevel1 0 0 CODE 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
-__end_of_left_down 7EEE 0 CODE 0
-start_initialization 7E94 0 CODE 0
-__initialization 7E94 0 CODE 0
+__end_of_left_down 7F0A 0 CODE 0
+start_initialization 7EB0 0 CODE 0
+__initialization 7EB0 0 CODE 0
 __activetblptr 0 0 ABS 0
 %segments
 reset_vec 2000 2003 CODE 2000 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
 cstackCOMRAM 1 7 COMRAM 1 1
-text5 7FB0 7FFF CODE 7FB0 0
-text0 7F62 7FAF CODE 7F62 0
-text4 7F20 7F61 CODE 7F20 0
-text2 7EEE 7F1F CODE 7EEE 0
-text3 7EBC 7EED CODE 7EBC 0
-text1 7E9A 7EBB CODE 7E9A 0
-cinit 7E94 7E99 CODE 7E94 0
+text0 7FB2 7FFF CODE 7FB2 0
+text4 7F70 7FB1 CODE 7F70 0
+text5 7F3C 7F6F CODE 7F3C 0
+text2 7F0A 7F3B CODE 7F0A 0
+text3 7ED8 7F09 CODE 7ED8 0
+text1 7EB6 7ED7 CODE 7EB6 0
+cinit 7EB0 7EB5 CODE 7EB0 0
 %locals
 dist/default/production\test.X.production.obj
 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
-C:\Users\ThuPT\AppData\Local\Temp\s24k.
-392 7E94 0 CODE 0
-394 7E94 0 CODE 0
-397 7E94 0 CODE 0
-403 7E94 0 CODE 0
-405 7E94 0 CODE 0
-406 7E96 0 CODE 0
+C:\Users\ThuPT\AppData\Local\Temp\s2v8.
+392 7EB0 0 CODE 0
+394 7EB0 0 CODE 0
+397 7EB0 0 CODE 0
+403 7EB0 0 CODE 0
+405 7EB0 0 CODE 0
+406 7EB2 0 CODE 0
 sample.c
-50 7F62 0 CODE 0
-53 7F62 0 CODE 0
-56 7F66 0 CODE 0
-57 7F6A 0 CODE 0
-58 7F6C 0 CODE 0
-61 7F70 0 CODE 0
-62 7F74 0 CODE 0
-63 7F78 0 CODE 0
-66 7F7C 0 CODE 0
-67 7F7E 0 CODE 0
-68 7F82 0 CODE 0
-66 7F82 0 CODE 0
-73 7F86 0 CODE 0
-74 7F8A 0 CODE 0
-76 7F94 0 CODE 0
-77 7F98 0 CODE 0
-78 7F9A 0 CODE 0
-80 7FA4 0 CODE 0
-81 7FA8 0 CODE 0
-82 7FAA 0 CODE 0
-83 7FAA 0 CODE 0
-72 7FAE 0 CODE 0
+52 7FB2 0 CODE 0
+55 7FB2 0 CODE 0
+58 7FB6 0 CODE 0
+59 7FBA 0 CODE 0
+60 7FBC 0 CODE 0
+63 7FC0 0 CODE 0
+64 7FC4 0 CODE 0
+65 7FC8 0 CODE 0
+68 7FCC 0 CODE 0
+69 7FCE 0 CODE 0
+70 7FD2 0 CODE 0
+68 7FD2 0 CODE 0
+75 7FD6 0 CODE 0
+76 7FDA 0 CODE 0
+78 7FE4 0 CODE 0
+79 7FE8 0 CODE 0
+80 7FEA 0 CODE 0
+82 7FF4 0 CODE 0
+83 7FF8 0 CODE 0
+84 7FFA 0 CODE 0
+85 7FFA 0 CODE 0
+74 7FFE 0 CODE 0
 sample.c
-36 7E9A 0 CODE 0
-37 7E9A 0 CODE 0
-38 7E9E 0 CODE 0
-39 7EAA 0 CODE 0
-40 7EAE 0 CODE 0
-41 7EBA 0 CODE 0
+36 7EB6 0 CODE 0
+37 7EB6 0 CODE 0
+38 7EBA 0 CODE 0
+39 7EC6 0 CODE 0
+40 7ECA 0 CODE 0
+41 7ED6 0 CODE 0
 sample.c
-27 7EEE 0 CODE 0
-28 7EEE 0 CODE 0
-29 7EF2 0 CODE 0
-30 7EFE 0 CODE 0
-31 7F02 0 CODE 0
-32 7F0E 0 CODE 0
-33 7F12 0 CODE 0
-34 7F1E 0 CODE 0
+27 7F0A 0 CODE 0
+28 7F0A 0 CODE 0
+29 7F0E 0 CODE 0
+30 7F1A 0 CODE 0
+31 7F1E 0 CODE 0
+32 7F2A 0 CODE 0
+33 7F2E 0 CODE 0
+34 7F3A 0 CODE 0
 sample.c
-18 7EBC 0 CODE 0
-19 7EBC 0 CODE 0
-20 7EC0 0 CODE 0
-21 7ECC 0 CODE 0
-22 7ED0 0 CODE 0
-23 7EDC 0 CODE 0
-24 7EE0 0 CODE 0
-25 7EEC 0 CODE 0
+18 7ED8 0 CODE 0
+19 7ED8 0 CODE 0
+20 7EDC 0 CODE 0
+21 7EE8 0 CODE 0
+22 7EEC 0 CODE 0
+23 7EF8 0 CODE 0
+24 7EFC 0 CODE 0
+25 7F08 0 CODE 0
 sample.c
-6 7F20 0 CODE 0
-11 7F20 0 CODE 0
-12 7F2A 0 CODE 0
-11 7F48 0 CODE 0
+6 7F70 0 CODE 0
+11 7F70 0 CODE 0
+12 7F7A 0 CODE 0
+11 7F98 0 CODE 0
 sample.c
-43 7FB0 0 CODE 0
-45 7FB0 0 CODE 0
-46 7FC8 0 CODE 0
-47 7FE4 0 CODE 0
-48 7FFE 0 CODE 0
+43 7F3C 0 CODE 0
+45 7F3C 0 CODE 0
+46 7F46 0 CODE 0
+47 7F50 0 CODE 0
+48 7F5A 0 CODE 0
+49 7F64 0 CODE 0
+50 7F6E 0 CODE 0

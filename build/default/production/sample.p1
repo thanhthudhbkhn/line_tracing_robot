@@ -3217,9 +3217,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 19: PORTC=0x03;
 "19
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;sample.c: 20: wait00(0.3);
+[; ;sample.c: 20: wait00(3);
 "20
-[e ( _wait00 (1 -> .0.3 `s ]
+[e ( _wait00 (1 -> -> 3 `i `s ]
 [; ;sample.c: 21: PORTC=0x01;
 "21
 [e = _PORTC -> -> 1 `i `uc ]
@@ -3245,9 +3245,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 28: PORTC=0x03;
 "28
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;sample.c: 29: wait00(0.3);
+[; ;sample.c: 29: wait00(3);
 "29
-[e ( _wait00 (1 -> .0.3 `s ]
+[e ( _wait00 (1 -> -> 3 `i `s ]
 [; ;sample.c: 30: PORTC=0x02;
 "30
 [e = _PORTC -> -> 2 `i `uc ]
@@ -3294,114 +3294,120 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 44: {
 [e :U _led_sens ]
 [f ]
-[; ;sample.c: 45: PORTAbits.RA0 = ~PORTBbits.RB0;
+[; ;sample.c: 45: PORTAbits.RA0 = PORTBbits.RB0;
 "45
-[e = . . _PORTAbits 0 0 -> ~ -> . . _PORTBbits 0 0 `i `uc ]
-[; ;sample.c: 46: PORTAbits.RA2 = ~PORTBbits.RB2;
+[e = . . _PORTAbits 0 0 . . _PORTBbits 0 0 ]
+[; ;sample.c: 46: PORTAbits.RA1 = PORTBbits.RB1;
 "46
-[e = . . _PORTAbits 0 2 -> ~ -> . . _PORTBbits 0 2 `i `uc ]
-[; ;sample.c: 47: PORTAbits.RA4 = ~PORTBbits.RB4;
+[e = . . _PORTAbits 0 1 . . _PORTBbits 0 1 ]
+[; ;sample.c: 47: PORTAbits.RA2 = PORTBbits.RB2;
 "47
-[e = . . _PORTAbits 0 4 -> ~ -> . . _PORTBbits 0 4 `i `uc ]
-[; ;sample.c: 48: }
+[e = . . _PORTAbits 0 2 . . _PORTBbits 0 2 ]
+[; ;sample.c: 48: PORTAbits.RA3 = PORTBbits.RB3;
 "48
+[e = . . _PORTAbits 0 3 . . _PORTBbits 0 3 ]
+[; ;sample.c: 49: PORTAbits.RA4 = PORTBbits.RB4;
+"49
+[e = . . _PORTAbits 0 4 . . _PORTBbits 0 4 ]
+[; ;sample.c: 50: }
+"50
 [e :UE 333 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"50
+"52
 [v _main `(i ~T0 @X0 1 ef ]
-"51
+"53
 {
-[; ;sample.c: 50: main(void)
-[; ;sample.c: 51: {
+[; ;sample.c: 52: main(void)
+[; ;sample.c: 53: {
 [e :U _main ]
 [f ]
-[; ;sample.c: 53: ADCON1 = 0x0F;
-"53
+[; ;sample.c: 55: ADCON1 = 0x0F;
+"55
 [e = _ADCON1 -> -> 15 `i `uc ]
-[; ;sample.c: 56: TRISA = 0x20;
-"56
-[e = _TRISA -> -> 32 `i `uc ]
-[; ;sample.c: 57: TRISB = 0xFF;
-"57
-[e = _TRISB -> -> 255 `i `uc ]
-[; ;sample.c: 58: TRISC = 0x00;
+[; ;sample.c: 58: TRISA = 0x20;
 "58
+[e = _TRISA -> -> 32 `i `uc ]
+[; ;sample.c: 59: TRISB = 0xFF;
+"59
+[e = _TRISB -> -> 255 `i `uc ]
+[; ;sample.c: 60: TRISC = 0x00;
+"60
 [e = _TRISC -> -> 0 `i `uc ]
-[; ;sample.c: 61: PORTA = 0x00;
-"61
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;sample.c: 62: PORTB = 0x00;
-"62
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;sample.c: 63: PORTC = 0x00;
+[; ;sample.c: 63: PORTA = 0x00;
 "63
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;sample.c: 64: PORTB = 0x00;
+"64
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;sample.c: 65: PORTC = 0x00;
+"65
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 66: while(PORTAbits.RA5==1){
-"66
+[; ;sample.c: 68: while(PORTAbits.RA5==1){
+"68
 [e $U 335  ]
 [e :U 336 ]
 {
-[; ;sample.c: 67: led_sens();
-"67
+[; ;sample.c: 69: led_sens();
+"69
 [e ( _led_sens ..  ]
-"68
+"70
 }
 [e :U 335 ]
-"66
+"68
 [e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 336  ]
 [e :U 337 ]
-[; ;sample.c: 68: }
-[; ;sample.c: 72: while(1){
-"72
+[; ;sample.c: 70: }
+[; ;sample.c: 74: while(1){
+"74
 [e :U 339 ]
 {
-[; ;sample.c: 73: led_sens();
-"73
+[; ;sample.c: 75: led_sens();
+"75
 [e ( _led_sens ..  ]
-[; ;sample.c: 74: if(PORTBbits.RB0==1 && PORTBbits.RB2==1 && PORTBbits.RB4==0){
-"74
+[; ;sample.c: 76: if(PORTBbits.RB0==1 && PORTBbits.RB2==1 && PORTBbits.RB4==0){
+"76
 [e $ ! && && == -> . . _PORTBbits 0 0 `i -> 1 `i == -> . . _PORTBbits 0 2 `i -> 1 `i == -> . . _PORTBbits 0 4 `i -> 0 `i 341  ]
 {
-[; ;sample.c: 76: left_down();
-"76
-[e ( _left_down ..  ]
-"77
-}
-[; ;sample.c: 77: }
-[e $U 342  ]
+[; ;sample.c: 78: left_down();
 "78
+[e ( _left_down ..  ]
+"79
+}
+[; ;sample.c: 79: }
+[e $U 342  ]
+"80
 [e :U 341 ]
-[; ;sample.c: 78: else if(PORTBbits.RB0==0 && PORTBbits.RB2==1 && PORTBbits.RB4==1){
+[; ;sample.c: 80: else if(PORTBbits.RB0==0 && PORTBbits.RB2==1 && PORTBbits.RB4==1){
 [e $ ! && && == -> . . _PORTBbits 0 0 `i -> 0 `i == -> . . _PORTBbits 0 2 `i -> 1 `i == -> . . _PORTBbits 0 4 `i -> 1 `i 343  ]
 {
-[; ;sample.c: 80: right_down();
-"80
-[e ( _right_down ..  ]
-"81
-}
-[; ;sample.c: 81: }
-[e $U 344  ]
+[; ;sample.c: 82: right_down();
 "82
-[e :U 343 ]
-[; ;sample.c: 82: else{
-{
-[; ;sample.c: 83: straight();
+[e ( _right_down ..  ]
 "83
-[e ( _straight ..  ]
+}
+[; ;sample.c: 83: }
+[e $U 344  ]
 "84
+[e :U 343 ]
+[; ;sample.c: 84: else{
+{
+[; ;sample.c: 85: straight();
+"85
+[e ( _straight ..  ]
+"86
 }
 [e :U 344 ]
 [e :U 342 ]
-"85
+"87
 }
 [e :U 338 ]
-"72
+"74
 [e $U 339  ]
 [e :U 340 ]
-[; ;sample.c: 84: }
-[; ;sample.c: 85: }
+[; ;sample.c: 86: }
 [; ;sample.c: 87: }
-"87
+[; ;sample.c: 89: }
+"89
 [e :UE 334 ]
 }

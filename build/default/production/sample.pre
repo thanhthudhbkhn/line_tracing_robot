@@ -4281,7 +4281,7 @@ for(i=0;i<3000;i++){
 
 int left_down(void){
 PORTC=0x03;
-wait00(0.3);
+wait00(3);
 PORTC=0x01;
 wait00(5);
 PORTC=0x00;
@@ -4290,7 +4290,7 @@ wait00(20);
 
 int right_down(void){
 PORTC=0x03;
-wait00(0.3);
+wait00(3);
 PORTC=0x02;
 wait00(5);
 PORTC=0x00;
@@ -4306,9 +4306,11 @@ wait00(20);
 
 int led_sens(void)
 {
-PORTAbits.RA0 = ~PORTBbits.RB0;
-PORTAbits.RA2 = ~PORTBbits.RB2;
-PORTAbits.RA4 = ~PORTBbits.RB4;
+PORTAbits.RA0 = PORTBbits.RB0;
+PORTAbits.RA1 = PORTBbits.RB1;
+PORTAbits.RA2 = PORTBbits.RB2;
+PORTAbits.RA3 = PORTBbits.RB3;
+PORTAbits.RA4 = PORTBbits.RB4;
 }
 
 main(void)
