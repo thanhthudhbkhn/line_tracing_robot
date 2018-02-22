@@ -60,7 +60,7 @@ main(void)
     TRISC = 0x00;            //  portC   RC all output
     
     //reset to port
-    PORTA = 0x00;            //  portA   reset output
+    PORTA = 0x00;           //  portA   reset output
     PORTB = 0x00;           //  portB    reset output
     PORTC = 0x00;           //  portC    reset output
     
