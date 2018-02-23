@@ -4337,17 +4337,51 @@ led_sens();
 
 while(1){
 led_sens();
-if(PORTBbits.RB0==1 && PORTBbits.RB2==1 && PORTBbits.RB4==0){
-
-left_down();
-}
-else if(PORTBbits.RB0==0 && PORTBbits.RB2==1 && PORTBbits.RB4==1){
-
-right_down();
-}
-else{
+switch (PORTB) {
+case 0b00000:
 straight();
+break;
+case 0b00001: break;
+case 0b00010: break;
+case 0b00011: break;
+case 0b00100:
+straight();
+break;
+case 0b00101: break;
+case 0b00110: break;
+case 0b00111: break;
+case 0b01000: break;
+case 0b01001: break;
+case 0b01010: break;
+case 0b01011: break;
+case 0b01100: break;
+case 0b01101: break;
+case 0b01110: break;
+case 0b01111: break;
+case 0b10000: break;
+case 0b10001: break;
+case 0b10010: break;
+case 0b10011: break;
+case 0b10100: break;
+case 0b10101: break;
+case 0b10110: break;
+case 0b10111: break;
+case 0b11000: break;
+case 0b11001: break;
+case 0b11010: break;
+case 0b11011:
+straight();
+break;
+case 0b11100: break;
+case 0b11101: break;
+case 0b11110: break;
+case 0b11111:
+straight();
+break;
+default: break;
 }
+
+# 130
 }
 
 }

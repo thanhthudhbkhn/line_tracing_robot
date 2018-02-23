@@ -25,10 +25,6 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "6 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
 [v _wait00 wait00 `(i  1 e 2 0 ]
-"18
-[v _left_down left_down `(i  1 e 2 0 ]
-"27
-[v _right_down right_down `(i  1 e 2 0 ]
 "36
 [v _straight straight `(i  1 e 2 0 ]
 "43
@@ -105,22 +101,12 @@
 "52 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
 [v _main main `(i  1 e 2 0 ]
 {
-"89
+"132
 } 0
 "36
 [v _straight straight `(i  1 e 2 0 ]
 {
 "41
-} 0
-"27
-[v _right_down right_down `(i  1 e 2 0 ]
-{
-"34
-} 0
-"18
-[v _left_down left_down `(i  1 e 2 0 ]
-{
-"25
 } 0
 "6
 [v _wait00 wait00 `(i  1 e 2 0 ]

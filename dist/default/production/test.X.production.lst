@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Fri Feb 23 09:26:58 2018
+                                                                                               Fri Feb 23 21:22:05 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F2553
@@ -14,132 +14,132 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
      8                           	psect	text1,global,reloc=2,class=CODE,delta=1
      9                           	psect	text2,global,reloc=2,class=CODE,delta=1
     10                           	psect	text3,global,reloc=2,class=CODE,delta=1
-    11                           	psect	text4,global,reloc=2,class=CODE,delta=1
-    12                           	psect	text5,global,reloc=2,class=CODE,delta=1
-    13                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
-    14                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
-    15  0000                     
-    16                           ; Version 1.45
-    17                           ; Generated 16/11/2017 GMT
-    18                           ; 
-    19                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    20                           ; All rights reserved.
-    21                           ; 
-    22                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+    11                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    12                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    13  0000                     
+    14                           ; Version 1.45
+    15                           ; Generated 16/11/2017 GMT
+    16                           ; 
+    17                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    18                           ; All rights reserved.
+    19                           ; 
+    20                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    23                           ; 
-    24                           ; Redistribution and use in source and binary forms, with or without modification, are
-    25                           ; permitted provided that the following conditions are met:
-    26                           ; 
-    27                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    21                           ; 
+    22                           ; Redistribution and use in source and binary forms, with or without modification, are
+    23                           ; permitted provided that the following conditions are met:
+    24                           ; 
+    25                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    28                           ;        conditions and the following disclaimer.
-    29                           ; 
-    30                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    26                           ;        conditions and the following disclaimer.
+    27                           ; 
+    28                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    31                           ;        of conditions and the following disclaimer in the documentation and/or other
-    32                           ;        materials provided with the distribution.
-    33                           ; 
-    34                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    29                           ;        of conditions and the following disclaimer in the documentation and/or other
+    30                           ;        materials provided with the distribution.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    35                           ;        software without specific prior written permission.
-    36                           ; 
-    37                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    38                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    39                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    40                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    41                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    42                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    43                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    44                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    45                           ; 
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    43                           ; 
+    44                           ; 
+    45                           ; Code-generator required, PIC18F2553 Definitions
     46                           ; 
-    47                           ; Code-generator required, PIC18F2553 Definitions
-    48                           ; 
-    49                           ; SFR Addresses
-    50  0000                     _PORTB	set	3969
-    51  0000                     _PORTA	set	3968
-    52  0000                     _TRISC	set	3988
-    53  0000                     _TRISB	set	3987
-    54  0000                     _TRISA	set	3986
-    55  0000                     _ADCON1	set	4033
-    56  0000                     _PORTBbits	set	3969
-    57  0000                     _PORTAbits	set	3968
-    58  0000                     _PORTC	set	3970
+    47                           ; SFR Addresses
+    48  0000                     _PORTB	set	3969
+    49  0000                     _PORTA	set	3968
+    50  0000                     _TRISC	set	3988
+    51  0000                     _TRISB	set	3987
+    52  0000                     _TRISA	set	3986
+    53  0000                     _ADCON1	set	4033
+    54  0000                     _PORTBbits	set	3969
+    55  0000                     _PORTAbits	set	3968
+    56  0000                     _PORTC	set	3970
+    57                           
+    58                           ; #config settings
     59                           
-    60                           ; #config settings
-    61                           
-    62                           	psect	cinit
-    63  007EB0                     __pcinit:
+    60                           	psect	cinit
+    61  007E58                     __pcinit:
+    62                           	opt stack 0
+    63  007E58                     start_initialization:
     64                           	opt stack 0
-    65  007EB0                     start_initialization:
+    65  007E58                     __initialization:
     66                           	opt stack 0
-    67  007EB0                     __initialization:
+    67  007E58                     end_of_initialization:
     68                           	opt stack 0
-    69  007EB0                     end_of_initialization:
+    69  007E58                     __end_of__initialization:
     70                           	opt stack 0
-    71  007EB0                     __end_of__initialization:
-    72                           	opt stack 0
-    73  007EB0  0100               	movlb	0
-    74  007EB2  EFD9  F03F         	goto	_main	;jump to C main() function
-    75                           
-    76                           	psect	cstackCOMRAM
-    77  000001                     __pcstackCOMRAM:
-    78                           	opt stack 0
-    79  000001                     wait00@k:
-    80                           	opt stack 0
-    81                           
-    82                           ; 2 bytes @ 0x0
-    83  000001                     	ds	2
-    84  000003                     ??_wait00:
-    85                           
-    86                           ; 1 bytes @ 0x2
-    87  000003                     	ds	1
-    88  000004                     wait00@j:
-    89                           	opt stack 0
-    90                           
-    91                           ; 2 bytes @ 0x3
-    92  000004                     	ds	2
-    93  000006                     wait00@i:
-    94                           	opt stack 0
-    95                           
-    96                           ; 2 bytes @ 0x5
-    97  000006                     	ds	2
-    98  000008                     
-    99                           ; 1 bytes @ 0x7
-   100 ;;
-   101 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    71  007E58  0E00               	movlw	low (__Lmediumconst shr (0+16))
+    72  007E5A  6EF8               	movwf	tblptru,c
+    73  007E5C  0100               	movlb	0
+    74  007E5E  EF7D  F03F         	goto	_main	;jump to C main() function
+    75                           tblptru	equ	0xFF8
+    76                           
+    77                           	psect	cstackCOMRAM
+    78  000001                     __pcstackCOMRAM:
+    79                           	opt stack 0
+    80  000001                     wait00@k:
+    81                           	opt stack 0
+    82                           
+    83                           ; 2 bytes @ 0x0
+    84  000001                     	ds	2
+    85  000003                     ??_wait00:
+    86                           
+    87                           ; 1 bytes @ 0x2
+    88  000003                     	ds	1
+    89  000004                     wait00@j:
+    90                           	opt stack 0
+    91                           
+    92                           ; 2 bytes @ 0x3
+    93  000004                     	ds	2
+    94  000006                     wait00@i:
+    95                           	opt stack 0
+    96                           
+    97                           ; 2 bytes @ 0x5
+    98  000006                     	ds	2
+    99  000008                     tblptru	equ	0xFF8
+   100                           
+   101                           ; 1 bytes @ 0x7
    102 ;;
-   103 ;; *************** function _main *****************
-   104 ;; Defined at:
-   105 ;;		line 52 in file "sample.c"
-   106 ;; Parameters:    Size  Location     Type
-   107 ;;		None
-   108 ;; Auto vars:     Size  Location     Type
+   103 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   104 ;;
+   105 ;; *************** function _main *****************
+   106 ;; Defined at:
+   107 ;;		line 52 in file "sample.c"
+   108 ;; Parameters:    Size  Location     Type
    109 ;;		None
-   110 ;; Return value:  Size  Location     Type
-   111 ;;                  2   42[None  ] int 
-   112 ;; Registers used:
-   113 ;;		wreg, status,2, status,0, cstack
-   114 ;; Tracked objects:
-   115 ;;		On entry : 0/0
-   116 ;;		On exit  : 0/0
-   117 ;;		Unchanged: 0/0
-   118 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   119 ;;      Params:         0       0       0       0       0       0       0       0       0
-   120 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   121 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   122 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   123 ;;Total ram usage:        0 bytes
-   124 ;; Hardware stack levels required when called:    2
-   125 ;; This function calls:
-   126 ;;		_led_sens
-   127 ;;		_left_down
-   128 ;;		_right_down
+   110 ;; Auto vars:     Size  Location     Type
+   111 ;;		None
+   112 ;; Return value:  Size  Location     Type
+   113 ;;                  2   42[None  ] int 
+   114 ;; Registers used:
+   115 ;;		wreg, status,2, status,0, cstack
+   116 ;; Tracked objects:
+   117 ;;		On entry : 0/0
+   118 ;;		On exit  : 0/0
+   119 ;;		Unchanged: 0/0
+   120 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   121 ;;      Params:         0       0       0       0       0       0       0       0       0
+   122 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   123 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   124 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   125 ;;Total ram usage:        0 bytes
+   126 ;; Hardware stack levels required when called:    2
+   127 ;; This function calls:
+   128 ;;		_led_sens
    129 ;;		_straight
    130 ;; This function is called by:
    131 ;;		Startup code after reset
@@ -147,477 +147,497 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    133 ;;
    134                           
    135                           	psect	text0
-   136  007FB2                     __ptext0:
+   136  007EFA                     __ptext0:
    137                           	opt stack 0
-   138  007FB2                     _main:
+   138  007EFA                     _main:
    139                           	opt stack 29
    140                           
    141                           ;sample.c: 55: ADCON1 = 0x0F;
    142                           
    143                           ;incstack = 0
-   144  007FB2  0E0F               	movlw	15
-   145  007FB4  6EC1               	movwf	4033,c	;volatile
+   144  007EFA  0E0F               	movlw	15
+   145  007EFC  6EC1               	movwf	4033,c	;volatile
    146                           
    147                           ;sample.c: 58: TRISA = 0x20;
-   148  007FB6  0E20               	movlw	32
-   149  007FB8  6E92               	movwf	3986,c	;volatile
+   148  007EFE  0E20               	movlw	32
+   149  007F00  6E92               	movwf	3986,c	;volatile
    150                           
    151                           ;sample.c: 59: TRISB = 0xFF;
-   152  007FBA  6893               	setf	3987,c	;volatile
+   152  007F02  6893               	setf	3987,c	;volatile
    153                           
    154                           ;sample.c: 60: TRISC = 0x00;
-   155  007FBC  0E00               	movlw	0
-   156  007FBE  6E94               	movwf	3988,c	;volatile
+   155  007F04  0E00               	movlw	0
+   156  007F06  6E94               	movwf	3988,c	;volatile
    157                           
    158                           ;sample.c: 63: PORTA = 0x00;
-   159  007FC0  0E00               	movlw	0
-   160  007FC2  6E80               	movwf	3968,c	;volatile
+   159  007F08  0E00               	movlw	0
+   160  007F0A  6E80               	movwf	3968,c	;volatile
    161                           
    162                           ;sample.c: 64: PORTB = 0x00;
-   163  007FC4  0E00               	movlw	0
-   164  007FC6  6E81               	movwf	3969,c	;volatile
+   163  007F0C  0E00               	movlw	0
+   164  007F0E  6E81               	movwf	3969,c	;volatile
    165                           
    166                           ;sample.c: 65: PORTC = 0x00;
-   167  007FC8  0E00               	movlw	0
-   168  007FCA  6E82               	movwf	3970,c	;volatile
+   167  007F10  0E00               	movlw	0
+   168  007F12  6E82               	movwf	3970,c	;volatile
    169                           
    170                           ;sample.c: 68: while(PORTAbits.RA5==1){
-   171  007FCC  D002               	goto	l43
-   172  007FCE                     
+   171  007F14  D002               	goto	l43
+   172  007F16                     
    173                           ;sample.c: 69: led_sens();
-   174  007FCE  EC9E  F03F         	call	_led_sens	;wreg free
-   175  007FD2                     l43:
-   176  007FD2  BA80               	btfsc	3968,5,c	;volatile
-   177  007FD4  D7FC               	goto	l44
-   178  007FD6                     u190:
+   174  007F16  EC42  F03F         	call	_led_sens	;wreg free
+   175  007F1A                     l43:
+   176  007F1A  BA80               	btfsc	3968,5,c	;volatile
+   177  007F1C  D7FC               	goto	l44
+   178  007F1E                     u130:
    179                           
    180                           ;sample.c: 75: led_sens();
    181                           
    182                           ;sample.c: 70: }
    183                           ;sample.c: 74: while(1){
-   184  007FD6  EC9E  F03F         	call	_led_sens	;wreg free
+   184  007F1E  EC42  F03F         	call	_led_sens	;wreg free
    185                           
-   186                           ;sample.c: 76: if(PORTBbits.RB0==1 && PORTBbits.RB2==1 && PORTBbits.RB4==0){
-   187  007FDA  B081               	btfsc	3969,0,c	;volatile
-   188  007FDC  A481               	btfss	3969,2,c	;volatile
-   189  007FDE  D005               	goto	l47
-   190  007FE0  B881               	btfsc	3969,4,c	;volatile
-   191  007FE2  D003               	goto	l47
-   192                           
-   193                           ;sample.c: 78: left_down();
-   194  007FE4  EC6C  F03F         	call	_left_down	;wreg free
+   186                           ;sample.c: 76: switch (PORTB) {
+   187  007F22  D00C               	goto	l47
+   188  007F24                     
+   189                           ;sample.c: 78: straight();
+   190  007F24  EC31  F03F         	call	_straight	;wreg free
+   191                           
+   192                           ;sample.c: 82: case 0b00011: break;
+   193                           
+   194                           ;sample.c: 81: case 0b00010: break;
    195                           
-   196                           ;sample.c: 79: }
-   197  007FE8  D7F6               	goto	u190
-   198  007FEA                     l47:
-   199                           
-   200                           ;sample.c: 80: else if(PORTBbits.RB0==0 && PORTBbits.RB2==1 && PORTBbits.RB4==1){
-   201  007FEA  A081               	btfss	3969,0,c	;volatile
-   202  007FEC  A481               	btfss	3969,2,c	;volatile
-   203  007FEE  D005               	goto	l49
-   204  007FF0  A881               	btfss	3969,4,c	;volatile
-   205  007FF2  D003               	goto	l49
-   206                           
-   207                           ;sample.c: 82: right_down();
-   208  007FF4  EC85  F03F         	call	_right_down	;wreg free
+   196                           ;sample.c: 80: case 0b00001: break;
+   197                           
+   198                           ;sample.c: 79: break;
+   199  007F28  D7FA               	goto	u130
+   200  007F2A                     
+   201                           ;sample.c: 84: straight();
+   202  007F2A  EC31  F03F         	call	_straight	;wreg free
+   203                           
+   204                           ;sample.c: 107: case 0b11010: break;
+   205                           
+   206                           ;sample.c: 106: case 0b11001: break;
+   207                           
+   208                           ;sample.c: 105: case 0b11000: break;
    209                           
-   210                           ;sample.c: 83: }
-   211  007FF8  D7EE               	goto	u190
-   212  007FFA                     l49:
+   210                           ;sample.c: 104: case 0b10111: break;
+   211                           
+   212                           ;sample.c: 103: case 0b10110: break;
    213                           
-   214                           ;sample.c: 84: else{
-   215                           ;sample.c: 85: straight();
-   216  007FFA  EC5B  F03F         	call	_straight	;wreg free
-   217  007FFE  D7EB               	goto	u190
-   218  008000                     __end_of_main:
-   219                           	opt stack 0
-   220                           
-   221 ;; *************** function _straight *****************
-   222 ;; Defined at:
-   223 ;;		line 36 in file "sample.c"
-   224 ;; Parameters:    Size  Location     Type
-   225 ;;		None
-   226 ;; Auto vars:     Size  Location     Type
-   227 ;;		None
-   228 ;; Return value:  Size  Location     Type
-   229 ;;                  2   34[None  ] int 
-   230 ;; Registers used:
-   231 ;;		wreg, status,2, status,0, cstack
-   232 ;; Tracked objects:
-   233 ;;		On entry : 0/0
-   234 ;;		On exit  : 0/0
-   235 ;;		Unchanged: 0/0
-   236 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   237 ;;      Params:         0       0       0       0       0       0       0       0       0
-   238 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   239 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   240 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   241 ;;Total ram usage:        0 bytes
-   242 ;; Hardware stack levels used:    1
-   243 ;; Hardware stack levels required when called:    1
-   244 ;; This function calls:
-   245 ;;		_wait00
-   246 ;; This function is called by:
-   247 ;;		_main
-   248 ;; This function uses a non-reentrant model
-   249 ;;
-   250                           
-   251                           	psect	text1
-   252  007EB6                     __ptext1:
-   253                           	opt stack 0
-   254  007EB6                     _straight:
-   255                           	opt stack 29
-   256                           
-   257                           ;sample.c: 37: PORTC=0x03;
-   258                           
-   259                           ;incstack = 0
-   260  007EB6  0E03               	movlw	3
-   261  007EB8  6E82               	movwf	3970,c	;volatile
-   262                           
-   263                           ;sample.c: 38: wait00(8);
-   264  007EBA  0E00               	movlw	0
-   265  007EBC  6E02               	movwf	wait00@k+1,c
-   266  007EBE  0E08               	movlw	8
-   267  007EC0  6E01               	movwf	wait00@k,c
-   268  007EC2  ECB8  F03F         	call	_wait00	;wreg free
+   214                           ;sample.c: 102: case 0b10101: break;
+   215                           
+   216                           ;sample.c: 101: case 0b10100: break;
+   217                           
+   218                           ;sample.c: 100: case 0b10011: break;
+   219                           
+   220                           ;sample.c: 99: case 0b10010: break;
+   221                           
+   222                           ;sample.c: 98: case 0b10001: break;
+   223                           
+   224                           ;sample.c: 97: case 0b10000: break;
+   225                           
+   226                           ;sample.c: 96: case 0b01111: break;
+   227                           
+   228                           ;sample.c: 95: case 0b01110: break;
+   229                           
+   230                           ;sample.c: 94: case 0b01101: break;
+   231                           
+   232                           ;sample.c: 93: case 0b01100: break;
+   233                           
+   234                           ;sample.c: 92: case 0b01011: break;
+   235                           
+   236                           ;sample.c: 91: case 0b01010: break;
+   237                           
+   238                           ;sample.c: 90: case 0b01001: break;
+   239                           
+   240                           ;sample.c: 89: case 0b01000: break;
+   241                           
+   242                           ;sample.c: 88: case 0b00111: break;
+   243                           
+   244                           ;sample.c: 87: case 0b00110: break;
+   245                           
+   246                           ;sample.c: 86: case 0b00101: break;
+   247                           
+   248                           ;sample.c: 85: break;
+   249  007F2E  D7F7               	goto	u130
+   250  007F30                     
+   251                           ;sample.c: 109: straight();
+   252  007F30  EC31  F03F         	call	_straight	;wreg free
+   253                           
+   254                           ;sample.c: 113: case 0b11110: break;
+   255                           
+   256                           ;sample.c: 112: case 0b11101: break;
+   257                           
+   258                           ;sample.c: 111: case 0b11100: break;
+   259                           
+   260                           ;sample.c: 110: break;
+   261  007F34  D7F4               	goto	u130
+   262  007F36                     
+   263                           ;sample.c: 115: straight();
+   264  007F36  EC31  F03F         	call	_straight	;wreg free
+   265                           
+   266                           ;sample.c: 118: }
+   267                           
+   268                           ;sample.c: 117: default: break;
    269                           
-   270                           ;sample.c: 39: PORTC=0x00;
-   271  007EC6  0E00               	movlw	0
-   272  007EC8  6E82               	movwf	3970,c	;volatile
-   273                           
-   274                           ;sample.c: 40: wait00(20);
-   275  007ECA  0E00               	movlw	0
-   276  007ECC  6E02               	movwf	wait00@k+1,c
-   277  007ECE  0E14               	movlw	20
-   278  007ED0  6E01               	movwf	wait00@k,c
-   279  007ED2  ECB8  F03F         	call	_wait00	;wreg free
-   280  007ED6  0012               	return		;funcret
-   281  007ED8                     __end_of_straight:
-   282                           	opt stack 0
-   283                           
-   284 ;; *************** function _right_down *****************
-   285 ;; Defined at:
-   286 ;;		line 27 in file "sample.c"
-   287 ;; Parameters:    Size  Location     Type
-   288 ;;		None
-   289 ;; Auto vars:     Size  Location     Type
-   290 ;;		None
-   291 ;; Return value:  Size  Location     Type
-   292 ;;                  2   31[None  ] int 
-   293 ;; Registers used:
-   294 ;;		wreg, status,2, status,0, cstack
-   295 ;; Tracked objects:
-   296 ;;		On entry : 0/0
-   297 ;;		On exit  : 0/0
-   298 ;;		Unchanged: 0/0
-   299 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   300 ;;      Params:         0       0       0       0       0       0       0       0       0
-   301 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   302 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   303 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   304 ;;Total ram usage:        0 bytes
-   305 ;; Hardware stack levels used:    1
-   306 ;; Hardware stack levels required when called:    1
-   307 ;; This function calls:
-   308 ;;		_wait00
-   309 ;; This function is called by:
-   310 ;;		_main
-   311 ;; This function uses a non-reentrant model
-   312 ;;
-   313                           
-   314                           	psect	text2
-   315  007F0A                     __ptext2:
-   316                           	opt stack 0
-   317  007F0A                     _right_down:
-   318                           	opt stack 29
-   319                           
-   320                           ;sample.c: 28: PORTC=0x03;
-   321                           
-   322                           ;incstack = 0
-   323  007F0A  0E03               	movlw	3
-   324  007F0C  6E82               	movwf	3970,c	;volatile
-   325                           
-   326                           ;sample.c: 29: wait00(3);
-   327  007F0E  0E00               	movlw	0
-   328  007F10  6E02               	movwf	wait00@k+1,c
-   329  007F12  0E03               	movlw	3
-   330  007F14  6E01               	movwf	wait00@k,c
-   331  007F16  ECB8  F03F         	call	_wait00	;wreg free
-   332                           
-   333                           ;sample.c: 30: PORTC=0x02;
-   334  007F1A  0E02               	movlw	2
-   335  007F1C  6E82               	movwf	3970,c	;volatile
-   336                           
-   337                           ;sample.c: 31: wait00(5);
-   338  007F1E  0E00               	movlw	0
-   339  007F20  6E02               	movwf	wait00@k+1,c
-   340  007F22  0E05               	movlw	5
-   341  007F24  6E01               	movwf	wait00@k,c
-   342  007F26  ECB8  F03F         	call	_wait00	;wreg free
-   343                           
-   344                           ;sample.c: 32: PORTC=0x00;
-   345  007F2A  0E00               	movlw	0
-   346  007F2C  6E82               	movwf	3970,c	;volatile
-   347                           
-   348                           ;sample.c: 33: wait00(20);
-   349  007F2E  0E00               	movlw	0
-   350  007F30  6E02               	movwf	wait00@k+1,c
-   351  007F32  0E14               	movlw	20
-   352  007F34  6E01               	movwf	wait00@k,c
-   353  007F36  ECB8  F03F         	call	_wait00	;wreg free
-   354  007F3A  0012               	return		;funcret
-   355  007F3C                     __end_of_right_down:
-   356                           	opt stack 0
-   357                           
-   358 ;; *************** function _left_down *****************
-   359 ;; Defined at:
-   360 ;;		line 18 in file "sample.c"
-   361 ;; Parameters:    Size  Location     Type
-   362 ;;		None
-   363 ;; Auto vars:     Size  Location     Type
-   364 ;;		None
-   365 ;; Return value:  Size  Location     Type
-   366 ;;                  2   28[None  ] int 
-   367 ;; Registers used:
-   368 ;;		wreg, status,2, status,0, cstack
-   369 ;; Tracked objects:
-   370 ;;		On entry : 0/0
-   371 ;;		On exit  : 0/0
-   372 ;;		Unchanged: 0/0
-   373 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   374 ;;      Params:         0       0       0       0       0       0       0       0       0
-   375 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   376 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   377 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   378 ;;Total ram usage:        0 bytes
-   379 ;; Hardware stack levels used:    1
-   380 ;; Hardware stack levels required when called:    1
-   381 ;; This function calls:
-   382 ;;		_wait00
-   383 ;; This function is called by:
-   384 ;;		_main
-   385 ;; This function uses a non-reentrant model
-   386 ;;
-   387                           
-   388                           	psect	text3
-   389  007ED8                     __ptext3:
-   390                           	opt stack 0
-   391  007ED8                     _left_down:
-   392                           	opt stack 29
-   393                           
-   394                           ;sample.c: 19: PORTC=0x03;
-   395                           
-   396                           ;incstack = 0
-   397  007ED8  0E03               	movlw	3
-   398  007EDA  6E82               	movwf	3970,c	;volatile
-   399                           
-   400                           ;sample.c: 20: wait00(3);
-   401  007EDC  0E00               	movlw	0
-   402  007EDE  6E02               	movwf	wait00@k+1,c
-   403  007EE0  0E03               	movlw	3
-   404  007EE2  6E01               	movwf	wait00@k,c
-   405  007EE4  ECB8  F03F         	call	_wait00	;wreg free
-   406                           
-   407                           ;sample.c: 21: PORTC=0x01;
-   408  007EE8  0E01               	movlw	1
-   409  007EEA  6E82               	movwf	3970,c	;volatile
-   410                           
-   411                           ;sample.c: 22: wait00(5);
-   412  007EEC  0E00               	movlw	0
-   413  007EEE  6E02               	movwf	wait00@k+1,c
-   414  007EF0  0E05               	movlw	5
-   415  007EF2  6E01               	movwf	wait00@k,c
-   416  007EF4  ECB8  F03F         	call	_wait00	;wreg free
-   417                           
-   418                           ;sample.c: 23: PORTC=0x00;
-   419  007EF8  0E00               	movlw	0
-   420  007EFA  6E82               	movwf	3970,c	;volatile
-   421                           
-   422                           ;sample.c: 24: wait00(20);
-   423  007EFC  0E00               	movlw	0
-   424  007EFE  6E02               	movwf	wait00@k+1,c
-   425  007F00  0E14               	movlw	20
-   426  007F02  6E01               	movwf	wait00@k,c
-   427  007F04  ECB8  F03F         	call	_wait00	;wreg free
-   428  007F08  0012               	return		;funcret
-   429  007F0A                     __end_of_left_down:
-   430                           	opt stack 0
+   270                           ;sample.c: 116: break;
+   271  007F3A  D7F1               	goto	u130
+   272  007F3C                     l47:
+   273  007F3C  5081               	movf	3969,w,c	;volatile
+   274                           
+   275                           ; Switch size 1, requested type "space"
+   276                           ; Number of cases is 32, Range of values is 0 to 31
+   277                           ; switch strategies available:
+   278                           ; Name         Instructions Cycles
+   279                           ; simple_byte           97    49 (average)
+   280                           ;	Chosen strategy is simple_byte
+   281  007F3E  0A00               	xorlw	0	; case 0
+   282  007F40  B4D8               	btfsc	status,2,c
+   283  007F42  D7F0               	goto	l48
+   284  007F44  0A01               	xorlw	1	; case 1
+   285  007F46  B4D8               	btfsc	status,2,c
+   286  007F48  D7EA               	goto	u130
+   287  007F4A  0A03               	xorlw	3	; case 2
+   288  007F4C  B4D8               	btfsc	status,2,c
+   289  007F4E  D7E7               	goto	u130
+   290  007F50  0A01               	xorlw	1	; case 3
+   291  007F52  B4D8               	btfsc	status,2,c
+   292  007F54  D7E4               	goto	u130
+   293  007F56  0A07               	xorlw	7	; case 4
+   294  007F58  B4D8               	btfsc	status,2,c
+   295  007F5A  D7E7               	goto	l53
+   296  007F5C  0A01               	xorlw	1	; case 5
+   297  007F5E  B4D8               	btfsc	status,2,c
+   298  007F60  D7DE               	goto	u130
+   299  007F62  0A03               	xorlw	3	; case 6
+   300  007F64  B4D8               	btfsc	status,2,c
+   301  007F66  D7DB               	goto	u130
+   302  007F68  0A01               	xorlw	1	; case 7
+   303  007F6A  B4D8               	btfsc	status,2,c
+   304  007F6C  D7D8               	goto	u130
+   305  007F6E  0A0F               	xorlw	15	; case 8
+   306  007F70  B4D8               	btfsc	status,2,c
+   307  007F72  D7D5               	goto	u130
+   308  007F74  0A01               	xorlw	1	; case 9
+   309  007F76  B4D8               	btfsc	status,2,c
+   310  007F78  D7D2               	goto	u130
+   311  007F7A  0A03               	xorlw	3	; case 10
+   312  007F7C  B4D8               	btfsc	status,2,c
+   313  007F7E  D7CF               	goto	u130
+   314  007F80  0A01               	xorlw	1	; case 11
+   315  007F82  B4D8               	btfsc	status,2,c
+   316  007F84  D7CC               	goto	u130
+   317  007F86  0A07               	xorlw	7	; case 12
+   318  007F88  B4D8               	btfsc	status,2,c
+   319  007F8A  D7C9               	goto	u130
+   320  007F8C  0A01               	xorlw	1	; case 13
+   321  007F8E  B4D8               	btfsc	status,2,c
+   322  007F90  D7C6               	goto	u130
+   323  007F92  0A03               	xorlw	3	; case 14
+   324  007F94  B4D8               	btfsc	status,2,c
+   325  007F96  D7C3               	goto	u130
+   326  007F98  0A01               	xorlw	1	; case 15
+   327  007F9A  B4D8               	btfsc	status,2,c
+   328  007F9C  D7C0               	goto	u130
+   329  007F9E  0A1F               	xorlw	31	; case 16
+   330  007FA0  B4D8               	btfsc	status,2,c
+   331  007FA2  D7BD               	goto	u130
+   332  007FA4  0A01               	xorlw	1	; case 17
+   333  007FA6  B4D8               	btfsc	status,2,c
+   334  007FA8  D7BA               	goto	u130
+   335  007FAA  0A03               	xorlw	3	; case 18
+   336  007FAC  B4D8               	btfsc	status,2,c
+   337  007FAE  D7B7               	goto	u130
+   338  007FB0  0A01               	xorlw	1	; case 19
+   339  007FB2  B4D8               	btfsc	status,2,c
+   340  007FB4  D7B4               	goto	u130
+   341  007FB6  0A07               	xorlw	7	; case 20
+   342  007FB8  B4D8               	btfsc	status,2,c
+   343  007FBA  D7B1               	goto	u130
+   344  007FBC  0A01               	xorlw	1	; case 21
+   345  007FBE  B4D8               	btfsc	status,2,c
+   346  007FC0  D7AE               	goto	u130
+   347  007FC2  0A03               	xorlw	3	; case 22
+   348  007FC4  B4D8               	btfsc	status,2,c
+   349  007FC6  D7AB               	goto	u130
+   350  007FC8  0A01               	xorlw	1	; case 23
+   351  007FCA  B4D8               	btfsc	status,2,c
+   352  007FCC  D7A8               	goto	u130
+   353  007FCE  0A0F               	xorlw	15	; case 24
+   354  007FD0  B4D8               	btfsc	status,2,c
+   355  007FD2  D7A5               	goto	u130
+   356  007FD4  0A01               	xorlw	1	; case 25
+   357  007FD6  B4D8               	btfsc	status,2,c
+   358  007FD8  D7A2               	goto	u130
+   359  007FDA  0A03               	xorlw	3	; case 26
+   360  007FDC  B4D8               	btfsc	status,2,c
+   361  007FDE  D79F               	goto	u130
+   362  007FE0  0A01               	xorlw	1	; case 27
+   363  007FE2  B4D8               	btfsc	status,2,c
+   364  007FE4  D7A5               	goto	l76
+   365  007FE6  0A07               	xorlw	7	; case 28
+   366  007FE8  B4D8               	btfsc	status,2,c
+   367  007FEA  D799               	goto	u130
+   368  007FEC  0A01               	xorlw	1	; case 29
+   369  007FEE  B4D8               	btfsc	status,2,c
+   370  007FF0  D796               	goto	u130
+   371  007FF2  0A03               	xorlw	3	; case 30
+   372  007FF4  B4D8               	btfsc	status,2,c
+   373  007FF6  D793               	goto	u130
+   374  007FF8  0A01               	xorlw	1	; case 31
+   375  007FFA  B4D8               	btfsc	status,2,c
+   376  007FFC  D79C               	goto	l80
+   377  007FFE  D78F               	goto	u130
+   378  008000                     __end_of_main:
+   379                           	opt stack 0
+   380                           tblptru	equ	0xFF8
+   381                           status	equ	0xFD8
+   382                           
+   383 ;; *************** function _straight *****************
+   384 ;; Defined at:
+   385 ;;		line 36 in file "sample.c"
+   386 ;; Parameters:    Size  Location     Type
+   387 ;;		None
+   388 ;; Auto vars:     Size  Location     Type
+   389 ;;		None
+   390 ;; Return value:  Size  Location     Type
+   391 ;;                  2   34[None  ] int 
+   392 ;; Registers used:
+   393 ;;		wreg, status,2, status,0, cstack
+   394 ;; Tracked objects:
+   395 ;;		On entry : 0/0
+   396 ;;		On exit  : 0/0
+   397 ;;		Unchanged: 0/0
+   398 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   399 ;;      Params:         0       0       0       0       0       0       0       0       0
+   400 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   401 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   402 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   403 ;;Total ram usage:        0 bytes
+   404 ;; Hardware stack levels used:    1
+   405 ;; Hardware stack levels required when called:    1
+   406 ;; This function calls:
+   407 ;;		_wait00
+   408 ;; This function is called by:
+   409 ;;		_main
+   410 ;; This function uses a non-reentrant model
+   411 ;;
+   412                           
+   413                           	psect	text1
+   414  007E62                     __ptext1:
+   415                           	opt stack 0
+   416  007E62                     _straight:
+   417                           	opt stack 29
+   418                           
+   419                           ;sample.c: 37: PORTC=0x03;
+   420                           
+   421                           ;incstack = 0
+   422  007E62  0E03               	movlw	3
+   423  007E64  6E82               	movwf	3970,c	;volatile
+   424                           
+   425                           ;sample.c: 38: wait00(8);
+   426  007E66  0E00               	movlw	0
+   427  007E68  6E02               	movwf	wait00@k+1,c
+   428  007E6A  0E08               	movlw	8
+   429  007E6C  6E01               	movwf	wait00@k,c
+   430  007E6E  EC5C  F03F         	call	_wait00	;wreg free
    431                           
-   432 ;; *************** function _wait00 *****************
-   433 ;; Defined at:
-   434 ;;		line 6 in file "sample.c"
-   435 ;; Parameters:    Size  Location     Type
-   436 ;;  k               2    0[COMRAM] short 
-   437 ;; Auto vars:     Size  Location     Type
-   438 ;;  i               2    5[COMRAM] short 
-   439 ;;  j               2    3[COMRAM] short 
-   440 ;; Return value:  Size  Location     Type
-   441 ;;                  2    0[COMRAM] int 
-   442 ;; Registers used:
-   443 ;;		wreg, status,2, status,0
-   444 ;; Tracked objects:
-   445 ;;		On entry : 0/0
-   446 ;;		On exit  : 0/0
-   447 ;;		Unchanged: 0/0
-   448 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   449 ;;      Params:         2       0       0       0       0       0       0       0       0
-   450 ;;      Locals:         4       0       0       0       0       0       0       0       0
-   451 ;;      Temps:          1       0       0       0       0       0       0       0       0
-   452 ;;      Totals:         7       0       0       0       0       0       0       0       0
-   453 ;;Total ram usage:        7 bytes
-   454 ;; Hardware stack levels used:    1
-   455 ;; This function calls:
-   456 ;;		Nothing
-   457 ;; This function is called by:
-   458 ;;		_left_down
-   459 ;;		_right_down
-   460 ;;		_straight
-   461 ;; This function uses a non-reentrant model
-   462 ;;
-   463                           
-   464                           	psect	text4
-   465  007F70                     __ptext4:
-   466                           	opt stack 0
-   467  007F70                     _wait00:
-   468                           	opt stack 29
-   469                           
-   470                           ;sample.c: 9: short i;
-   471                           ;sample.c: 10: short j;
-   472                           ;sample.c: 11: for(j=0;j<k;j++){
-   473                           
-   474                           ;incstack = 0
-   475  007F70  0E00               	movlw	0
-   476  007F72  6E05               	movwf	wait00@j+1,c
-   477  007F74  0E00               	movlw	0
-   478  007F76  6E04               	movwf	wait00@j,c
-   479  007F78  D011               	goto	l21
-   480  007F7A                     
-   481                           ;sample.c: 12: for(i=0;i<3000;i++){
-   482  007F7A  0E00               	movlw	0
-   483  007F7C  6E07               	movwf	wait00@i+1,c
-   484  007F7E  0E00               	movlw	0
-   485  007F80  6E06               	movwf	wait00@i,c
-   486  007F82                     l749:
-   487  007F82  BE07               	btfsc	wait00@i+1,7,c
-   488  007F84  D006               	goto	l23
-   489  007F86  0EB8               	movlw	184
-   490  007F88  5C06               	subwf	wait00@i,w,c
-   491  007F8A  0E0B               	movlw	11
-   492  007F8C  5807               	subwfb	wait00@i+1,w,c
-   493  007F8E  B0D8               	btfsc	status,0,c
-   494  007F90  D003               	goto	u170
-   495  007F92                     l23:
-   496  007F92  4A06               	infsnz	wait00@i,f,c
-   497  007F94  2A07               	incf	wait00@i+1,f,c
-   498  007F96  D7F5               	goto	l749
-   499  007F98                     u170:
-   500  007F98  4A04               	infsnz	wait00@j,f,c
-   501  007F9A  2A05               	incf	wait00@j+1,f,c
-   502  007F9C                     l21:
-   503  007F9C  5001               	movf	wait00@k,w,c
-   504  007F9E  5C04               	subwf	wait00@j,w,c
-   505  007FA0  5005               	movf	wait00@j+1,w,c
-   506  007FA2  0A80               	xorlw	128
-   507  007FA4  6E03               	movwf	??_wait00& (0+255),c
-   508  007FA6  5002               	movf	wait00@k+1,w,c
-   509  007FA8  0A80               	xorlw	128
-   510  007FAA  5803               	subwfb	??_wait00& (0+255),w,c
-   511  007FAC  B0D8               	btfsc	status,0,c
-   512  007FAE  0012               	return	
-   513  007FB0  D7E4               	goto	l22
-   514  007FB2                     __end_of_wait00:
-   515                           	opt stack 0
-   516                           status	equ	0xFD8
-   517                           
-   518 ;; *************** function _led_sens *****************
-   519 ;; Defined at:
-   520 ;;		line 43 in file "sample.c"
-   521 ;; Parameters:    Size  Location     Type
-   522 ;;		None
-   523 ;; Auto vars:     Size  Location     Type
-   524 ;;		None
-   525 ;; Return value:  Size  Location     Type
-   526 ;;                  2   37[None  ] int 
-   527 ;; Registers used:
-   528 ;;		None
-   529 ;; Tracked objects:
-   530 ;;		On entry : 0/0
-   531 ;;		On exit  : 0/0
-   532 ;;		Unchanged: 0/0
-   533 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   534 ;;      Params:         0       0       0       0       0       0       0       0       0
-   535 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   536 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   537 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   538 ;;Total ram usage:        0 bytes
-   539 ;; Hardware stack levels used:    1
-   540 ;; This function calls:
-   541 ;;		Nothing
-   542 ;; This function is called by:
-   543 ;;		_main
-   544 ;; This function uses a non-reentrant model
-   545 ;;
-   546                           
-   547                           	psect	text5
-   548  007F3C                     __ptext5:
-   549                           	opt stack 0
-   550  007F3C                     _led_sens:
-   551                           	opt stack 30
-   552                           
-   553                           ;sample.c: 45: PORTAbits.RA0 = PORTBbits.RB0;
-   554                           
-   555                           ;incstack = 0
-   556  007F3C  A081               	btfss	3969,0,c	;volatile
-   557  007F3E  D002               	bra	u45
-   558  007F40  8080               	bsf	3968,0,c	;volatile
-   559  007F42  D001               	bra	u47
-   560  007F44                     u45:
-   561  007F44  9080               	bcf	3968,0,c	;volatile
-   562  007F46                     u47:
+   432                           ;sample.c: 39: PORTC=0x00;
+   433  007E72  0E00               	movlw	0
+   434  007E74  6E82               	movwf	3970,c	;volatile
+   435                           
+   436                           ;sample.c: 40: wait00(20);
+   437  007E76  0E00               	movlw	0
+   438  007E78  6E02               	movwf	wait00@k+1,c
+   439  007E7A  0E14               	movlw	20
+   440  007E7C  6E01               	movwf	wait00@k,c
+   441  007E7E  EC5C  F03F         	call	_wait00	;wreg free
+   442  007E82  0012               	return		;funcret
+   443  007E84                     __end_of_straight:
+   444                           	opt stack 0
+   445                           tblptru	equ	0xFF8
+   446                           status	equ	0xFD8
+   447                           
+   448 ;; *************** function _wait00 *****************
+   449 ;; Defined at:
+   450 ;;		line 6 in file "sample.c"
+   451 ;; Parameters:    Size  Location     Type
+   452 ;;  k               2    0[COMRAM] short 
+   453 ;; Auto vars:     Size  Location     Type
+   454 ;;  i               2    5[COMRAM] short 
+   455 ;;  j               2    3[COMRAM] short 
+   456 ;; Return value:  Size  Location     Type
+   457 ;;                  2    0[COMRAM] int 
+   458 ;; Registers used:
+   459 ;;		wreg, status,2, status,0
+   460 ;; Tracked objects:
+   461 ;;		On entry : 0/0
+   462 ;;		On exit  : 0/0
+   463 ;;		Unchanged: 0/0
+   464 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   465 ;;      Params:         2       0       0       0       0       0       0       0       0
+   466 ;;      Locals:         4       0       0       0       0       0       0       0       0
+   467 ;;      Temps:          1       0       0       0       0       0       0       0       0
+   468 ;;      Totals:         7       0       0       0       0       0       0       0       0
+   469 ;;Total ram usage:        7 bytes
+   470 ;; Hardware stack levels used:    1
+   471 ;; This function calls:
+   472 ;;		Nothing
+   473 ;; This function is called by:
+   474 ;;		_straight
+   475 ;;		_left_down
+   476 ;;		_right_down
+   477 ;; This function uses a non-reentrant model
+   478 ;;
+   479                           
+   480                           	psect	text2
+   481  007EB8                     __ptext2:
+   482                           	opt stack 0
+   483  007EB8                     _wait00:
+   484                           	opt stack 29
+   485                           
+   486                           ;sample.c: 9: short i;
+   487                           ;sample.c: 10: short j;
+   488                           ;sample.c: 11: for(j=0;j<k;j++){
+   489                           
+   490                           ;incstack = 0
+   491  007EB8  0E00               	movlw	0
+   492  007EBA  6E05               	movwf	wait00@j+1,c
+   493  007EBC  0E00               	movlw	0
+   494  007EBE  6E04               	movwf	wait00@j,c
+   495  007EC0  D011               	goto	l21
+   496  007EC2                     
+   497                           ;sample.c: 12: for(i=0;i<3000;i++){
+   498  007EC2  0E00               	movlw	0
+   499  007EC4  6E07               	movwf	wait00@i+1,c
+   500  007EC6  0E00               	movlw	0
+   501  007EC8  6E06               	movwf	wait00@i,c
+   502  007ECA                     l776:
+   503  007ECA  BE07               	btfsc	wait00@i+1,7,c
+   504  007ECC  D006               	goto	l23
+   505  007ECE  0EB8               	movlw	184
+   506  007ED0  5C06               	subwf	wait00@i,w,c
+   507  007ED2  0E0B               	movlw	11
+   508  007ED4  5807               	subwfb	wait00@i+1,w,c
+   509  007ED6  B0D8               	btfsc	status,0,c
+   510  007ED8  D003               	goto	u110
+   511  007EDA                     l23:
+   512  007EDA  4A06               	infsnz	wait00@i,f,c
+   513  007EDC  2A07               	incf	wait00@i+1,f,c
+   514  007EDE  D7F5               	goto	l776
+   515  007EE0                     u110:
+   516  007EE0  4A04               	infsnz	wait00@j,f,c
+   517  007EE2  2A05               	incf	wait00@j+1,f,c
+   518  007EE4                     l21:
+   519  007EE4  5001               	movf	wait00@k,w,c
+   520  007EE6  5C04               	subwf	wait00@j,w,c
+   521  007EE8  5005               	movf	wait00@j+1,w,c
+   522  007EEA  0A80               	xorlw	128
+   523  007EEC  6E03               	movwf	??_wait00& (0+255),c
+   524  007EEE  5002               	movf	wait00@k+1,w,c
+   525  007EF0  0A80               	xorlw	128
+   526  007EF2  5803               	subwfb	??_wait00& (0+255),w,c
+   527  007EF4  B0D8               	btfsc	status,0,c
+   528  007EF6  0012               	return	
+   529  007EF8  D7E4               	goto	l22
+   530  007EFA                     __end_of_wait00:
+   531                           	opt stack 0
+   532                           tblptru	equ	0xFF8
+   533                           status	equ	0xFD8
+   534                           
+   535 ;; *************** function _led_sens *****************
+   536 ;; Defined at:
+   537 ;;		line 43 in file "sample.c"
+   538 ;; Parameters:    Size  Location     Type
+   539 ;;		None
+   540 ;; Auto vars:     Size  Location     Type
+   541 ;;		None
+   542 ;; Return value:  Size  Location     Type
+   543 ;;                  2   37[None  ] int 
+   544 ;; Registers used:
+   545 ;;		None
+   546 ;; Tracked objects:
+   547 ;;		On entry : 0/0
+   548 ;;		On exit  : 0/0
+   549 ;;		Unchanged: 0/0
+   550 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   551 ;;      Params:         0       0       0       0       0       0       0       0       0
+   552 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   553 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   554 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   555 ;;Total ram usage:        0 bytes
+   556 ;; Hardware stack levels used:    1
+   557 ;; This function calls:
+   558 ;;		Nothing
+   559 ;; This function is called by:
+   560 ;;		_main
+   561 ;; This function uses a non-reentrant model
+   562 ;;
    563                           
-   564                           ;sample.c: 46: PORTAbits.RA1 = PORTBbits.RB1;
-   565  007F46  A281               	btfss	3969,1,c	;volatile
-   566  007F48  D002               	bra	u55
-   567  007F4A  8280               	bsf	3968,1,c	;volatile
-   568  007F4C  D001               	bra	u57
-   569  007F4E                     u55:
-   570  007F4E  9280               	bcf	3968,1,c	;volatile
-   571  007F50                     u57:
-   572                           
-   573                           ;sample.c: 47: PORTAbits.RA2 = PORTBbits.RB2;
-   574  007F50  A481               	btfss	3969,2,c	;volatile
-   575  007F52  D002               	bra	u65
-   576  007F54  8480               	bsf	3968,2,c	;volatile
-   577  007F56  D001               	bra	u67
-   578  007F58                     u65:
-   579  007F58  9480               	bcf	3968,2,c	;volatile
-   580  007F5A                     u67:
-   581                           
-   582                           ;sample.c: 48: PORTAbits.RA3 = PORTBbits.RB3;
-   583  007F5A  A681               	btfss	3969,3,c	;volatile
-   584  007F5C  D002               	bra	u75
-   585  007F5E  8680               	bsf	3968,3,c	;volatile
-   586  007F60  D001               	bra	u77
-   587  007F62                     u75:
-   588  007F62  9680               	bcf	3968,3,c	;volatile
-   589  007F64                     u77:
-   590                           
-   591                           ;sample.c: 49: PORTAbits.RA4 = PORTBbits.RB4;
-   592  007F64  A881               	btfss	3969,4,c	;volatile
-   593  007F66  D002               	bra	u85
-   594  007F68  8880               	bsf	3968,4,c	;volatile
-   595  007F6A  D001               	bra	u87
-   596  007F6C                     u85:
-   597  007F6C  9880               	bcf	3968,4,c	;volatile
-   598  007F6E                     u87:
-   599  007F6E  0012               	return		;funcret
-   600  007F70                     __end_of_led_sens:
-   601                           	opt stack 0
-   602  0000                     status	equ	0xFD8
-   603                           status	equ	0xFD8
-   604                           
-   605                           	psect	rparam
-   606  0000                     status	equ	0xFD8
+   564                           	psect	text3
+   565  007E84                     __ptext3:
+   566                           	opt stack 0
+   567  007E84                     _led_sens:
+   568                           	opt stack 30
+   569                           
+   570                           ;sample.c: 45: PORTAbits.RA0 = PORTBbits.RB0;
+   571                           
+   572                           ;incstack = 0
+   573  007E84  A081               	btfss	3969,0,c	;volatile
+   574  007E86  D002               	bra	u45
+   575  007E88  8080               	bsf	3968,0,c	;volatile
+   576  007E8A  D001               	bra	u47
+   577  007E8C                     u45:
+   578  007E8C  9080               	bcf	3968,0,c	;volatile
+   579  007E8E                     u47:
+   580                           
+   581                           ;sample.c: 46: PORTAbits.RA1 = PORTBbits.RB1;
+   582  007E8E  A281               	btfss	3969,1,c	;volatile
+   583  007E90  D002               	bra	u55
+   584  007E92  8280               	bsf	3968,1,c	;volatile
+   585  007E94  D001               	bra	u57
+   586  007E96                     u55:
+   587  007E96  9280               	bcf	3968,1,c	;volatile
+   588  007E98                     u57:
+   589                           
+   590                           ;sample.c: 47: PORTAbits.RA2 = PORTBbits.RB2;
+   591  007E98  A481               	btfss	3969,2,c	;volatile
+   592  007E9A  D002               	bra	u65
+   593  007E9C  8480               	bsf	3968,2,c	;volatile
+   594  007E9E  D001               	bra	u67
+   595  007EA0                     u65:
+   596  007EA0  9480               	bcf	3968,2,c	;volatile
+   597  007EA2                     u67:
+   598                           
+   599                           ;sample.c: 48: PORTAbits.RA3 = PORTBbits.RB3;
+   600  007EA2  A681               	btfss	3969,3,c	;volatile
+   601  007EA4  D002               	bra	u75
+   602  007EA6  8680               	bsf	3968,3,c	;volatile
+   603  007EA8  D001               	bra	u77
+   604  007EAA                     u75:
+   605  007EAA  9680               	bcf	3968,3,c	;volatile
+   606  007EAC                     u77:
+   607                           
+   608                           ;sample.c: 49: PORTAbits.RA4 = PORTBbits.RB4;
+   609  007EAC  A881               	btfss	3969,4,c	;volatile
+   610  007EAE  D002               	bra	u85
+   611  007EB0  8880               	bsf	3968,4,c	;volatile
+   612  007EB2  D001               	bra	u87
+   613  007EB4                     u85:
+   614  007EB4  9880               	bcf	3968,4,c	;volatile
+   615  007EB6                     u87:
+   616  007EB6  0012               	return		;funcret
+   617  007EB8                     __end_of_led_sens:
+   618                           	opt stack 0
+   619  0000                     tblptru	equ	0xFF8
+   620                           status	equ	0xFD8
+   621                           tblptru	equ	0xFF8
+   622                           status	equ	0xFD8
+   623                           
+   624                           	psect	rparam
+   625  0000                     tblptru	equ	0xFF8
+   626                           status	equ	0xFD8
 
 
 Data Sizes:
@@ -647,8 +667,6 @@ Pointer List with Targets:
 Critical Paths under _main in COMRAM
 
     _straight->_wait00
-    _right_down->_wait00
-    _left_down->_wait00
 
 Critical Paths under _main in BANK0
 
@@ -687,19 +705,11 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 0     0      0    2100
+ (0) _main                                                 0     0      0     700
                            _led_sens
-                          _left_down
-                         _right_down
                            _straight
  ---------------------------------------------------------------------------------
  (1) _straight                                             0     0      0     700
-                             _wait00
- ---------------------------------------------------------------------------------
- (1) _right_down                                           0     0      0     700
-                             _wait00
- ---------------------------------------------------------------------------------
- (1) _left_down                                            0     0      0     700
                              _wait00
  ---------------------------------------------------------------------------------
  (2) _wait00                                               7     5      2     700
@@ -714,10 +724,6 @@ Call Graph Tables:
 
  _main (ROOT)
    _led_sens
-   _left_down
-     _wait00
-   _right_down
-     _wait00
    _straight
      _wait00
 
@@ -753,34 +759,31 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Fri Feb 23 09:26:58 2018
+Symbol Table                                                                                   Fri Feb 23 21:22:05 2018
 
-                     l21 7F9C                       l22 7F7A                       l23 7F92  
-                     l43 7FD2                       l44 7FCE                       l47 7FEA  
-                     l49 7FFA                       u45 7F44                       u55 7F4E  
-                     u47 7F46                       u65 7F58                       u57 7F50  
-                     u75 7F62                       u67 7F5A                       u85 7F6C  
-                     u77 7F64                       u87 7F6E                      l749 7F82  
-                    u170 7F98                      u190 7FD6                     _main 7FB2  
+                     l21 7EE4                       l22 7EC2                       l23 7EDA  
+                     l43 7F1A                       l44 7F16                       l53 7F2A  
+                     l47 7F3C                       l80 7F36                       l48 7F24  
+                     l76 7F30                       u45 7E8C                       u55 7E96  
+                     u47 7E8E                       u65 7EA0                       u57 7E98  
+                     u75 7EAA                       u67 7EA2                       u85 7EB4  
+                     u77 7EAC                       u87 7EB6                      l776 7ECA  
+                    u110 7EE0                      u130 7F1E                     _main 7EFA  
                    start 2000             ___param_bank 000000                    ?_main 0001  
                   _PORTA 000F80                    _PORTB 000F81                    _PORTC 000F82  
                   _TRISA 000F92                    _TRISB 000F93                    _TRISC 000F94  
-                  status 000FD8          __initialization 7EB0             __end_of_main 8000  
-                 ??_main 0008            __activetblptr 000000                   _ADCON1 000FC1  
-       __end_of_led_sens 7F70                   _wait00 7F70         __end_of_straight 7ED8  
-             __accesstop 0060  __end_of__initialization 7EB0            ___rparam_used 000001  
-         __pcstackCOMRAM 0001       __size_of_left_down 0032                  ?_wait00 0001  
+                  status 000FD8          __initialization 7E58             __end_of_main 8000  
+                 ??_main 0008            __activetblptr 000002                   _ADCON1 000FC1  
+       __end_of_led_sens 7EB8                   _wait00 7EB8                   tblptru 000FF8  
+       __end_of_straight 7E84               __accesstop 0060  __end_of__initialization 7E58  
+          ___rparam_used 000001           __pcstackCOMRAM 0001                  ?_wait00 0001  
               ?_led_sens 0001                  __Hparam 0000                  __Lparam 0000  
-              ?_straight 0001                  __pcinit 7EB0                  __ramtop 0800  
-        __size_of_wait00 0042        __end_of_left_down 7F0A                  __ptext0 7FB2  
-                __ptext1 7EB6                  __ptext2 7F0A                  __ptext3 7ED8  
-                __ptext4 7F70                  __ptext5 7F3C     end_of_initialization 7EB0  
-             ??_led_sens 0001                  wait00@i 0006                  wait00@j 0004  
-                wait00@k 0001               _right_down 7F0A               ??_straight 0008  
-              _PORTAbits 000F80                _PORTBbits 000F81           __end_of_wait00 7FB2  
-    start_initialization 7EB0              ?_right_down 0001                 ??_wait00 0003  
-      __size_of_led_sens 0034        __size_of_straight 0022                _left_down 7ED8  
-    __size_of_right_down 0032               ?_left_down 0001                 __Hrparam 0000  
-               __Lrparam 0000                 _led_sens 7F3C            __size_of_main 004E  
-           ??_right_down 0008                 _straight 7EB6              ??_left_down 0008  
-     __end_of_right_down 7F3C  
+              ?_straight 0001                  __pcinit 7E58                  __ramtop 0800  
+        __size_of_wait00 0042                  __ptext0 7EFA                  __ptext1 7E62  
+                __ptext2 7EB8                  __ptext3 7E84     end_of_initialization 7E58  
+             ??_led_sens 0001            __Lmediumconst 0000                  wait00@i 0006  
+                wait00@j 0004                  wait00@k 0001               ??_straight 0008  
+              _PORTAbits 000F80                _PORTBbits 000F81           __end_of_wait00 7EFA  
+    start_initialization 7E58                 ??_wait00 0003        __size_of_led_sens 0034  
+      __size_of_straight 0022                 __Hrparam 0000                 __Lrparam 0000  
+               _led_sens 7E84            __size_of_main 0106                 _straight 7E62  
