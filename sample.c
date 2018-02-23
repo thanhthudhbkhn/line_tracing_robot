@@ -14,23 +14,40 @@ wait00(short k)
 	} 		 
 } 			 
 
-
 int left_down(void){
     PORTC=0x03; /* both motor on */
-    wait00(3); /* 0.03msec wait */
+    wait00(0.3); /* 0.03msec wait */
     PORTC=0x01; /* right motor on */
     wait00(5); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
     wait00(20); /* 0.2msec wait */
 }
 
+int small_left_down(void){
+    PORTC=0x03;  /* both motor on */
+    wait00(0.3); /* 0.003msec wait */
+    PORTC=0x01;  /* right motor on */
+    wait00(2);   /* 0.02msec wait */
+    PORTC=0x00;  /* both motor off */
+    wait00(20);  /* 0.20msec wait */
+}
+
 int right_down(void){
     PORTC=0x03; /* both motor on */
-    wait00(3); /* 0.03msec wait */
+    wait00(0.3); /* 0.03msec wait */
     PORTC=0x02; /* left motor on */
     wait00(5); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
     wait00(20); /* 0.2msec wait */
+}
+
+int small_right_down(void){
+   PORTC=0x03;  /* both motor on */
+   wait00(0.3); /* 0.003msec wait */
+   PORTC=0x02;  /* left motor on */
+   wait00(2);   /* 0.02sec wait */
+   PORTC=0x00;  /* both motor off */
+   wait00(20);  /* 0.20msec wait */
 }
 
 int straight(void){
@@ -73,60 +90,89 @@ main(void)
     //infinit loop
     while(1){/* infinite loop */
         led_sens();
-        switch (PORTB) {
-            case 0b00000: 
-                straight(); /* go to straight */
-                break;
-            case 0b00001: break;
-            case 0b00010: break;
-            case 0b00011: break;
-            case 0b00100: 
-                straight(); /* go to straight */
-                break;
-            case 0b00101: break;
-            case 0b00110: break;
-            case 0b00111: break;
-            case 0b01000: break;
-            case 0b01001: break;
-            case 0b01010: break;
-            case 0b01011: break;
-            case 0b01100: break;
-            case 0b01101: break;
-            case 0b01110: break;
-            case 0b01111: break;
-            case 0b10000: break;
-            case 0b10001: break;
-            case 0b10010: break;
-            case 0b10011: break;
-            case 0b10100: break;
-            case 0b10101: break;
-            case 0b10110: break;
-            case 0b10111: break;
-            case 0b11000: break;
-            case 0b11001: break;
-            case 0b11010: break;
-            case 0b11011: 
-                straight(); /* go to straight */
-                break;
-            case 0b11100: break;
-            case 0b11101: break;
-            case 0b11110: break;
-            case 0b11111: 
-                straight(); /* go to straight */
-                break;
-            default: break;
+//        switch (PORTB) {
+//            case 0b00000: 
+//                straight(); /* go to straight */
+//                break;
+//            case 0b00001: 
+//                left_down();/* turn left */
+//                break;
+//            case 0b00010: 
+//                small_left_down();/* turn a little left */
+//                break;
+//            case 0b00011: 
+//                small_left_down();/* turn a little left */
+//                break;
+//            case 0b00100: 
+//                straight(); /* go to straight */
+//                break;
+//            case 0b00101: break;
+//            case 0b00110: 
+//                small_left_down();/* turn a little left */
+//                break;
+//            case 0b00111: 
+//                small_right_down();/* turn a little right */
+//                break;
+//            case 0b01000: 
+//                small_right_down();/* turn a little right */
+//                break;
+//            case 0b01001: break;
+//            case 0b01010: break;
+//            case 0b01011: break;
+//            case 0b01100: 
+//                small_right_down();/* turn a little right */
+//                break;
+//            case 0b01101: break;
+//            case 0b01110: 
+//                straight();
+//                break;
+//            case 0b01111: 
+//                right_down();
+//                break;
+//            case 0b10000:  
+//                right_down();
+//                break;
+//            case 0b10001:  
+//                straight();
+//                break;
+//            case 0b10010: break;
+//            case 0b10011: break;
+//            case 0b10100: break;
+//            case 0b10101: break;
+//            case 0b10110: break;
+//            case 0b10111: break;
+//            case 0b11000: 
+//                small_right_down();/* turn a little right */
+//                break;
+//            case 0b11001: break;
+//            case 0b11010: break;
+//            case 0b11011: 
+//                straight(); /* go to straight */
+//                break;
+//            case 0b11100: 
+//                small_left_down();/* turn a little left */
+//                break;
+//            case 0b11101: break;
+//            case 0b11110: 
+//                left_down();/* turn left */
+//            case 0b11111: 
+//                straight(); /* go to straight */
+//                break;
+//            default: 
+//                straight();
+//                break;
+//        }
+        if(PORTBbits.RB0==1  && PORTBbits.RB2==1 && PORTBbits.RB4==0){ 
+            /*White White White White black*/
+            left_down();/* turn left */
         }
-//        if(PORTBbits.RB0==1  && PORTBbits.RB2==1 && PORTBbits.RB4==0){ 
-//            /*White White White White black*/
-//            left_down();/* turn left */
-//        }
-//        else if(PORTBbits.RB0==0 && PORTBbits.RB2==1 && PORTBbits.RB4==1){ 
-//            /*Black White White White White*/
-//            right_down(); /* turn right */
-//        }
-//        else{ /* The other case */
-//            straight(); /* go to straight */
-//        }
+        else if(PORTBbits.RB0==0 && PORTBbits.RB2==1 && PORTBbits.RB4==1){ 
+            /*Black White White White White*/
+            right_down(); /* turn right */
+        }
+        else{ /* The other case */
+            straight(); /* go to straight */
+        }
     }
             
 }
