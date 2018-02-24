@@ -25,8 +25,8 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "6 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
 [v _wait00 wait00 `(i  1 e 2 0 ]
-"17
-[v _left_down left_down `(i  1 e 2 0 ]
+"44
+[v _small_left_down small_left_down `(i  1 e 2 0 ]
 "60
 [v _led_sens led_sens `(i  1 e 2 0 ]
 "69
@@ -103,10 +103,10 @@
 {
 "179
 } 0
-"17
-[v _left_down left_down `(i  1 e 2 0 ]
+"44
+[v _small_left_down small_left_down `(i  1 e 2 0 ]
 {
-"24
+"51
 } 0
 "6
 [v _wait00 wait00 `(i  1 e 2 0 ]

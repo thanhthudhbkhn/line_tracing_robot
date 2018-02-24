@@ -1,4 +1,3 @@
-__size_of_left_down 0 0 ABS 0
 __S0 30000E 0 ABS 0
 __S1 8 0 ABS 0
 __S2 0 0 ABS 0
@@ -8,6 +7,7 @@ _main 7F2A 0 CODE 0
 __end_of_led_sens 7FBE 0 CODE 0
 ___sp 0 0 STACK 2
 start 2000 0 CODE 0
+_small_left_down 7F58 0 CODE 0
 _TRISA F92 0 ABS 0
 _TRISB F93 0 ABS 0
 _TRISC F94 0 ABS 0
@@ -64,6 +64,7 @@ __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
 __HnvFARRAM 0 0 FARRAM 0
 __LnvFARRAM 0 0 FARRAM 0
+__end_of_small_left_down 7F8A 0 CODE 0
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
 stackhi 7FF 0 ABS 0
@@ -85,7 +86,6 @@ end_of_initialization 7F24 0 CODE 0
 _PORTAbits F80 0 ABS 0
 _PORTBbits F81 0 ABS 0
 __size_of_wait00 0 0 ABS 0
-_left_down 7F58 0 CODE 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -172,8 +172,8 @@ intlevel0 0 0 CODE 0
 intlevel1 0 0 CODE 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
-__end_of_left_down 7F8A 0 CODE 0
 start_initialization 7F24 0 CODE 0
+__size_of_small_left_down 0 0 ABS 0
 __initialization 7F24 0 CODE 0
 __activetblptr 0 0 ABS 0
 %segments
@@ -189,7 +189,7 @@ cinit 7F24 7F29 CODE 7F24 0
 %locals
 dist/default/production\test.X.production.obj
 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
-C:\Users\ThuPT\AppData\Local\Temp\s7v4.
+C:\Users\ThuPT\AppData\Local\Temp\s7vs.
 388 7F24 0 CODE 0
 390 7F24 0 CODE 0
 393 7F24 0 CODE 0
@@ -213,14 +213,14 @@ sample.c
 165 7F52 0 CODE 0
 91 7F56 0 CODE 0
 sample.c
-17 7F58 0 CODE 0
-18 7F58 0 CODE 0
-19 7F5C 0 CODE 0
-20 7F68 0 CODE 0
-21 7F6C 0 CODE 0
-22 7F78 0 CODE 0
-23 7F7C 0 CODE 0
-24 7F88 0 CODE 0
+44 7F58 0 CODE 0
+45 7F58 0 CODE 0
+46 7F5C 0 CODE 0
+47 7F68 0 CODE 0
+48 7F6C 0 CODE 0
+49 7F78 0 CODE 0
+50 7F7C 0 CODE 0
+51 7F88 0 CODE 0
 sample.c
 6 7FBE 0 CODE 0
 11 7FBE 0 CODE 0

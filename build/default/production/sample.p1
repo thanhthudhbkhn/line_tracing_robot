@@ -3209,10 +3209,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 322 ]
 }
 "17
-[v _left_down `(i ~T0 @X0 1 ef ]
+[v _right_down `(i ~T0 @X0 1 ef ]
 {
-[; ;sample.c: 17: int left_down(void){
-[e :U _left_down ]
+[; ;sample.c: 17: int right_down(void){
+[e :U _right_down ]
 [f ]
 [; ;sample.c: 18: PORTC=0x03;
 "18
@@ -3237,10 +3237,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 330 ]
 }
 "26
-[v _small_left_down `(i ~T0 @X0 1 ef ]
+[v _small_right_down `(i ~T0 @X0 1 ef ]
 {
-[; ;sample.c: 26: int small_left_down(void){
-[e :U _small_left_down ]
+[; ;sample.c: 26: int small_right_down(void){
+[e :U _small_right_down ]
 [f ]
 [; ;sample.c: 27: PORTC=0x03;
 "27
@@ -3265,10 +3265,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 331 ]
 }
 "35
-[v _right_down `(i ~T0 @X0 1 ef ]
+[v _left_down `(i ~T0 @X0 1 ef ]
 {
-[; ;sample.c: 35: int right_down(void){
-[e :U _right_down ]
+[; ;sample.c: 35: int left_down(void){
+[e :U _left_down ]
 [f ]
 [; ;sample.c: 36: PORTC=0x03;
 "36
@@ -3293,10 +3293,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 332 ]
 }
 "44
-[v _small_right_down `(i ~T0 @X0 1 ef ]
+[v _small_left_down `(i ~T0 @X0 1 ef ]
 {
-[; ;sample.c: 44: int small_right_down(void){
-[e :U _small_right_down ]
+[; ;sample.c: 44: int small_left_down(void){
+[e :U _small_left_down ]
 [f ]
 [; ;sample.c: 45: PORTC=0x03;
 "45
@@ -3421,9 +3421,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 92: led_sens();
 "92
 [e ( _led_sens ..  ]
-[; ;sample.c: 165: left_down();
+[; ;sample.c: 165: small_left_down();
 "165
-[e ( _left_down ..  ]
+[e ( _small_left_down ..  ]
 "177
 }
 [e :U 340 ]

@@ -162,7 +162,7 @@ main(void)
 //                straight();
 //                break;
 //        }
-        left_down();/* turn left */
+        small_left_down();/* turn left */
 //        if(PORTBbits.RB0==1  && PORTBbits.RB2==1 && PORTBbits.RB4==0){ 
 //            /*White White White White black*/
 //            left_down();/* turn left */
