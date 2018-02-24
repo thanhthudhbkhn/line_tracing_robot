@@ -4267,7 +4267,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 6 "sample.c"
-wait00(short k)
+wait00(float k)
 {
 
 short i;
@@ -4282,9 +4282,9 @@ int right_down(void){
 PORTC=0x03;
 wait00(0.3);
 PORTC=0x01;
-wait00(5);
+wait00(10);
 PORTC=0x00;
-wait00(20);
+wait00(50);
 }
 
 int small_right_down(void){
@@ -4293,16 +4293,16 @@ wait00(0.3);
 PORTC=0x01;
 wait00(2);
 PORTC=0x00;
-wait00(20);
+wait00(50);
 }
 
 int left_down(void){
 PORTC=0x03;
 wait00(0.3);
 PORTC=0x02;
-wait00(5);
+wait00(10);
 PORTC=0x00;
-wait00(20);
+wait00(50);
 }
 
 int small_left_down(void){
@@ -4311,14 +4311,14 @@ wait00(0.3);
 PORTC=0x02;
 wait00(2);
 PORTC=0x00;
-wait00(20);
+wait00(50);
 }
 
 int straight(void){
 PORTC=0x03;
 wait00(8);
 PORTC=0x00;
-wait00(20);
+wait00(50);
 }
 
 int led_sens(void)
@@ -4354,11 +4354,82 @@ led_sens();
 
 while(1){
 led_sens();
-
-# 165
+switch (PORTB) {
+case 0b00000:
+straight();
+break;
+case 0b00001:
+right_down();
+break;
+case 0b00010:
+small_right_down();
+break;
+case 0b00011:
+small_right_down();
+break;
+case 0b00100:
+straight();
+break;
+case 0b00101: break;
+case 0b00110:
+small_right_down();
+break;
+case 0b00111:
 small_left_down();
+break;
+case 0b01000:
+small_left_down();
+break;
+case 0b01001: break;
+case 0b01010: break;
+case 0b01011: break;
+case 0b01100: break;
+case 0b01101: break;
+case 0b01110:
+straight();
+break;
+case 0b01111:
+left_down();
+break;
+case 0b10000:
+left_down();
+break;
+case 0b10001:
+straight();
+break;
+case 0b10010: break;
+case 0b10011: break;
+case 0b10100: break;
+case 0b10101: break;
+case 0b10110: break;
+case 0b10111:
+left_down();
+break;
+case 0b11000:
+small_left_down();
+break;
+case 0b11001: break;
+case 0b11010: break;
+case 0b11011:
+straight();
+break;
+case 0b11100:
+small_right_down();
+break;
+case 0b11101:
+small_right_down();
+break;
+case 0b11110:
+right_down();
+case 0b11111:
+straight();
+break;
+default:
+straight();
+break;
+}
 
-# 177
+# 179
 }
 
 }
