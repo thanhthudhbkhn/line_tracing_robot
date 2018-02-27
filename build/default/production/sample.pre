@@ -4317,7 +4317,7 @@ int right_down(void){
 PORTC=0x03;
 wait00(0.1);
 PORTC=0x01;
-wait00(10);
+wait00(20);
 PORTC=0x00;
 wait00(500);
 }
@@ -4326,7 +4326,7 @@ int small_right_down(void){
 PORTC=0x03;
 wait00(0.1);
 PORTC=0x01;
-wait00(5);
+wait00(8);
 PORTC=0x00;
 wait00(500);
 }
@@ -4335,7 +4335,7 @@ int left_down(void){
 PORTC=0x03;
 wait00(0.1);
 PORTC=0x02;
-wait00(10);
+wait00(20);
 PORTC=0x00;
 wait00(500);
 }
@@ -4344,7 +4344,7 @@ int small_left_down(void){
 PORTC=0x03;
 wait00(0.1);
 PORTC=0x02;
-wait00(5);
+wait00(8);
 PORTC=0x00;
 wait00(500);
 }

@@ -19,7 +19,7 @@ int right_down(void){
     PORTC=0x03; /* both motor on */
     wait00(0.1); /* 0.03msec wait */
     PORTC=0x01; /* left motor on */
-    wait00(10); /* 0.05msec wait */
+    wait00(20); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
     wait00(500); /* 0.2msec wait */
 }
@@ -28,7 +28,7 @@ int small_right_down(void){
     PORTC=0x03;  /* both motor on */
     wait00(0.1); /* 0.003msec wait */
     PORTC=0x01;  /* left motor on */
-    wait00(5);   /* 0.02msec wait */
+    wait00(8);   /* 0.02msec wait */
     PORTC=0x00;  /* both motor off */
     wait00(500);  /* 0.20msec wait */
 }
@@ -37,7 +37,7 @@ int left_down(void){
     PORTC=0x03; /* both motor on */
     wait00(0.1); /* 0.03msec wait */
     PORTC=0x02; /* right motor on */
-    wait00(10); /* 0.05msec wait */
+    wait00(20); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
     wait00(500); /* 0.2msec wait */
 }
@@ -46,7 +46,7 @@ int small_left_down(void){
    PORTC=0x03;  /* both motor on */
    wait00(0.1); /* 0.003msec wait */
    PORTC=0x02;  /* right motor on */
-   wait00(5);   /* 0.02sec wait */
+   wait00(8);   /* 0.02sec wait */
    PORTC=0x00;  /* both motor off */
    wait00(500);  /* 0.20msec wait */
 }
