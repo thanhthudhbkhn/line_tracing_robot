@@ -58,6 +58,13 @@ int straight(void){
     wait00(500); /* 0.2msec wait */
 }
 
+int do_sth(void){
+    PORTC=0x03; /* both motor on */
+    wait00(2); /* 0.08msec wait */
+    PORTC=0x00; /* both motor off */
+    wait00(500); /* 0.2msec wait */
+}
+
 int led_sens(void)
 {
 PORTAbits.RA0 = PORTBbits.RB0;           
@@ -92,85 +99,70 @@ main(void)
     while(1){/* infinite loop */
         led_sens();
         
-        switch (PORTB) {
-            case 0b00000: 
-                straight(); /* go to straight */
+        switch (PORTBbits.RB0) {
+            case 0:
+                switch (PORTBbits.RB1) {
+                    case 0:
+                        if (PORTBbits.RB2==0) {
+                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) straight(); /*black black black black black */
+                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) right_down(); /*black black black black white */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) small_right_down(); /*black black black white black */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) right_down(); /*black black black white white */
+                        } else if (PORTBbits.RB2==1) {
+                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) straight(); /*black black white black black */
+                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*black black white black white */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) straight(); /*black black white white black */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) left_down(); /*black black white white white */
+                        }
+                        break;
+                    case 1:
+                        if (PORTBbits.RB2==0) {
+                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) small_left_down(); /*black white black black black */
+                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*black white black black white */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*black white black white black */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) do_sth(); /*black white black white white */
+                        } else if (PORTBbits.RB2==1) {
+                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) straight(); /*black white white black black */
+                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*black white white black white */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) straight(); /*black white white white black */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) left_down(); /*black white white white white */
+                        }
+                        break;
+                    default: break;
+                }
                 break;
-             case 0b00001: 
-                left_down();/* turn left */
+            case 1:
+                switch (PORTBbits.RB1) {
+                    case 0:
+                        if (PORTBbits.RB2==0) {
+                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) left_down(); /*white black black black black */
+                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) straight(); /*white black black black white */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*white black black white black */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) straight(); /*white black black white white */
+                        } else if (PORTBbits.RB2==1) {
+                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) do_sth(); /*white black white black black */
+                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*white black white black white */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*white black white white black */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) small_left_down(); /*white black white white white */
+                        }
+                        break;
+                    case 1:
+                        if (PORTBbits.RB2==0) {
+                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) left_down(); /*white white black black black */
+                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) straight(); /*white white black black white */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*white white black white black */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) straight(); /*white white black white white */
+                        } else if (PORTBbits.RB2==1) {
+                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) right_down(); /*white white white black black */
+                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) small_right_down(); /*white white white black white */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) right_down; /*white white white white black */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) straight(); /*white white white white white */
+                        }
+                        break;
+                    default: break;
+                }
                 break;
-            case 0b00010: 
-                small_left_down();/* turn a little left */
-                break;
-            case 0b00011: 
-                left_down();/* turn a little left */
-                break;
-            case 0b00100: 
-                straight(); /* go to straight */
-                break;
-            case 0b00101: break;
-            case 0b00110: 
-                straight();
-                break;
-            case 0b00111: 
-                right_down();/* turn a little right */
-                break;
-            case 0b01000: 
-                small_right_down();/* turn a little right */
-                break;
-            case 0b01001: break;
-            case 0b01010: break;
-            case 0b01011: break;
-            case 0b01100: 
-                straight();
-                break;
-            case 0b01101: break;
-            case 0b01110: 
-                straight();
-                break;
-            case 0b01111: 
-                right_down();
-                break;
-            case 0b10000:  
-                right_down();
-                break;
-            case 0b10001:  
-                straight();
-                break;
-            case 0b10010: break;
-            case 0b10011: 
-                straight();
-                break;
-            case 0b10100: break;
-            case 0b10101: break;
-            case 0b10110: break;
-            case 0b10111: 
-                small_right_down();
-                break;
-            case 0b11000: 
-                right_down();/* turn a little right */
-                break;
-            case 0b11001: 
-                straight();
-                break;
-            case 0b11010: break;
-            case 0b11011: 
-                straight(); /* go to straight */
-                break;
-            case 0b11100: 
-                left_down();/* turn a little left */
-                break;
-            case 0b11101: 
-                small_left_down();/* turn a little left */
-                break;
-            case 0b11110: 
-                left_down();/* turn left */
-            case 0b11111: 
-                straight(); /* go to straight */
-                break;
-            default: 
-                straight();
-                break;
+            default: break;
         }
 
 //        if(PORTBbits.RB0==0 && PORTBbits.RB1==0  && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0 ){ 

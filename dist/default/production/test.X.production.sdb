@@ -40,8 +40,10 @@
 "54
 [v _straight straight `(i  1 e 2 0 ]
 "61
+[v _do_sth do_sth `(i  1 e 2 0 ]
+"68
 [v _led_sens led_sens `(i  1 e 2 0 ]
-"70
+"77
 [v _main main `(i  1 e 2 0 ]
 "2115 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -110,10 +112,10 @@
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "5398
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"70 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+"77 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
 [v _main main `(i  1 e 2 0 ]
 {
-"188
+"180
 } 0
 "54
 [v _straight straight `(i  1 e 2 0 ]
@@ -139,6 +141,16 @@
 [v _left_down left_down `(i  1 e 2 0 ]
 {
 "43
+} 0
+"68
+[v _led_sens led_sens `(i  1 e 2 0 ]
+{
+"75
+} 0
+"61
+[v _do_sth do_sth `(i  1 e 2 0 ]
+{
+"66
 } 0
 "7
 [v _wait00 wait00 `(i  1 e 2 0 ]
@@ -172,9 +184,4 @@
 [v ___flge@ff1 ff1 `d  1 p 4 14 ]
 [v ___flge@ff2 ff2 `d  1 p 4 18 ]
 "19
-} 0
-"61 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-[v _led_sens led_sens `(i  1 e 2 0 ]
-{
-"68
 } 0
