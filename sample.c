@@ -2,6 +2,7 @@
 
 #include <xc.h>
 #include <p18f2553.h>
+#include <string.h>
 
 wait00(float k)
 { 	 
@@ -90,9 +91,21 @@ main(void)
     //infinit loop
     while(1){/* infinite loop */
         led_sens();
+        char led_result[5];
+        led_result[0]='0'+PORTBbits.RB0;
+        led_result[1]='0'+PORTBbits.RB1;
+        led_result[2]='0'+PORTBbits.RB2;
+        led_result[3]='0'+PORTBbits.RB3;
+        led_result[4]='0'+PORTBbits.RB4;
+//        if (led_result[4]=='0') right_down();
+//        if (led_result[4]=='1') left_down();
+//        if (strcmp(led_result,"11111")==0) left_down();
+//        else if (strcmp(led_result,"00000")==0) right_down();
+//            else straight();
+        
 //        while (PORTBbits.RB0==0 && PORTBbits.RB1==0  && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0 ) straight();
-        while (PORTB==0x1f ) straight();
-
+//        while (PORTB==0x1f ) straight();
+//
         switch (PORTB) {
             case 0b00000: 
                 straight(); /* go to straight */
@@ -125,7 +138,7 @@ main(void)
             case 0b01100: break;
             case 0b01101: break;
             case 0b01110: 
-                straight();
+            straight();
                 break;
             case 0b01111: 
                 left_down();
@@ -164,20 +177,18 @@ main(void)
                 straight(); /* go to straight */
                 break;
             default: 
-                do_nothing();
                 break;
         }
-//        small_left_down();/* turn left */
-//        if(PORTBbits.RB0==1  && PORTBbits.RB2==1 && PORTBbits.RB4==0){ 
-//            /*White White White White black*/
-//            left_down();/* turn left */
+
+//        if(PORTBbits.RB0==0 && PORTBbits.RB1==0  && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0 ){ 
+//            straight();
 //        }
 //        else if(PORTBbits.RB0==0 && PORTBbits.RB2==1 && PORTBbits.RB4==1){ 
 //            /*Black White White White White*/
 //            right_down(); /* turn right */
 //        }
 //        else{ /* The other case */
-//            straight(); /* go to straight */
+////            straight(); /* go to straight */
 //        }
     }
             

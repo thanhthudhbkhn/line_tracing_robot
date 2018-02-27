@@ -27,23 +27,21 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"6 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+"7 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
 [v _wait00 wait00 `(i  1 e 2 0 ]
-"17
+"18
 [v _right_down right_down `(i  1 e 2 0 ]
-"26
+"27
 [v _small_right_down small_right_down `(i  1 e 2 0 ]
-"35
+"36
 [v _left_down left_down `(i  1 e 2 0 ]
-"44
+"45
 [v _small_left_down small_left_down `(i  1 e 2 0 ]
-"53
+"54
 [v _straight straight `(i  1 e 2 0 ]
-"60
-[v _do_nothing do_nothing `(i  1 e 2 0 ]
-"64
+"61
 [v _led_sens led_sens `(i  1 e 2 0 ]
-"73
+"70
 [v _main main `(i  1 e 2 0 ]
 "2115 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -112,56 +110,48 @@
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "5398
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"73 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+"70 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
 [v _main main `(i  1 e 2 0 ]
 {
-"188
+"94
+[v main@led_result led_result `[5]uc  1 a 5 34 ]
+"195
 } 0
-"53
+"54
 [v _straight straight `(i  1 e 2 0 ]
 {
-"58
+"59
 } 0
-"26
+"27
 [v _small_right_down small_right_down `(i  1 e 2 0 ]
 {
-"33
+"34
 } 0
-"44
+"45
 [v _small_left_down small_left_down `(i  1 e 2 0 ]
 {
-"51
+"52
 } 0
-"17
+"18
 [v _right_down right_down `(i  1 e 2 0 ]
 {
-"24
+"25
 } 0
-"35
+"36
 [v _left_down left_down `(i  1 e 2 0 ]
 {
-"42
+"43
 } 0
-"64
-[v _led_sens led_sens `(i  1 e 2 0 ]
-{
-"71
-} 0
-"60
-[v _do_nothing do_nothing `(i  1 e 2 0 ]
-{
-"62
-} 0
-"6
+"7
 [v _wait00 wait00 `(i  1 e 2 0 ]
 {
-"9
-[v wait00@i i `s  1 a 2 32 ]
 "10
+[v wait00@i i `s  1 a 2 32 ]
+"11
 [v wait00@j j `s  1 a 2 30 ]
-"6
+"7
 [v wait00@k k `f  1 p 4 26 ]
-"15
+"16
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -184,4 +174,9 @@
 [v ___flge@ff1 ff1 `d  1 p 4 14 ]
 [v ___flge@ff2 ff2 `d  1 p 4 18 ]
 "19
+} 0
+"61 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+[v _led_sens led_sens `(i  1 e 2 0 ]
+{
+"68
 } 0

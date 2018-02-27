@@ -4266,7 +4266,42 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 6 "sample.c"
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
+typedef unsigned size_t;
+
+# 14 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 36
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 7 "sample.c"
 wait00(float k)
 {
 
@@ -4321,10 +4356,6 @@ PORTC=0x00;
 wait00(20);
 }
 
-int do_nothing(void){
-wait00(50);
-}
-
 int led_sens(void)
 {
 PORTAbits.RA0 = PORTBbits.RB0;
@@ -4358,9 +4389,14 @@ led_sens();
 
 while(1){
 led_sens();
+char led_result[5];
+led_result[0]='0'+PORTBbits.RB0;
+led_result[1]='0'+PORTBbits.RB1;
+led_result[2]='0'+PORTBbits.RB2;
+led_result[3]='0'+PORTBbits.RB3;
+led_result[4]='0'+PORTBbits.RB4;
 
-while (PORTB==0x1f ) straight();
-
+# 109
 switch (PORTB) {
 case 0b00000:
 straight();
@@ -4432,11 +4468,10 @@ case 0b11111:
 straight();
 break;
 default:
-do_nothing();
 break;
 }
 
-# 186
+# 193
 }
 
 }
