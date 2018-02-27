@@ -17,45 +17,45 @@ wait00(float k)
 
 int right_down(void){
     PORTC=0x03; /* both motor on */
-    wait00(0.3); /* 0.03msec wait */
+    wait00(0.1); /* 0.03msec wait */
     PORTC=0x01; /* left motor on */
-    wait00(5); /* 0.05msec wait */
+    wait00(10); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.2msec wait */
+    wait00(500); /* 0.2msec wait */
 }
 
 int small_right_down(void){
     PORTC=0x03;  /* both motor on */
-    wait00(0.3); /* 0.003msec wait */
+    wait00(0.1); /* 0.003msec wait */
     PORTC=0x01;  /* left motor on */
-    wait00(2);   /* 0.02msec wait */
+    wait00(5);   /* 0.02msec wait */
     PORTC=0x00;  /* both motor off */
-    wait00(20);  /* 0.20msec wait */
+    wait00(500);  /* 0.20msec wait */
 }
 
 int left_down(void){
     PORTC=0x03; /* both motor on */
-    wait00(0.3); /* 0.03msec wait */
+    wait00(0.1); /* 0.03msec wait */
     PORTC=0x02; /* right motor on */
-    wait00(5); /* 0.05msec wait */
+    wait00(10); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.2msec wait */
+    wait00(500); /* 0.2msec wait */
 }
 
 int small_left_down(void){
    PORTC=0x03;  /* both motor on */
-   wait00(0.3); /* 0.003msec wait */
+   wait00(0.1); /* 0.003msec wait */
    PORTC=0x02;  /* right motor on */
-   wait00(2);   /* 0.02sec wait */
+   wait00(5);   /* 0.02sec wait */
    PORTC=0x00;  /* both motor off */
-   wait00(20);  /* 0.20msec wait */
+   wait00(500);  /* 0.20msec wait */
 }
 
 int straight(void){
     PORTC=0x03; /* both motor on */
-    wait00(8); /* 0.08msec wait */
+    wait00(2); /* 0.08msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.2msec wait */
+    wait00(500); /* 0.2msec wait */
 }
 
 int led_sens(void)
@@ -91,92 +91,85 @@ main(void)
     //infinit loop
     while(1){/* infinite loop */
         led_sens();
-        char led_result[5];
-        led_result[0]='0'+PORTBbits.RB0;
-        led_result[1]='0'+PORTBbits.RB1;
-        led_result[2]='0'+PORTBbits.RB2;
-        led_result[3]='0'+PORTBbits.RB3;
-        led_result[4]='0'+PORTBbits.RB4;
-//        if (led_result[4]=='0') right_down();
-//        if (led_result[4]=='1') left_down();
-//        if (strcmp(led_result,"11111")==0) left_down();
-//        else if (strcmp(led_result,"00000")==0) right_down();
-//            else straight();
         
-//        while (PORTBbits.RB0==0 && PORTBbits.RB1==0  && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0 ) straight();
-//        while (PORTB==0x1f ) straight();
-//
         switch (PORTB) {
             case 0b00000: 
                 straight(); /* go to straight */
                 break;
-            case 0b00001: 
-                right_down();/* turn right */
+             case 0b00001: 
+                left_down();/* turn left */
                 break;
             case 0b00010: 
-                small_right_down();/* turn a little right */
+                small_left_down();/* turn a little left */
                 break;
             case 0b00011: 
-                small_right_down();/* turn a little right */
+                left_down();/* turn a little left */
                 break;
             case 0b00100: 
                 straight(); /* go to straight */
                 break;
             case 0b00101: break;
             case 0b00110: 
-                small_right_down();/* turn a little right */
+                straight();
                 break;
             case 0b00111: 
-                small_left_down();/* turn a little left */
+                right_down();/* turn a little right */
                 break;
             case 0b01000: 
-                small_left_down();/* turn a little left */
+                small_right_down();/* turn a little right */
                 break;
             case 0b01001: break;
             case 0b01010: break;
             case 0b01011: break;
-            case 0b01100: break;
+            case 0b01100: 
+                straight();
+                break;
             case 0b01101: break;
             case 0b01110: 
-            straight();
+                straight();
                 break;
             case 0b01111: 
-                left_down();
+                right_down();
                 break;
             case 0b10000:  
-                left_down();
+                right_down();
                 break;
             case 0b10001:  
                 straight();
                 break;
             case 0b10010: break;
-            case 0b10011: break;
+            case 0b10011: 
+                straight();
+                break;
             case 0b10100: break;
             case 0b10101: break;
             case 0b10110: break;
             case 0b10111: 
-                left_down();
+                small_right_down();
                 break;
             case 0b11000: 
-                small_left_down();/* turn a little left */
+                right_down();/* turn a little right */
                 break;
-            case 0b11001: break;
+            case 0b11001: 
+                straight();
+                break;
             case 0b11010: break;
             case 0b11011: 
                 straight(); /* go to straight */
                 break;
             case 0b11100: 
-                small_right_down();/* turn a little right */
+                left_down();/* turn a little left */
                 break;
             case 0b11101: 
-                small_right_down();/* turn a little right */
+                small_left_down();/* turn a little left */
                 break;
             case 0b11110: 
-                right_down();/* turn right */
+                left_down();/* turn left */
             case 0b11111: 
                 straight(); /* go to straight */
                 break;
             default: 
+                straight();
                 break;
         }
 
