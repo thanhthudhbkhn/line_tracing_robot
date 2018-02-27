@@ -3223,15 +3223,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 20: PORTC=0x01;
 "20
 [e = _PORTC -> -> 1 `i `uc ]
-[; ;sample.c: 21: wait00(10);
+[; ;sample.c: 21: wait00(5);
 "21
-[e ( _wait00 (1 -> -> 10 `i `f ]
+[e ( _wait00 (1 -> -> 5 `i `f ]
 [; ;sample.c: 22: PORTC=0x00;
 "22
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 23: wait00(50);
+[; ;sample.c: 23: wait00(20);
 "23
-[e ( _wait00 (1 -> -> 50 `i `f ]
+[e ( _wait00 (1 -> -> 20 `i `f ]
 [; ;sample.c: 24: }
 "24
 [e :UE 330 ]
@@ -3257,9 +3257,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 31: PORTC=0x00;
 "31
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 32: wait00(50);
+[; ;sample.c: 32: wait00(20);
 "32
-[e ( _wait00 (1 -> -> 50 `i `f ]
+[e ( _wait00 (1 -> -> 20 `i `f ]
 [; ;sample.c: 33: }
 "33
 [e :UE 331 ]
@@ -3279,15 +3279,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 38: PORTC=0x02;
 "38
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;sample.c: 39: wait00(10);
+[; ;sample.c: 39: wait00(5);
 "39
-[e ( _wait00 (1 -> -> 10 `i `f ]
+[e ( _wait00 (1 -> -> 5 `i `f ]
 [; ;sample.c: 40: PORTC=0x00;
 "40
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 41: wait00(50);
+[; ;sample.c: 41: wait00(20);
 "41
-[e ( _wait00 (1 -> -> 50 `i `f ]
+[e ( _wait00 (1 -> -> 20 `i `f ]
 [; ;sample.c: 42: }
 "42
 [e :UE 332 ]
@@ -3313,9 +3313,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 49: PORTC=0x00;
 "49
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 50: wait00(50);
+[; ;sample.c: 50: wait00(20);
 "50
-[e ( _wait00 (1 -> -> 50 `i `f ]
+[e ( _wait00 (1 -> -> 20 `i `f ]
 [; ;sample.c: 51: }
 "51
 [e :UE 333 ]
@@ -3335,374 +3335,395 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 56: PORTC=0x00;
 "56
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 57: wait00(50);
+[; ;sample.c: 57: wait00(20);
 "57
-[e ( _wait00 (1 -> -> 50 `i `f ]
+[e ( _wait00 (1 -> -> 20 `i `f ]
 [; ;sample.c: 58: }
 "58
 [e :UE 334 ]
 }
 "60
-[v _led_sens `(i ~T0 @X0 1 ef ]
-"61
+[v _do_nothing `(i ~T0 @X0 1 ef ]
 {
-[; ;sample.c: 60: int led_sens(void)
-[; ;sample.c: 61: {
-[e :U _led_sens ]
+[; ;sample.c: 60: int do_nothing(void){
+[e :U _do_nothing ]
 [f ]
-[; ;sample.c: 62: PORTAbits.RA0 = PORTBbits.RB0;
+[; ;sample.c: 61: wait00(50);
+"61
+[e ( _wait00 (1 -> -> 50 `i `f ]
+[; ;sample.c: 62: }
 "62
-[e = . . _PORTAbits 0 0 . . _PORTBbits 0 0 ]
-[; ;sample.c: 63: PORTAbits.RA1 = PORTBbits.RB1;
-"63
-[e = . . _PORTAbits 0 1 . . _PORTBbits 0 1 ]
-[; ;sample.c: 64: PORTAbits.RA2 = PORTBbits.RB2;
-"64
-[e = . . _PORTAbits 0 2 . . _PORTBbits 0 2 ]
-[; ;sample.c: 65: PORTAbits.RA3 = PORTBbits.RB3;
-"65
-[e = . . _PORTAbits 0 3 . . _PORTBbits 0 3 ]
-[; ;sample.c: 66: PORTAbits.RA4 = PORTBbits.RB4;
-"66
-[e = . . _PORTAbits 0 4 . . _PORTBbits 0 4 ]
-[; ;sample.c: 67: }
-"67
 [e :UE 335 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"69
-[v _main `(i ~T0 @X0 1 ef ]
-"70
+"64
+[v _led_sens `(i ~T0 @X0 1 ef ]
+"65
 {
-[; ;sample.c: 69: main(void)
-[; ;sample.c: 70: {
+[; ;sample.c: 64: int led_sens(void)
+[; ;sample.c: 65: {
+[e :U _led_sens ]
+[f ]
+[; ;sample.c: 66: PORTAbits.RA0 = PORTBbits.RB0;
+"66
+[e = . . _PORTAbits 0 0 . . _PORTBbits 0 0 ]
+[; ;sample.c: 67: PORTAbits.RA1 = PORTBbits.RB1;
+"67
+[e = . . _PORTAbits 0 1 . . _PORTBbits 0 1 ]
+[; ;sample.c: 68: PORTAbits.RA2 = PORTBbits.RB2;
+"68
+[e = . . _PORTAbits 0 2 . . _PORTBbits 0 2 ]
+[; ;sample.c: 69: PORTAbits.RA3 = PORTBbits.RB3;
+"69
+[e = . . _PORTAbits 0 3 . . _PORTBbits 0 3 ]
+[; ;sample.c: 70: PORTAbits.RA4 = PORTBbits.RB4;
+"70
+[e = . . _PORTAbits 0 4 . . _PORTBbits 0 4 ]
+[; ;sample.c: 71: }
+"71
+[e :UE 336 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"73
+[v _main `(i ~T0 @X0 1 ef ]
+"74
+{
+[; ;sample.c: 73: main(void)
+[; ;sample.c: 74: {
 [e :U _main ]
 [f ]
-[; ;sample.c: 72: ADCON1 = 0x0F;
-"72
-[e = _ADCON1 -> -> 15 `i `uc ]
-[; ;sample.c: 75: TRISA = 0x20;
-"75
-[e = _TRISA -> -> 32 `i `uc ]
-[; ;sample.c: 76: TRISB = 0xFF;
+[; ;sample.c: 76: ADCON1 = 0x0F;
 "76
-[e = _TRISB -> -> 255 `i `uc ]
-[; ;sample.c: 77: TRISC = 0x00;
-"77
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;sample.c: 80: PORTA = 0x00;
+[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;sample.c: 79: TRISA = 0x20;
+"79
+[e = _TRISA -> -> 32 `i `uc ]
+[; ;sample.c: 80: TRISB = 0xFF;
 "80
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;sample.c: 81: PORTB = 0x00;
+[e = _TRISB -> -> 255 `i `uc ]
+[; ;sample.c: 81: TRISC = 0x00;
 "81
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;sample.c: 84: PORTA = 0x00;
+"84
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;sample.c: 85: PORTB = 0x00;
+"85
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;sample.c: 82: PORTC = 0x00;
-"82
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 85: while(PORTAbits.RA5==1){
-"85
-[e $U 337  ]
-[e :U 338 ]
-{
-[; ;sample.c: 86: led_sens();
+[; ;sample.c: 86: PORTC = 0x00;
 "86
-[e ( _led_sens ..  ]
-"87
-}
-[e :U 337 ]
-"85
-[e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 338  ]
+[e = _PORTC -> -> 0 `i `uc ]
+[; ;sample.c: 89: while(PORTAbits.RA5==1){
+"89
+[e $U 338  ]
 [e :U 339 ]
-[; ;sample.c: 87: }
-[; ;sample.c: 91: while(1){
-"91
-[e :U 341 ]
 {
-[; ;sample.c: 92: led_sens();
-"92
+[; ;sample.c: 90: led_sens();
+"90
 [e ( _led_sens ..  ]
-[; ;sample.c: 93: switch (PORTB) {
-"93
-[e $U 344  ]
-{
-[; ;sample.c: 94: case 0b00000:
-"94
-[e :U 345 ]
-[; ;sample.c: 95: straight();
+"91
+}
+[e :U 338 ]
+"89
+[e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 339  ]
+[e :U 340 ]
+[; ;sample.c: 91: }
+[; ;sample.c: 95: while(1){
 "95
-[e ( _straight ..  ]
-[; ;sample.c: 96: break;
+[e :U 342 ]
+{
+[; ;sample.c: 96: led_sens();
 "96
-[e $U 343  ]
-[; ;sample.c: 97: case 0b00001:
-"97
-[e :U 346 ]
-[; ;sample.c: 98: right_down();
+[e ( _led_sens ..  ]
+[; ;sample.c: 98: while (PORTB==0x1f ) straight();
 "98
-[e ( _right_down ..  ]
-[; ;sample.c: 99: break;
-"99
-[e $U 343  ]
-[; ;sample.c: 100: case 0b00010:
-"100
-[e :U 347 ]
-[; ;sample.c: 101: small_right_down();
-"101
-[e ( _small_right_down ..  ]
-[; ;sample.c: 102: break;
-"102
-[e $U 343  ]
-[; ;sample.c: 103: case 0b00011:
-"103
-[e :U 348 ]
-[; ;sample.c: 104: small_right_down();
-"104
-[e ( _small_right_down ..  ]
-[; ;sample.c: 105: break;
-"105
-[e $U 343  ]
-[; ;sample.c: 106: case 0b00100:
-"106
-[e :U 349 ]
-[; ;sample.c: 107: straight();
-"107
+[e $U 344  ]
+[e :U 345 ]
 [e ( _straight ..  ]
-[; ;sample.c: 108: break;
-"108
-[e $U 343  ]
-[; ;sample.c: 109: case 0b00101: break;
-"109
+[e :U 344 ]
+[e $ == -> _PORTB `i -> 31 `i 345  ]
+[e :U 346 ]
+[; ;sample.c: 100: switch (PORTB) {
+"100
+[e $U 348  ]
+{
+[; ;sample.c: 101: case 0b00000:
+"101
+[e :U 349 ]
+[; ;sample.c: 102: straight();
+"102
+[e ( _straight ..  ]
+[; ;sample.c: 103: break;
+"103
+[e $U 347  ]
+[; ;sample.c: 104: case 0b00001:
+"104
 [e :U 350 ]
-[e $U 343  ]
-[; ;sample.c: 110: case 0b00110:
-"110
+[; ;sample.c: 105: right_down();
+"105
+[e ( _right_down ..  ]
+[; ;sample.c: 106: break;
+"106
+[e $U 347  ]
+[; ;sample.c: 107: case 0b00010:
+"107
 [e :U 351 ]
+[; ;sample.c: 108: small_right_down();
+"108
+[e ( _small_right_down ..  ]
+[; ;sample.c: 109: break;
+"109
+[e $U 347  ]
+[; ;sample.c: 110: case 0b00011:
+"110
+[e :U 352 ]
 [; ;sample.c: 111: small_right_down();
 "111
 [e ( _small_right_down ..  ]
 [; ;sample.c: 112: break;
 "112
-[e $U 343  ]
-[; ;sample.c: 113: case 0b00111:
+[e $U 347  ]
+[; ;sample.c: 113: case 0b00100:
 "113
-[e :U 352 ]
-[; ;sample.c: 114: small_left_down();
+[e :U 353 ]
+[; ;sample.c: 114: straight();
 "114
-[e ( _small_left_down ..  ]
+[e ( _straight ..  ]
 [; ;sample.c: 115: break;
 "115
-[e $U 343  ]
-[; ;sample.c: 116: case 0b01000:
+[e $U 347  ]
+[; ;sample.c: 116: case 0b00101: break;
 "116
-[e :U 353 ]
-[; ;sample.c: 117: small_left_down();
-"117
-[e ( _small_left_down ..  ]
-[; ;sample.c: 118: break;
-"118
-[e $U 343  ]
-[; ;sample.c: 119: case 0b01001: break;
-"119
 [e :U 354 ]
-[e $U 343  ]
-[; ;sample.c: 120: case 0b01010: break;
-"120
+[e $U 347  ]
+[; ;sample.c: 117: case 0b00110:
+"117
 [e :U 355 ]
-[e $U 343  ]
-[; ;sample.c: 121: case 0b01011: break;
-"121
+[; ;sample.c: 118: small_right_down();
+"118
+[e ( _small_right_down ..  ]
+[; ;sample.c: 119: break;
+"119
+[e $U 347  ]
+[; ;sample.c: 120: case 0b00111:
+"120
 [e :U 356 ]
-[e $U 343  ]
-[; ;sample.c: 122: case 0b01100: break;
-"122
-[e :U 357 ]
-[e $U 343  ]
-[; ;sample.c: 123: case 0b01101: break;
-"123
-[e :U 358 ]
-[e $U 343  ]
-[; ;sample.c: 124: case 0b01110:
-"124
-[e :U 359 ]
-[; ;sample.c: 125: straight();
-"125
-[e ( _straight ..  ]
-[; ;sample.c: 126: break;
-"126
-[e $U 343  ]
-[; ;sample.c: 127: case 0b01111:
-"127
-[e :U 360 ]
-[; ;sample.c: 128: left_down();
-"128
-[e ( _left_down ..  ]
-[; ;sample.c: 129: break;
-"129
-[e $U 343  ]
-[; ;sample.c: 130: case 0b10000:
-"130
-[e :U 361 ]
-[; ;sample.c: 131: left_down();
-"131
-[e ( _left_down ..  ]
-[; ;sample.c: 132: break;
-"132
-[e $U 343  ]
-[; ;sample.c: 133: case 0b10001:
-"133
-[e :U 362 ]
-[; ;sample.c: 134: straight();
-"134
-[e ( _straight ..  ]
-[; ;sample.c: 135: break;
-"135
-[e $U 343  ]
-[; ;sample.c: 136: case 0b10010: break;
-"136
-[e :U 363 ]
-[e $U 343  ]
-[; ;sample.c: 137: case 0b10011: break;
-"137
-[e :U 364 ]
-[e $U 343  ]
-[; ;sample.c: 138: case 0b10100: break;
-"138
-[e :U 365 ]
-[e $U 343  ]
-[; ;sample.c: 139: case 0b10101: break;
-"139
-[e :U 366 ]
-[e $U 343  ]
-[; ;sample.c: 140: case 0b10110: break;
-"140
-[e :U 367 ]
-[e $U 343  ]
-[; ;sample.c: 141: case 0b10111:
-"141
-[e :U 368 ]
-[; ;sample.c: 142: left_down();
-"142
-[e ( _left_down ..  ]
-[; ;sample.c: 143: break;
-"143
-[e $U 343  ]
-[; ;sample.c: 144: case 0b11000:
-"144
-[e :U 369 ]
-[; ;sample.c: 145: small_left_down();
-"145
+[; ;sample.c: 121: small_left_down();
+"121
 [e ( _small_left_down ..  ]
-[; ;sample.c: 146: break;
+[; ;sample.c: 122: break;
+"122
+[e $U 347  ]
+[; ;sample.c: 123: case 0b01000:
+"123
+[e :U 357 ]
+[; ;sample.c: 124: small_left_down();
+"124
+[e ( _small_left_down ..  ]
+[; ;sample.c: 125: break;
+"125
+[e $U 347  ]
+[; ;sample.c: 126: case 0b01001: break;
+"126
+[e :U 358 ]
+[e $U 347  ]
+[; ;sample.c: 127: case 0b01010: break;
+"127
+[e :U 359 ]
+[e $U 347  ]
+[; ;sample.c: 128: case 0b01011: break;
+"128
+[e :U 360 ]
+[e $U 347  ]
+[; ;sample.c: 129: case 0b01100: break;
+"129
+[e :U 361 ]
+[e $U 347  ]
+[; ;sample.c: 130: case 0b01101: break;
+"130
+[e :U 362 ]
+[e $U 347  ]
+[; ;sample.c: 131: case 0b01110:
+"131
+[e :U 363 ]
+[; ;sample.c: 132: straight();
+"132
+[e ( _straight ..  ]
+[; ;sample.c: 133: break;
+"133
+[e $U 347  ]
+[; ;sample.c: 134: case 0b01111:
+"134
+[e :U 364 ]
+[; ;sample.c: 135: left_down();
+"135
+[e ( _left_down ..  ]
+[; ;sample.c: 136: break;
+"136
+[e $U 347  ]
+[; ;sample.c: 137: case 0b10000:
+"137
+[e :U 365 ]
+[; ;sample.c: 138: left_down();
+"138
+[e ( _left_down ..  ]
+[; ;sample.c: 139: break;
+"139
+[e $U 347  ]
+[; ;sample.c: 140: case 0b10001:
+"140
+[e :U 366 ]
+[; ;sample.c: 141: straight();
+"141
+[e ( _straight ..  ]
+[; ;sample.c: 142: break;
+"142
+[e $U 347  ]
+[; ;sample.c: 143: case 0b10010: break;
+"143
+[e :U 367 ]
+[e $U 347  ]
+[; ;sample.c: 144: case 0b10011: break;
+"144
+[e :U 368 ]
+[e $U 347  ]
+[; ;sample.c: 145: case 0b10100: break;
+"145
+[e :U 369 ]
+[e $U 347  ]
+[; ;sample.c: 146: case 0b10101: break;
 "146
-[e $U 343  ]
-[; ;sample.c: 147: case 0b11001: break;
-"147
 [e :U 370 ]
-[e $U 343  ]
-[; ;sample.c: 148: case 0b11010: break;
-"148
+[e $U 347  ]
+[; ;sample.c: 147: case 0b10110: break;
+"147
 [e :U 371 ]
-[e $U 343  ]
-[; ;sample.c: 149: case 0b11011:
-"149
+[e $U 347  ]
+[; ;sample.c: 148: case 0b10111:
+"148
 [e :U 372 ]
-[; ;sample.c: 150: straight();
+[; ;sample.c: 149: left_down();
+"149
+[e ( _left_down ..  ]
+[; ;sample.c: 150: break;
 "150
-[e ( _straight ..  ]
-[; ;sample.c: 151: break;
+[e $U 347  ]
+[; ;sample.c: 151: case 0b11000:
 "151
-[e $U 343  ]
-[; ;sample.c: 152: case 0b11100:
-"152
 [e :U 373 ]
-[; ;sample.c: 153: small_right_down();
+[; ;sample.c: 152: small_left_down();
+"152
+[e ( _small_left_down ..  ]
+[; ;sample.c: 153: break;
 "153
-[e ( _small_right_down ..  ]
-[; ;sample.c: 154: break;
+[e $U 347  ]
+[; ;sample.c: 154: case 0b11001: break;
 "154
-[e $U 343  ]
-[; ;sample.c: 155: case 0b11101:
-"155
 [e :U 374 ]
-[; ;sample.c: 156: small_right_down();
-"156
-[e ( _small_right_down ..  ]
-[; ;sample.c: 157: break;
-"157
-[e $U 343  ]
-[; ;sample.c: 158: case 0b11110:
-"158
+[e $U 347  ]
+[; ;sample.c: 155: case 0b11010: break;
+"155
 [e :U 375 ]
-[; ;sample.c: 159: right_down();
-"159
-[e ( _right_down ..  ]
-[; ;sample.c: 160: case 0b11111:
-"160
+[e $U 347  ]
+[; ;sample.c: 156: case 0b11011:
+"156
 [e :U 376 ]
-[; ;sample.c: 161: straight();
-"161
+[; ;sample.c: 157: straight();
+"157
 [e ( _straight ..  ]
-[; ;sample.c: 162: break;
-"162
-[e $U 343  ]
-[; ;sample.c: 163: default:
-"163
+[; ;sample.c: 158: break;
+"158
+[e $U 347  ]
+[; ;sample.c: 159: case 0b11100:
+"159
 [e :U 377 ]
-[; ;sample.c: 164: straight();
+[; ;sample.c: 160: small_right_down();
+"160
+[e ( _small_right_down ..  ]
+[; ;sample.c: 161: break;
+"161
+[e $U 347  ]
+[; ;sample.c: 162: case 0b11101:
+"162
+[e :U 378 ]
+[; ;sample.c: 163: small_right_down();
+"163
+[e ( _small_right_down ..  ]
+[; ;sample.c: 164: break;
 "164
-[e ( _straight ..  ]
-[; ;sample.c: 165: break;
+[e $U 347  ]
+[; ;sample.c: 165: case 0b11110:
 "165
-[e $U 343  ]
+[e :U 379 ]
+[; ;sample.c: 166: right_down();
 "166
+[e ( _right_down ..  ]
+[; ;sample.c: 167: case 0b11111:
+"167
+[e :U 380 ]
+[; ;sample.c: 168: straight();
+"168
+[e ( _straight ..  ]
+[; ;sample.c: 169: break;
+"169
+[e $U 347  ]
+[; ;sample.c: 170: default:
+"170
+[e :U 381 ]
+[; ;sample.c: 171: do_nothing();
+"171
+[e ( _do_nothing ..  ]
+[; ;sample.c: 172: break;
+"172
+[e $U 347  ]
+"173
 }
-[; ;sample.c: 166: }
-[e $U 343  ]
-"93
-[e :U 344 ]
-[e [\ _PORTB , $ -> -> 0 `i `uc 345
- , $ -> -> 1 `i `uc 346
- , $ -> -> 2 `i `uc 347
- , $ -> -> 3 `i `uc 348
- , $ -> -> 4 `i `uc 349
- , $ -> -> 5 `i `uc 350
- , $ -> -> 6 `i `uc 351
- , $ -> -> 7 `i `uc 352
- , $ -> -> 8 `i `uc 353
- , $ -> -> 9 `i `uc 354
- , $ -> -> 10 `i `uc 355
- , $ -> -> 11 `i `uc 356
- , $ -> -> 12 `i `uc 357
- , $ -> -> 13 `i `uc 358
- , $ -> -> 14 `i `uc 359
- , $ -> -> 15 `i `uc 360
- , $ -> -> 16 `i `uc 361
- , $ -> -> 17 `i `uc 362
- , $ -> -> 18 `i `uc 363
- , $ -> -> 19 `i `uc 364
- , $ -> -> 20 `i `uc 365
- , $ -> -> 21 `i `uc 366
- , $ -> -> 22 `i `uc 367
- , $ -> -> 23 `i `uc 368
- , $ -> -> 24 `i `uc 369
- , $ -> -> 25 `i `uc 370
- , $ -> -> 26 `i `uc 371
- , $ -> -> 27 `i `uc 372
- , $ -> -> 28 `i `uc 373
- , $ -> -> 29 `i `uc 374
- , $ -> -> 30 `i `uc 375
- , $ -> -> 31 `i `uc 376
- 377 ]
-"166
+[; ;sample.c: 173: }
+[e $U 347  ]
+"100
+[e :U 348 ]
+[e [\ _PORTB , $ -> -> 0 `i `uc 349
+ , $ -> -> 1 `i `uc 350
+ , $ -> -> 2 `i `uc 351
+ , $ -> -> 3 `i `uc 352
+ , $ -> -> 4 `i `uc 353
+ , $ -> -> 5 `i `uc 354
+ , $ -> -> 6 `i `uc 355
+ , $ -> -> 7 `i `uc 356
+ , $ -> -> 8 `i `uc 357
+ , $ -> -> 9 `i `uc 358
+ , $ -> -> 10 `i `uc 359
+ , $ -> -> 11 `i `uc 360
+ , $ -> -> 12 `i `uc 361
+ , $ -> -> 13 `i `uc 362
+ , $ -> -> 14 `i `uc 363
+ , $ -> -> 15 `i `uc 364
+ , $ -> -> 16 `i `uc 365
+ , $ -> -> 17 `i `uc 366
+ , $ -> -> 18 `i `uc 367
+ , $ -> -> 19 `i `uc 368
+ , $ -> -> 20 `i `uc 369
+ , $ -> -> 21 `i `uc 370
+ , $ -> -> 22 `i `uc 371
+ , $ -> -> 23 `i `uc 372
+ , $ -> -> 24 `i `uc 373
+ , $ -> -> 25 `i `uc 374
+ , $ -> -> 26 `i `uc 375
+ , $ -> -> 27 `i `uc 376
+ , $ -> -> 28 `i `uc 377
+ , $ -> -> 29 `i `uc 378
+ , $ -> -> 30 `i `uc 379
+ , $ -> -> 31 `i `uc 380
+ 381 ]
+"173
+[e :U 347 ]
+"186
+}
+[e :U 341 ]
+"95
+[e $U 342  ]
 [e :U 343 ]
-"179
-}
-[e :U 340 ]
-"91
-[e $U 341  ]
-[e :U 342 ]
-[; ;sample.c: 179: }
-[; ;sample.c: 181: }
-"181
-[e :UE 336 ]
+[; ;sample.c: 186: }
+[; ;sample.c: 188: }
+"188
+[e :UE 337 ]
 }

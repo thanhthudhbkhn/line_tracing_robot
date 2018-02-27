@@ -4282,9 +4282,9 @@ int right_down(void){
 PORTC=0x03;
 wait00(0.3);
 PORTC=0x01;
-wait00(10);
+wait00(5);
 PORTC=0x00;
-wait00(50);
+wait00(20);
 }
 
 int small_right_down(void){
@@ -4293,16 +4293,16 @@ wait00(0.3);
 PORTC=0x01;
 wait00(2);
 PORTC=0x00;
-wait00(50);
+wait00(20);
 }
 
 int left_down(void){
 PORTC=0x03;
 wait00(0.3);
 PORTC=0x02;
-wait00(10);
+wait00(5);
 PORTC=0x00;
-wait00(50);
+wait00(20);
 }
 
 int small_left_down(void){
@@ -4311,13 +4311,17 @@ wait00(0.3);
 PORTC=0x02;
 wait00(2);
 PORTC=0x00;
-wait00(50);
+wait00(20);
 }
 
 int straight(void){
 PORTC=0x03;
 wait00(8);
 PORTC=0x00;
+wait00(20);
+}
+
+int do_nothing(void){
 wait00(50);
 }
 
@@ -4354,6 +4358,9 @@ led_sens();
 
 while(1){
 led_sens();
+
+while (PORTB==0x1f ) straight();
+
 switch (PORTB) {
 case 0b00000:
 straight();
@@ -4425,11 +4432,11 @@ case 0b11111:
 straight();
 break;
 default:
-straight();
+do_nothing();
 break;
 }
 
-# 179
+# 186
 }
 
 }
