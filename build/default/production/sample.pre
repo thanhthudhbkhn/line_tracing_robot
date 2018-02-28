@@ -4315,45 +4315,45 @@ for(i=0;i<3000;i++){
 
 int right_down(void){
 PORTC=0x03;
-wait00(0.1);
+wait00(0.3);
 PORTC=0x01;
-wait00(20);
+wait00(5);
 PORTC=0x00;
-wait00(40);
+wait00(20);
 }
 
 int small_right_down(void){
 PORTC=0x03;
-wait00(0.1);
+wait00(0.3);
 PORTC=0x01;
-wait00(8);
+wait00(2);
 PORTC=0x00;
-wait00(100);
+wait00(20);
 }
 
 int left_down(void){
 PORTC=0x03;
-wait00(0.1);
+wait00(0.3);
 PORTC=0x02;
-wait00(20);
+wait00(5);
 PORTC=0x00;
-wait00(40);
+wait00(20);
 }
 
 int small_left_down(void){
 PORTC=0x03;
-wait00(0.1);
+wait00(0.3);
 PORTC=0x02;
-wait00(8);
+wait00(2);
 PORTC=0x00;
-wait00(100);
+wait00(20);
 }
 
 int straight(void){
 PORTC=0x03;
-wait00(2);
+wait00(8);
 PORTC=0x00;
-wait00(40);
+wait00(20);
 }
 
 int do_sth(void){

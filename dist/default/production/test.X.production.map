@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.45\dat\en_msgs.txt -cs \
   -h+dist/default/production\test.X.production.sym \
   --cmf=dist/default/production\test.X.production.cmf -z -Q18F2553 \
-  -oC:\Users\ThuPT\AppData\Local\Temp\s4t0.2 \
+  -oC:\Users\ThuPT\AppData\Local\Temp\spg.2 \
   -Mdist/default/production/test.X.production.map -E1 -ver=XC8 --acfsm=1493 \
   -ASTACK=060h-07ffh -pstack=STACK -ACODE=02000h-07FFFh \
   -ACONST=02000h-07FFFh -ASMALLCONST=02000h-020FFhx96 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\ThuPT\AppData\Local\Temp\s4t0.obj \
+  C:\Users\ThuPT\AppData\Local\Temp\spg.obj \
   dist/default/production\test.X.production.obj 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ThuPT\AppData\Local\Temp\s4t0.obj
+C:\Users\ThuPT\AppData\Local\Temp\spg.obj
                 init                               2000     2000        4     1000       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
