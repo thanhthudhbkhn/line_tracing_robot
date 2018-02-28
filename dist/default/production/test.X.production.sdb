@@ -23,23 +23,27 @@
 [v ___flmul __flmul `(d  1 e 4 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"6 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+"4 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
 [v _wait00 wait00 `(i  1 e 2 0 ]
-"17
+"15
 [v _left_down left_down `(i  1 e 2 0 ]
-"26
+"24
 [v _small_left_down small_left_down `(i  1 e 2 0 ]
-"35
+"33
 [v _right_down right_down `(i  1 e 2 0 ]
-"44
+"42
 [v _small_right_down small_right_down `(i  1 e 2 0 ]
-"54
+"50
+[v _mini_left_down mini_left_down `(i  1 e 2 0 ]
+"58
+[v _mini_right_down mini_right_down `(i  1 e 2 0 ]
+"66
 [v _straight straight `(i  1 e 2 0 ]
-"61
-[v _do_sth do_sth `(i  1 e 2 0 ]
-"68
+"72
+[v _fast_straight fast_straight `(i  1 e 2 0 ]
+"79
 [v _led_sens led_sens `(i  1 e 2 0 ]
-"77
+"87
 [v _main main `(i  1 e 2 0 ]
 "2115 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -108,54 +112,70 @@
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "5398
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"77 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+"87 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
 [v _main main `(i  1 e 2 0 ]
 {
-"169
+"89
+[v main@left left `i  1 a 2 15 ]
+[v main@right right `i  1 a 2 13 ]
+[v main@last last `i  1 a 2 11 ]
+[v main@flag flag `i  1 a 2 9 ]
+[v main@strght strght `i  1 a 2 7 ]
+"230
 } 0
-"54
+"66
 [v _straight straight `(i  1 e 2 0 ]
 {
-"59
+"71
 } 0
-"44
+"42
 [v _small_right_down small_right_down `(i  1 e 2 0 ]
 {
-"52
+"49
 } 0
-"26
+"24
 [v _small_left_down small_left_down `(i  1 e 2 0 ]
 {
-"33
+"31
 } 0
-"35
+"33
 [v _right_down right_down `(i  1 e 2 0 ]
 {
-"42
+"40
 } 0
-"17
+"58
+[v _mini_right_down mini_right_down `(i  1 e 2 0 ]
+{
+"65
+} 0
+"50
+[v _mini_left_down mini_left_down `(i  1 e 2 0 ]
+{
+"57
+} 0
+"15
 [v _left_down left_down `(i  1 e 2 0 ]
 {
-"24
+"22
 } 0
-"68
+"79
 [v _led_sens led_sens `(i  1 e 2 0 ]
 {
-"75
+"85
 } 0
-"61
-[v _do_sth do_sth `(i  1 e 2 0 ]
+"72
+[v _fast_straight fast_straight `(i  1 e 2 0 ]
 {
-"66
+"77
 } 0
-"6
+"4
 [v _wait00 wait00 `(i  1 e 2 0 ]
 {
-"9
+"7
 [v wait00@i i `s  1 a 2 5 ]
-"10
+"8
 [v wait00@j j `s  1 a 2 3 ]
-"6
+"4
 [v wait00@k k `s  1 p 2 0 ]
-"15
+"13
 } 0

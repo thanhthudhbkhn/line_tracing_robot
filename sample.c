@@ -1,169 +1,230 @@
-//test
-
 #include <xc.h>
 #include <p18f2553.h>
 
 wait00(short k)
 { 	 
 /*Wait time about (k?~0.01 sec.) */ 		 
-    short i; 		 
-    short j; /* Declaration of 16 bit variables 	*/ 	 
-    for(j=0;j<k;j++){ /*(k?~3000) times iteration */ 	 
+   short i; 		 
+   short j; /* Declaration of 16 bit variables 	*/ 	 
+   for(j=0;j<k;j++){ /*(k?~3000) times iteration */ 	 
 		for(i=0;i<3000;i++){ 	 
 		}	 
 	} 		 
 } 			 
 
 int left_down(void){
-    PORTC=0x03; /* both motor on */
-    wait00(0.1); /* 0.03msec wait */
-    PORTC=0x02; /* right motor on */
-    wait00(20); /* 0.18msec wait */
-    PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.79msec wait */
+    PORTC=0x03;  /* both motor on */
+    wait00(0.3); /* 0.003msec wait */
+    PORTC=0x02;  /* right motor on */
+    wait00(15);  /* 0.15msec wait */
+    PORTC=0x00;  /* both motor off */
+    wait00(20);  /* 0.20msec wait */
 }
 
-int small_left_down(void){
+ int small_left_down(void){
+    PORTC=0x03;  /* both motor on */
+    wait00(0.3); /* 0.003msec wait */
+    PORTC=0x02;  /* right motor on */
+    wait00(8);   /* 0.12msec wait */
+    PORTC=0x00;  /* both motor off */
+    wait00(16);  /* 0.15msec wait */
+}
+
+int right_down(void){
    PORTC=0x03;  /* both motor on */
-   wait00(0.1); /* 0.003msec wait */
-   PORTC=0x02;  /* right motor on */
-   wait00(10);   /* 0.02sec wait */
+   wait00(0.3); /* 0.003msec wait */
+   PORTC=0x01;  /* left motor on */
+   wait00(15);  /* 0.12sec wait */
    PORTC=0x00;  /* both motor off */
    wait00(20);  /* 0.20msec wait */
 }
 
-int right_down(void){
-    PORTC=0x03; /* both motor on */
-    wait00(0.1); /* 0.03msec wait */
-    PORTC=0x01; /* left motor on */
-    wait00(20); /* 0.18msec wait */
-    PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.79msec wait */
-}
-
 int small_right_down(void){
-    PORTC=0x03; /* both motor on */
-    wait00(0.1); /* 0.03msec wait */
-    PORTC=0x01; /* right motor on */
-    wait00(10); /* 0.05msec wait */
-    PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.2msec wait */
-    
+   PORTC=0x03;  /* both motor on */
+   wait00(0.3); /* 0.003msec wait */
+   PORTC=0x01;  /* left motor on */
+   wait00(8);   /* 0.12sec wait */
+   PORTC=0x00;  /* both motor off */
+   wait00(16);  /* 0.15msec wait */
+}
+ int mini_left_down(void){
+   PORTC=0x03;  /* both motor on */
+   wait00(0.3); /* 0.003msec wait */
+   PORTC=0x02;  /* left motor on */
+   wait00(4);   /* 0.06sec wait */
+   PORTC=0x00;  /* both motor off */
+   wait00(8);  /* both motor off */
+ }
+ int mini_right_down(void){
+   PORTC=0x03;  /* both motor on */
+   wait00(0.3); /* 0.003msec wait */
+   PORTC=0x01;  /* left motor on */
+   wait00(4);   /* 0.06sec wait */
+   PORTC=0x00;  /* both motor off */
+   wait00(8);  /* both motor off */
+ }
+ int straight(void){
+   PORTC=0x03; /* both motor on */
+   wait00(10);  /* 0.09msec wait */
+   PORTC=0x00; /* both motor off */
+   wait00(10); /* 0.15msec wait */
+}
+int fast_straight(void){
+    PORTC=0x03;
+    wait00(20);
+    PORTC=0x00;
+    wait00(5);
 }
 
-int straight(void){
-    PORTC=0x03; /* both motor on */
-    wait00(1); /* 0.20msec wait */
-    PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.80msec wait */
+int led_sens(void){
+   PORTAbits.RA0 = PORTBbits.RB0;
+   PORTAbits.RA1 = PORTBbits.RB1;            
+   PORTAbits.RA2 = PORTBbits.RB2;           
+   PORTAbits.RA3 = PORTBbits.RB3;
+   PORTAbits.RA4 = PORTBbits.RB4;       
 }
 
-int do_sth(void){
-    PORTC=0x03; /* both motor on */
-    wait00(0.5); /* 0.20msec wait */
-    PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.80msec wait */
-}
+main(void){
 
-int led_sens(void)
-{
-PORTAbits.RA0 = PORTBbits.RB0;           
-PORTAbits.RA1 = PORTBbits.RB1;
-PORTAbits.RA2 = PORTBbits.RB2;           
-PORTAbits.RA3 = PORTBbits.RB3;           
-PORTAbits.RA4 = PORTBbits.RB4;      
-}
-
-main(void)
-{
-    //setting digital or analog pin
-    ADCON1 = 0x0F;
-
-    //setting input or output
-    TRISA = 0x20;            //  portA   RA0,1,2,3,4:output, RA5:input   10 0000
-    TRISB = 0xFF;            //  portB   RB all input   1111 1111
-    TRISC = 0x00;            //  portC   RC all output
-    
-    //reset to port
-    PORTA = 0x00;           //  portA   reset output
-    PORTB = 0x00;           //  portB    reset output
-    PORTC = 0x00;           //  portC    reset output
-    
-    //Start SW
-    while(PORTAbits.RA5==1){
-        led_sens();
-    }
-    
-    //Push Start SW
-    //infinit loop
-    while(1){/* infinite loop */
-        led_sens();
-        
-        switch (PORTBbits.RB0) {
-            case 0:
-                switch (PORTBbits.RB1) {
-                    case 0:
-                        if (PORTBbits.RB2==0) {
-                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) straight(); /*black black black black black */
-                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) right_down(); /*black black black black white */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) small_right_down(); /*black black black white black */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) right_down(); /*black black black white white */
-                        } else if (PORTBbits.RB2==1) {
-                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) straight(); /*black black white black black */
-                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*black black white black white */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) small_right_down(); /*black black white white black */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) left_down(); /*black black white white white */
-                        }
-                        break;
-                    case 1:
-                        if (PORTBbits.RB2==0) {
-                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) small_left_down(); /*black white black black black */
-                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*black white black black white */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*black white black white black */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) do_sth(); /*black white black white white */
-                        } else if (PORTBbits.RB2==1) {
-                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) small_left_down(); /*black white white black black */
-                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*black white white black white */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) straight(); /*black white white white black */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) left_down(); /*black white white white white */
-                        }
-                        break;
-                    default: break;
-                }
-                break;
-            case 1:
-                switch (PORTBbits.RB1) {
-                    case 0:
-                        if (PORTBbits.RB2==0) {
-                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) left_down(); /*white black black black black */
-                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) straight(); /*white black black black white */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*white black black white black */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) small_left_down(); /*white black black white white */
-                        } else if (PORTBbits.RB2==1) {
-                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) do_sth(); /*white black white black black */
-                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*white black white black white */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*white black white white black */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) small_left_down(); /*white black white white white */
-                        }
-                        break;
-                    case 1:
-                        if (PORTBbits.RB2==0) {
-                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) left_down(); /*white white black black black */
-                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) small_right_down(); /*white white black black white */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*white white black white black */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) straight(); /*white white black white white */
-                        } else if (PORTBbits.RB2==1) {
-                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) right_down(); /*white white white black black */
-                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) small_right_down(); /*white white white black white */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) right_down; /*white white white white black */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) straight(); /*white white white white white */
-                        }
-                        break;
-                    default: break;
-                }
-                break;
-            default: break;
-        }
-    }
-            
+   int last,right=1,left=0,strght=2,flag=2;
+   //setting digital or analog pin
+   ADCON1 = 0x0F;
+   
+   
+   //setting input or output
+   TRISA = 0x20;            //  portA   RA0,1,2,3,4:output, RA5:input   10 0000
+   TRISB = 0xFF;            //  portB   RB all input   1111 1111
+   TRISC = 0x00;            //  portC   RC all output
+   
+   //reset to port
+   PORTA = 0x00;            //  portA   reset output
+   PORTB = 0x00;            //  portB    reset output
+   PORTC = 0x00;            //  portC    reset output
+   
+   //Start SW
+   while(PORTAbits.RA5==1){
+       led_sens();
+   }
+   //Push Start SW
+   //infinit loop
+   while(1){/* infinite loop */
+       led_sens();
+       
+      /*WHITE SIDE*/
+       if(PORTBbits.RB0==1  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==0){ 
+           /*11110*/
+           right_down();/*turn right */
+           last=right;
+           flag=1;
+          
+       }
+       else if(PORTBbits.RB0==1  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==0){ 
+           /*11100*/
+           if(flag==0)
+               small_left_down();
+           else{
+           small_right_down();/* turn right */
+           last=right;
+           flag=1;
+           }
+       }
+       else if(PORTBbits.RB0==1  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==1){
+           /*11011*/
+           fast_straight();/* go straight */
+           last=strght; 
+           flag=1;
+       }
+       
+       else if(PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1){ 
+           /*00111*/
+           if(flag==0)
+              small_right_down();
+           else{
+           small_left_down();/* turn left */
+           last=left;
+           flag=1;
+          }
+       }
+       else if(PORTBbits.RB0==0  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1){ 
+           /*01111*/
+          left_down();/* turn left */
+          last=left;
+          flag=1;
+            }
+       
+       else if(PORTBbits.RB0==1  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==1)/*10011*/{mini_left_down();last=left;flag=1;}
+       else if(PORTBbits.RB0==1  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==1)/*11001*/{mini_right_down();last=right; flag=1;}
+       else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==1)/*11101*/{mini_right_down();last=right; flag=1;}
+       else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1)/*10111*/{mini_left_down();last=left;flag=1;}
+       
+       /*BLACK SIDE*/
+       else if(PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==1){ 
+           /*00001*/
+          right_down();/* turn right */
+          last=right;
+          flag=0;
+       }   
+     
+       else if(PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==1){ 
+           /*00011*/
+           if(flag==1)
+             small_left_down();
+           else{
+             small_right_down();/* turn right */
+             last=right;
+             flag=0;
+           }
+       }
+       else if(PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
+           /*00100*/
+           fast_straight();/* go straight */last=strght;flag=0;}
+       
+       else if(PORTBbits.RB0==1  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0){ 
+           /*11000*/
+           if(flag==1)
+               small_right_down();
+           else{
+           small_left_down();/* turn left */
+           last=left;
+           flag=0;
+       }
+       }
+       else if(PORTBbits.RB0==1  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0){ 
+           /*10000*/
+           left_down();/* turn left */
+           last=left;
+           flag=0;
+      }
+      
+       else if(PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==0)/*00110*/{mini_right_down();last=right;flag=0;}
+       else if(PORTBbits.RB0==0  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==0)/*01100*/{mini_left_down();last=left;flag=0;}
+       else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==0)/*00010*/{mini_right_down();last=left;flag=0;}
+       else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0)/*01000*/{mini_left_down();last=right;flag=0;}
+       
+       /*OUT LINE*/
+       else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
+           if(last==right)
+           {right_down();              
+           last=right;}
+           else if(last==left)
+           {left_down();
+           last=left;}
+           else if(last==strght)
+           {straight();  
+           last=strght;}
+       }
+       else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1){
+           if(last==right)
+           {right_down();
+           last=right;}
+           else if(last==left)
+           {left_down();
+           last=left;}
+           else if(last==strght)
+           {straight();  
+           last=strght;}    
+       }
+       else{
+       straight();}
+      }          
 }

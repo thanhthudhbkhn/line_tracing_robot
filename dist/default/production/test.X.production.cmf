@@ -12,18 +12,20 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\test.X.production.obj
-cinit CODE 0 7C66 7C66 A 1
-text0 CODE 0 7DF2 7DF2 20E 1
-text1 CODE 0 7C92 7C92 22 1
-text2 CODE 0 7D4A 7D4A 32 1
-text3 CODE 0 7D18 7D18 32 1
-text4 CODE 0 7CE6 7CE6 32 1
-text5 CODE 0 7CB4 7CB4 32 1
-text6 CODE 0 7D7C 7D7C 34 1
-text7 CODE 0 7C70 7C70 22 1
-text8 CODE 0 7DB0 7DB0 42 1
-cstackCOMRAM COMRAM 1 1 1 7 1
-$C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
+cinit CODE 0 7B10 7B10 6 1
+text0 CODE 0 7CFC 7CFC 304 1
+text1 CODE 0 7B38 7B38 22 1
+text2 CODE 0 7C54 7C54 32 1
+text3 CODE 0 7C22 7C22 32 1
+text4 CODE 0 7BF0 7BF0 32 1
+text5 CODE 0 7BBE 7BBE 32 1
+text6 CODE 0 7B8C 7B8C 32 1
+text7 CODE 0 7B5A 7B5A 32 1
+text8 CODE 0 7C86 7C86 34 1
+text9 CODE 0 7B16 7B16 22 1
+text10 CODE 0 7CBA 7CBA 42 1
+cstackCOMRAM COMRAM 1 1 1 11 1
+$C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 2000 2000 4 1
 config CONFIG 0 300000 300000 E 1
@@ -43,15 +45,15 @@ BANK4 400-4FF 1
 BANK5 500-5FF 1
 BANK6 600-6FF 1
 BANK7 700-7FF 1
-CONST 2004-7C65 1
+CONST 2004-7B0F 1
 STACK 60-7FF 1
-SMALLCONST 2004-7C65 1
-CODE 2004-7C65 1
-BIGRAM 8-7FF 1
-COMRAM 8-5F 1
+SMALLCONST 2004-7B0F 1
+CODE 2004-7B0F 1
+BIGRAM 12-7FF 1
+COMRAM 12-5F 1
 EEDATA F00000-F000FF 1
 FARRAM 0-0 1
-MEDIUMCONST 2004-7C65 1
+MEDIUMCONST 2004-7B0F 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -66,137 +68,174 @@ MEDIUMCONST 2004-7C65 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\test.X.production.obj
-7DB0 text8 CODE >6:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7DB0 text8 CODE >11:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7DBA text8 CODE >12:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7DD8 text8 CODE >11:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7C70 text7 CODE >61:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7C70 text7 CODE >62:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7C74 text7 CODE >63:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7C80 text7 CODE >64:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7C84 text7 CODE >65:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7C90 text7 CODE >66:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D7C text6 CODE >68:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D7C text6 CODE >70:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D86 text6 CODE >71:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D90 text6 CODE >72:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D9A text6 CODE >73:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7DA4 text6 CODE >74:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7DAE text6 CODE >75:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CB4 text5 CODE >17:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CB4 text5 CODE >18:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CB8 text5 CODE >19:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CC4 text5 CODE >20:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CC8 text5 CODE >21:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CD4 text5 CODE >22:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CD8 text5 CODE >23:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CE4 text5 CODE >24:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CE6 text4 CODE >35:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CE6 text4 CODE >36:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CEA text4 CODE >37:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CF6 text4 CODE >38:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CFA text4 CODE >39:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D06 text4 CODE >40:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D0A text4 CODE >41:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D16 text4 CODE >42:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D18 text3 CODE >26:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D18 text3 CODE >27:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D1C text3 CODE >28:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D28 text3 CODE >29:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D2C text3 CODE >30:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D38 text3 CODE >31:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D3C text3 CODE >32:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D48 text3 CODE >33:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D4A text2 CODE >44:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D4A text2 CODE >45:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D4E text2 CODE >46:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D5A text2 CODE >47:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D5E text2 CODE >48:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D6A text2 CODE >49:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D6E text2 CODE >50:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7D7A text2 CODE >52:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7C92 text1 CODE >54:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7C92 text1 CODE >55:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7C96 text1 CODE >56:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CA2 text1 CODE >57:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CA6 text1 CODE >58:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7CB2 text1 CODE >59:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7DF2 text0 CODE >77:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7DF2 text0 CODE >80:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7DF6 text0 CODE >83:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7DFA text0 CODE >84:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7DFC text0 CODE >85:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E00 text0 CODE >88:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E04 text0 CODE >89:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E08 text0 CODE >90:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E0C text0 CODE >93:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E0E text0 CODE >94:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E12 text0 CODE >93:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E12 text0 CODE >95:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E16 text0 CODE >100:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E1A text0 CODE >102:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E1C text0 CODE >105:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E1C text0 CODE >106:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E20 text0 CODE >107:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E2C text0 CODE >108:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E38 text0 CODE >109:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E44 text0 CODE >110:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E4E text0 CODE >111:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E54 text0 CODE >112:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E60 text0 CODE >113:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E6C text0 CODE >114:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E78 text0 CODE >115:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E82 text0 CODE >117:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E84 text0 CODE >118:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E84 text0 CODE >119:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E88 text0 CODE >120:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7E94 text0 CODE >121:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7EA0 text0 CODE >122:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7EAC text0 CODE >123:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7EB6 text0 CODE >124:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7EBC text0 CODE >125:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7EC8 text0 CODE >126:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7ED4 text0 CODE >127:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7EE0 text0 CODE >128:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7EEA text0 CODE >132:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7EEC text0 CODE >104:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F02 text0 CODE >133:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F04 text0 CODE >136:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F04 text0 CODE >137:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F08 text0 CODE >138:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F14 text0 CODE >139:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F20 text0 CODE >140:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F2C text0 CODE >141:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F36 text0 CODE >142:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F3C text0 CODE >143:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F48 text0 CODE >144:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F54 text0 CODE >145:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F60 text0 CODE >146:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F6A text0 CODE >148:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F6C text0 CODE >149:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F6C text0 CODE >150:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F70 text0 CODE >151:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F7C text0 CODE >152:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F88 text0 CODE >153:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F94 text0 CODE >154:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7F9E text0 CODE >155:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7FA4 text0 CODE >156:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7FB0 text0 CODE >157:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7FBC text0 CODE >158:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7FC4 text0 CODE >159:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7FCE text0 CODE >163:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7FD0 text0 CODE >135:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7FE6 text0 CODE >166:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7FE8 text0 CODE >102:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7FFE text0 CODE >99:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
-7C66 cinit CODE >398:C:\Users\ThuPT\AppData\Local\Temp\s2u4.
-7C66 cinit CODE >400:C:\Users\ThuPT\AppData\Local\Temp\s2u4.
-7C66 cinit CODE >403:C:\Users\ThuPT\AppData\Local\Temp\s2u4.
-7C66 cinit CODE >409:C:\Users\ThuPT\AppData\Local\Temp\s2u4.
-7C66 cinit CODE >412:C:\Users\ThuPT\AppData\Local\Temp\s2u4.
-7C68 cinit CODE >413:C:\Users\ThuPT\AppData\Local\Temp\s2u4.
-7C6A cinit CODE >414:C:\Users\ThuPT\AppData\Local\Temp\s2u4.
-7C6C cinit CODE >415:C:\Users\ThuPT\AppData\Local\Temp\s2u4.
+7CBA text10 CODE >4:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7CBA text10 CODE >9:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7CC4 text10 CODE >10:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7CE2 text10 CODE >9:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B16 text9 CODE >72:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B16 text9 CODE >73:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B1A text9 CODE >74:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B26 text9 CODE >75:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B2A text9 CODE >76:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B36 text9 CODE >77:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C86 text8 CODE >79:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C86 text8 CODE >80:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C90 text8 CODE >81:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C9A text8 CODE >82:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7CA4 text8 CODE >83:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7CAE text8 CODE >84:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7CB8 text8 CODE >85:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B5A text7 CODE >15:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B5A text7 CODE >16:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B5E text7 CODE >17:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B6A text7 CODE >18:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B6E text7 CODE >19:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B7A text7 CODE >20:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B7E text7 CODE >21:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B8A text7 CODE >22:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B8C text6 CODE >50:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B8C text6 CODE >51:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B90 text6 CODE >52:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B9C text6 CODE >53:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BA0 text6 CODE >54:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BAC text6 CODE >55:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BB0 text6 CODE >56:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BBC text6 CODE >57:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BBE text5 CODE >58:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BBE text5 CODE >59:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BC2 text5 CODE >60:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BCE text5 CODE >61:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BD2 text5 CODE >62:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BDE text5 CODE >63:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BE2 text5 CODE >64:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BEE text5 CODE >65:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BF0 text4 CODE >33:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BF0 text4 CODE >34:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7BF4 text4 CODE >35:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C00 text4 CODE >36:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C04 text4 CODE >37:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C10 text4 CODE >38:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C14 text4 CODE >39:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C20 text4 CODE >40:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C22 text3 CODE >24:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C22 text3 CODE >25:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C26 text3 CODE >26:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C32 text3 CODE >27:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C36 text3 CODE >28:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C42 text3 CODE >29:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C46 text3 CODE >30:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C52 text3 CODE >31:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C54 text2 CODE >42:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C54 text2 CODE >43:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C58 text2 CODE >44:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C64 text2 CODE >45:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C68 text2 CODE >46:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C74 text2 CODE >47:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C78 text2 CODE >48:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7C84 text2 CODE >49:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B38 text1 CODE >66:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B38 text1 CODE >67:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B3C text1 CODE >68:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B48 text1 CODE >69:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B4C text1 CODE >70:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B58 text1 CODE >71:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7CFC text0 CODE >87:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7CFC text0 CODE >89:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D1C text0 CODE >91:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D20 text0 CODE >95:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D24 text0 CODE >96:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D26 text0 CODE >97:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D2A text0 CODE >100:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D2E text0 CODE >101:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D32 text0 CODE >102:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D36 text0 CODE >105:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D38 text0 CODE >106:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D3C text0 CODE >105:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D3C text0 CODE >107:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D40 text0 CODE >111:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D44 text0 CODE >114:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D54 text0 CODE >116:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D58 text0 CODE >117:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D5A text0 CODE >118:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D62 text0 CODE >120:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D64 text0 CODE >121:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D74 text0 CODE >123:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D7C text0 CODE >124:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D82 text0 CODE >125:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D82 text0 CODE >126:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D86 text0 CODE >127:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D88 text0 CODE >131:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D98 text0 CODE >133:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7D9C text0 CODE >134:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DA4 text0 CODE >135:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DA6 text0 CODE >138:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DB6 text0 CODE >140:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DBE text0 CODE >141:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DC4 text0 CODE >142:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DC4 text0 CODE >143:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DC8 text0 CODE >144:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DCA text0 CODE >148:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DDA text0 CODE >150:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DDE text0 CODE >151:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DE0 text0 CODE >155:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7DF6 text0 CODE >156:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E0C text0 CODE >157:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E2A text0 CODE >158:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E48 text0 CODE >161:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E58 text0 CODE >163:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E5C text0 CODE >164:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E5E text0 CODE >165:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E66 text0 CODE >168:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E76 text0 CODE >170:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E7E text0 CODE >171:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E84 text0 CODE >172:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E84 text0 CODE >173:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E88 text0 CODE >174:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E8A text0 CODE >178:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7E9A text0 CODE >180:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7EA8 text0 CODE >182:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7EB8 text0 CODE >184:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7EC0 text0 CODE >185:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7EC6 text0 CODE >186:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7EC6 text0 CODE >187:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7ECA text0 CODE >188:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7ECC text0 CODE >192:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7EDC text0 CODE >194:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7EE0 text0 CODE >195:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7EE2 text0 CODE >199:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7EF8 text0 CODE >200:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F0E text0 CODE >201:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F2C text0 CODE >202:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F4A text0 CODE >205:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F5A text0 CODE >206:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F68 text0 CODE >207:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F6C text0 CODE >208:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F6E text0 CODE >209:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F7C text0 CODE >210:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F80 text0 CODE >211:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F82 text0 CODE >212:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F90 text0 CODE >213:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F94 text0 CODE >214:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7F96 text0 CODE >216:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FA6 text0 CODE >217:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FB4 text0 CODE >218:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FB8 text0 CODE >219:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FC2 text0 CODE >220:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FD0 text0 CODE >221:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FD4 text0 CODE >222:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FDE text0 CODE >223:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FEC text0 CODE >224:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FF0 text0 CODE >225:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FF8 text0 CODE >226:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FFA text0 CODE >227:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FFA text0 CODE >228:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7FFE text0 CODE >110:C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+7B10 cinit CODE >402:C:\Users\ThuPT\AppData\Local\Temp\s5ds.
+7B10 cinit CODE >404:C:\Users\ThuPT\AppData\Local\Temp\s5ds.
+7B10 cinit CODE >407:C:\Users\ThuPT\AppData\Local\Temp\s5ds.
+7B10 cinit CODE >413:C:\Users\ThuPT\AppData\Local\Temp\s5ds.
+7B10 cinit CODE >415:C:\Users\ThuPT\AppData\Local\Temp\s5ds.
+7B12 cinit CODE >416:C:\Users\ThuPT\AppData\Local\Temp\s5ds.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -211,48 +250,49 @@ $dist/default/production\test.X.production.obj
 %SYMTAB
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\test.X.production.obj
 __Hspace_0 30000E 0 ABS 0 - dist/default/production\test.X.production.obj
-__Hspace_1 8 0 ABS 0 - dist/default/production\test.X.production.obj
+__Hspace_1 12 0 ABS 0 - dist/default/production\test.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\test.X.production.obj
 __size_of_led_sens 0 0 ABS 0 - dist/default/production\test.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
-_small_right_down 7D4A 0 CODE 0 text2 dist/default/production\test.X.production.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
+_small_right_down 7C54 0 CODE 0 text2 dist/default/production\test.X.production.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\test.X.production.obj
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\test.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
-_main 7DF2 0 CODE 0 text0 dist/default/production\test.X.production.obj
-start 2000 0 CODE 0 init C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
+___sp 0 0 STACK 2 stack C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
+_main 7CFC 0 CODE 0 text0 dist/default/production\test.X.production.obj
+start 2000 0 CODE 0 init C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Hpowerup 2000 0 CODE 0 powerup dist/default/production\test.X.production.obj
 __size_of_straight 0 0 ABS 0 - dist/default/production\test.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
-intlevel0 0 0 CODE 0 text C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
-intlevel1 0 0 CODE 0 text C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
-intlevel2 0 0 CODE 0 text C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
-intlevel3 0 0 CODE 0 text C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
+__accesstop 60 0 ABS 0 - C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
+intlevel0 0 0 CODE 0 text C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
+intlevel1 0 0 CODE 0 text C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
+intlevel2 0 0 CODE 0 text C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
+intlevel3 0 0 CODE 0 text C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\test.X.production.obj
-_led_sens 7D7C 0 CODE 0 text6 dist/default/production\test.X.production.obj
+_led_sens 7C86 0 CODE 0 text8 dist/default/production\test.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\test.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\test.X.production.obj
-__end_of_led_sens 7DB0 0 CODE 0 text6 dist/default/production\test.X.production.obj
+__end_of_led_sens 7CBA 0 CODE 0 text8 dist/default/production\test.X.production.obj
 _ADCON1 FC1 0 ABS 0 - dist/default/production\test.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
-__end_of_small_right_down 7D7C 0 CODE 0 text2 dist/default/production\test.X.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
+__end_of_small_right_down 7C86 0 CODE 0 text2 dist/default/production\test.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\test.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\test.X.production.obj
 __size_of_small_right_down 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\test.X.production.obj
 __Hintcodelo 2000 0 CODE 0 intcodelo dist/default/production\test.X.production.obj
-_straight 7C92 0 CODE 0 text1 dist/default/production\test.X.production.obj
-__end_of_do_sth 7C92 0 CODE 0 text7 dist/default/production\test.X.production.obj
-__end_of_straight 7CB4 0 CODE 0 text1 dist/default/production\test.X.production.obj
+_straight 7B38 0 CODE 0 text1 dist/default/production\test.X.production.obj
+_fast_straight 7B16 0 CODE 0 text9 dist/default/production\test.X.production.obj
+__end_of_straight 7B5A 0 CODE 0 text1 dist/default/production\test.X.production.obj
 __Lintcodelo 2000 0 CODE 0 intcodelo dist/default/production\test.X.production.obj
-start_initialization 7C66 0 CODE 0 cinit dist/default/production\test.X.production.obj
+_mini_left_down 7B8C 0 CODE 0 text6 dist/default/production\test.X.production.obj
+start_initialization 7B10 0 CODE 0 cinit dist/default/production\test.X.production.obj
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\test.X.production.obj
-__end_of_small_left_down 7D4A 0 CODE 0 text3 dist/default/production\test.X.production.obj
+__end_of_small_left_down 7C54 0 CODE 0 text3 dist/default/production\test.X.production.obj
 ___rparam_used 1 0 ABS 0 - dist/default/production\test.X.production.obj
-_right_down 7CE6 0 CODE 0 text4 dist/default/production\test.X.production.obj
+_right_down 7BF0 0 CODE 0 text4 dist/default/production\test.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\test.X.production.obj
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\test.X.production.obj
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\test.X.production.obj
@@ -278,13 +318,15 @@ __Htext5 0 0 ABS 0 text5 dist/default/production\test.X.production.obj
 __Htext6 0 0 ABS 0 text6 dist/default/production\test.X.production.obj
 __Htext7 0 0 ABS 0 text7 dist/default/production\test.X.production.obj
 __Htext8 0 0 ABS 0 text8 dist/default/production\test.X.production.obj
+__Htext9 0 0 ABS 0 text9 dist/default/production\test.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\test.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\test.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\test.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\test.X.production.obj
-__end_of_wait00 7DF2 0 CODE 0 text8 dist/default/production\test.X.production.obj
-_small_left_down 7D18 0 CODE 0 text3 dist/default/production\test.X.production.obj
+__end_of_mini_left_down 7BBE 0 CODE 0 text6 dist/default/production\test.X.production.obj
+__end_of_wait00 7CFC 0 CODE 0 text10 dist/default/production\test.X.production.obj
+_small_left_down 7C22 0 CODE 0 text3 dist/default/production\test.X.production.obj
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\test.X.production.obj
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\test.X.production.obj
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\test.X.production.obj
@@ -310,6 +352,8 @@ __Ltext5 0 0 ABS 0 text5 dist/default/production\test.X.production.obj
 __Ltext6 0 0 ABS 0 text6 dist/default/production\test.X.production.obj
 __Ltext7 0 0 ABS 0 text7 dist/default/production\test.X.production.obj
 __Ltext8 0 0 ABS 0 text8 dist/default/production\test.X.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/production\test.X.production.obj
+__size_of_fast_straight 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\test.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\test.X.production.obj
 _PORTAbits F80 0 ABS 0 - dist/default/production\test.X.production.obj
@@ -335,66 +379,77 @@ __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\test.X.production
 __Hintret 0 0 ABS 0 intret dist/default/production\test.X.production.obj
 __Hirdata 0 0 CODE 0 irdata dist/default/production\test.X.production.obj
 __S0 30000E 0 ABS 0 - dist/default/production\test.X.production.obj
-__S1 8 0 ABS 0 - dist/default/production\test.X.production.obj
+__S1 12 0 ABS 0 - dist/default/production\test.X.production.obj
 __S2 0 0 ABS 0 - dist/default/production\test.X.production.obj
-_do_sth 7C70 0 CODE 0 text7 dist/default/production\test.X.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\test.X.production.obj
+__end_of_fast_straight 7B38 0 CODE 0 text9 dist/default/production\test.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\test.X.production.obj
-__end_of_right_down 7D18 0 CODE 0 text4 dist/default/production\test.X.production.obj
+__end_of_right_down 7C22 0 CODE 0 text4 dist/default/production\test.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production\test.X.production.obj
 __Hramtop 800 0 RAM 0 ramtop dist/default/production\test.X.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\test.X.production.obj
-__activetblptr 2 0 ABS 0 - dist/default/production\test.X.production.obj
+__activetblptr 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\test.X.production.obj
+__Htext10 0 0 ABS 0 text10 dist/default/production\test.X.production.obj
+__ptext10 7CBA 0 CODE 0 text10 dist/default/production\test.X.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\test.X.production.obj
 __Lbigram 0 0 ABS 0 bigram dist/default/production\test.X.production.obj
-__size_of_do_sth 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __size_of_small_left_down 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Lcomram 0 0 ABS 0 comram dist/default/production\test.X.production.obj
 __Lconfig 300000 0 CONFIG 0 config dist/default/production\test.X.production.obj
+__end_of_mini_right_down 7BF0 0 CODE 0 text5 dist/default/production\test.X.production.obj
+main@flag A 0 COMRAM 1 cstackCOMRAM dist/default/production\test.X.production.obj
+main@last C 0 COMRAM 1 cstackCOMRAM dist/default/production\test.X.production.obj
+main@left 10 0 COMRAM 1 cstackCOMRAM dist/default/production\test.X.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\test.X.production.obj
+main@right E 0 COMRAM 1 cstackCOMRAM dist/default/production\test.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\test.X.production.obj
-stackhi 7FF 0 ABS 0 - C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
-stacklo 60 0 ABS 0 - C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
+stackhi 7FF 0 ABS 0 - C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
+stacklo 60 0 ABS 0 - C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
 __Lintcode 2000 0 CODE 0 intcode dist/default/production\test.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\test.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\test.X.production.obj
-_wait00 7DB0 0 CODE 0 text8 dist/default/production\test.X.production.obj
+_wait00 7CBA 0 CODE 0 text10 dist/default/production\test.X.production.obj
 __Lspace_0 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Lspace_1 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Lspace_2 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\test.X.production.obj
-end_of_initialization 7C66 0 CODE 0 cinit dist/default/production\test.X.production.obj
+end_of_initialization 7B10 0 CODE 0 cinit dist/default/production\test.X.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\test.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production\test.X.production.obj
 __Hreset_vec 2000 0 CODE 0 reset_vec dist/default/production\test.X.production.obj
-__end_of_left_down 7CE6 0 CODE 0 text5 dist/default/production\test.X.production.obj
+_mini_right_down 7BBE 0 CODE 0 text5 dist/default/production\test.X.production.obj
+__end_of_left_down 7B8C 0 CODE 0 text7 dist/default/production\test.X.production.obj
 __Lramtop 800 0 RAM 0 ramtop dist/default/production\test.X.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\test.X.production.obj
 __size_of_left_down 0 0 ABS 0 - dist/default/production\test.X.production.obj
-__pcinit 7C66 0 CODE 0 cinit dist/default/production\test.X.production.obj
-__ptext0 7DF2 0 CODE 0 text0 dist/default/production\test.X.production.obj
-__ptext1 7C92 0 CODE 0 text1 dist/default/production\test.X.production.obj
-__ptext2 7D4A 0 CODE 0 text2 dist/default/production\test.X.production.obj
-__ptext3 7D18 0 CODE 0 text3 dist/default/production\test.X.production.obj
-__ptext4 7CE6 0 CODE 0 text4 dist/default/production\test.X.production.obj
-__ptext5 7CB4 0 CODE 0 text5 dist/default/production\test.X.production.obj
-__ptext6 7D7C 0 CODE 0 text6 dist/default/production\test.X.production.obj
-__ptext7 7C70 0 CODE 0 text7 dist/default/production\test.X.production.obj
-__ptext8 7DB0 0 CODE 0 text8 dist/default/production\test.X.production.obj
+__pcinit 7B10 0 CODE 0 cinit dist/default/production\test.X.production.obj
+__ptext0 7CFC 0 CODE 0 text0 dist/default/production\test.X.production.obj
+__ptext1 7B38 0 CODE 0 text1 dist/default/production\test.X.production.obj
+__ptext2 7C54 0 CODE 0 text2 dist/default/production\test.X.production.obj
+__ptext3 7C22 0 CODE 0 text3 dist/default/production\test.X.production.obj
+__ptext4 7BF0 0 CODE 0 text4 dist/default/production\test.X.production.obj
+__ptext5 7BBE 0 CODE 0 text5 dist/default/production\test.X.production.obj
+__ptext6 7B8C 0 CODE 0 text6 dist/default/production\test.X.production.obj
+__ptext7 7B5A 0 CODE 0 text7 dist/default/production\test.X.production.obj
+__ptext8 7C86 0 CODE 0 text8 dist/default/production\test.X.production.obj
+__ptext9 7B16 0 CODE 0 text9 dist/default/production\test.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\test.X.production.obj
-__ramtop 800 0 RAM 0 ramtop C:\Users\ThuPT\AppData\Local\Temp\s2u4.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/production\test.X.production.obj
+__ramtop 800 0 RAM 0 ramtop C:\Users\ThuPT\AppData\Local\Temp\s5ds.obj
 __size_of_wait00 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Lpowerup 2000 0 CODE 0 powerup dist/default/production\test.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\test.X.production.obj
 __Lreset_vec 2000 0 CODE 0 reset_vec dist/default/production\test.X.production.obj
-_left_down 7CB4 0 CODE 0 text5 dist/default/production\test.X.production.obj
+_left_down 7B5A 0 CODE 0 text7 dist/default/production\test.X.production.obj
 ___param_bank 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\test.X.production.obj
-__end_of__initialization 7C66 0 CODE 0 cinit dist/default/production\test.X.production.obj
+__end_of__initialization 7B10 0 CODE 0 cinit dist/default/production\test.X.production.obj
 __size_of_right_down 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\test.X.production.obj
+main@strght 8 0 COMRAM 1 cstackCOMRAM dist/default/production\test.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\test.X.production.obj
+__size_of_mini_left_down 0 0 ABS 0 - dist/default/production\test.X.production.obj
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\test.X.production.obj
 __end_of_main 8000 0 CODE 0 text0 dist/default/production\test.X.production.obj
 _PORTA F80 0 ABS 0 - dist/default/production\test.X.production.obj
@@ -411,7 +466,8 @@ __LRAM 1 0 ABS 0 - dist/default/production\test.X.production.obj
 __Lbss 0 0 RAM 1 bss dist/default/production\test.X.production.obj
 __Lram 0 0 ABS 0 ram dist/default/production\test.X.production.obj
 __Lsfr 0 0 ABS 0 sfr dist/default/production\test.X.production.obj
-__initialization 7C66 0 CODE 0 cinit dist/default/production\test.X.production.obj
+__size_of_mini_right_down 0 0 ABS 0 - dist/default/production\test.X.production.obj
+__initialization 7B10 0 CODE 0 cinit dist/default/production\test.X.production.obj
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\test.X.production.obj
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\test.X.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\test.X.production.obj
@@ -441,17 +497,19 @@ __Hintcode 2000 0 CODE 0 intcode dist/default/production\test.X.production.obj
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7C66 7C66 A 1
+cinit 0 7B10 7B10 6 1
 idloc 0 200000 200000 8 1
-text0 0 7DF2 7DF2 20E 1
-text1 0 7C92 7C92 22 1
-text2 0 7D4A 7D4A 32 1
-text3 0 7D18 7D18 32 1
-text4 0 7CE6 7CE6 32 1
-text5 0 7CB4 7CB4 32 1
-text6 0 7D7C 7D7C 34 1
-text7 0 7C70 7C70 22 1
-text8 0 7DB0 7DB0 42 1
-cstackCOMRAM 1 1 1 7 1
+text0 0 7CFC 7CFC 304 1
+text1 0 7B38 7B38 22 1
+text2 0 7C54 7C54 32 1
+text3 0 7C22 7C22 32 1
+text4 0 7BF0 7BF0 32 1
+text5 0 7BBE 7BBE 32 1
+text6 0 7B8C 7B8C 32 1
+text7 0 7B5A 7B5A 32 1
+text8 0 7C86 7C86 34 1
+text9 0 7B16 7B16 22 1
+text10 0 7CBA 7CBA 42 1
+cstackCOMRAM 1 1 1 11 1
 reset_vec 0 2000 2000 4 1
 config 0 300000 300000 E 1
