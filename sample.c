@@ -21,7 +21,7 @@ int right_down(void){
     PORTC=0x01; /* left motor on */
     wait00(20); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(500); /* 0.2msec wait */
+    wait00(40); /* 0.79msec wait */
 }
 
 int small_right_down(void){
@@ -30,7 +30,7 @@ int small_right_down(void){
     PORTC=0x01;  /* left motor on */
     wait00(8);   /* 0.02msec wait */
     PORTC=0x00;  /* both motor off */
-    wait00(500);  /* 0.20msec wait */
+    wait00(100);  /* 0.20msec wait */
 }
 
 int left_down(void){
@@ -39,7 +39,7 @@ int left_down(void){
     PORTC=0x02; /* right motor on */
     wait00(20); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(500); /* 0.2msec wait */
+    wait00(40); /* 0.79msec wait */
 }
 
 int small_left_down(void){
@@ -48,21 +48,21 @@ int small_left_down(void){
    PORTC=0x02;  /* right motor on */
    wait00(8);   /* 0.02sec wait */
    PORTC=0x00;  /* both motor off */
-   wait00(500);  /* 0.20msec wait */
+   wait00(100);  /* 0.20msec wait */
 }
 
 int straight(void){
     PORTC=0x03; /* both motor on */
     wait00(2); /* 0.08msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(500); /* 0.2msec wait */
+    wait00(40); /* 0.2msec wait */
 }
 
 int do_sth(void){
     PORTC=0x03; /* both motor on */
     wait00(2); /* 0.08msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(500); /* 0.2msec wait */
+    wait00(200); /* 0.2msec wait */
 }
 
 int led_sens(void)
@@ -111,7 +111,7 @@ main(void)
                         } else if (PORTBbits.RB2==1) {
                             if (PORTBbits.RB3==0 && PORTBbits.RB4==0) straight(); /*black black white black black */
                             else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*black black white black white */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) straight(); /*black black white white black */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) small_right_down(); /*black black white white black */
                             else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) left_down(); /*black black white white white */
                         }
                         break;
@@ -122,7 +122,7 @@ main(void)
                             else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*black white black white black */
                             else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) do_sth(); /*black white black white white */
                         } else if (PORTBbits.RB2==1) {
-                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) straight(); /*black white white black black */
+                            if (PORTBbits.RB3==0 && PORTBbits.RB4==0) small_left_down(); /*black white white black black */
                             else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*black white white black white */
                             else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) straight(); /*black white white white black */
                             else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) left_down(); /*black white white white white */
@@ -138,7 +138,7 @@ main(void)
                             if (PORTBbits.RB3==0 && PORTBbits.RB4==0) left_down(); /*white black black black black */
                             else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) straight(); /*white black black black white */
                             else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*white black black white black */
-                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) straight(); /*white black black white white */
+                            else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) small_left_down(); /*white black black white white */
                         } else if (PORTBbits.RB2==1) {
                             if (PORTBbits.RB3==0 && PORTBbits.RB4==0) do_sth(); /*white black white black black */
                             else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth(); /*white black white black white */
@@ -149,7 +149,7 @@ main(void)
                     case 1:
                         if (PORTBbits.RB2==0) {
                             if (PORTBbits.RB3==0 && PORTBbits.RB4==0) left_down(); /*white white black black black */
-                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) straight(); /*white white black black white */
+                            else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) small_right_down(); /*white white black black white */
                             else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth(); /*white white black white black */
                             else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) straight(); /*white white black white white */
                         } else if (PORTBbits.RB2==1) {

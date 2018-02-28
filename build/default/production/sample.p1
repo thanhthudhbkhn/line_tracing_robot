@@ -3256,9 +3256,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 23: PORTC=0x00;
 "23
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 24: wait00(500);
+[; ;sample.c: 24: wait00(40);
 "24
-[e ( _wait00 (1 -> -> 500 `i `f ]
+[e ( _wait00 (1 -> -> 40 `i `f ]
 [; ;sample.c: 25: }
 "25
 [e :UE 330 ]
@@ -3284,9 +3284,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 32: PORTC=0x00;
 "32
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 33: wait00(500);
+[; ;sample.c: 33: wait00(100);
 "33
-[e ( _wait00 (1 -> -> 500 `i `f ]
+[e ( _wait00 (1 -> -> 100 `i `f ]
 [; ;sample.c: 34: }
 "34
 [e :UE 331 ]
@@ -3312,9 +3312,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 41: PORTC=0x00;
 "41
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 42: wait00(500);
+[; ;sample.c: 42: wait00(40);
 "42
-[e ( _wait00 (1 -> -> 500 `i `f ]
+[e ( _wait00 (1 -> -> 40 `i `f ]
 [; ;sample.c: 43: }
 "43
 [e :UE 332 ]
@@ -3340,9 +3340,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 50: PORTC=0x00;
 "50
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 51: wait00(500);
+[; ;sample.c: 51: wait00(100);
 "51
-[e ( _wait00 (1 -> -> 500 `i `f ]
+[e ( _wait00 (1 -> -> 100 `i `f ]
 [; ;sample.c: 52: }
 "52
 [e :UE 333 ]
@@ -3362,9 +3362,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 57: PORTC=0x00;
 "57
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 58: wait00(500);
+[; ;sample.c: 58: wait00(40);
 "58
-[e ( _wait00 (1 -> -> 500 `i `f ]
+[e ( _wait00 (1 -> -> 40 `i `f ]
 [; ;sample.c: 59: }
 "59
 [e :UE 334 ]
@@ -3384,9 +3384,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 64: PORTC=0x00;
 "64
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 65: wait00(500);
+[; ;sample.c: 65: wait00(200);
 "65
-[e ( _wait00 (1 -> -> 500 `i `f ]
+[e ( _wait00 (1 -> -> 200 `i `f ]
 [; ;sample.c: 66: }
 "66
 [e :UE 335 ]
@@ -3534,9 +3534,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 363  ]
 "114
 [e :U 362 ]
-[; ;sample.c: 114: else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) straight();
+[; ;sample.c: 114: else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) small_right_down();
 [e $ ! && == -> . . _PORTBbits 0 3 `i -> 1 `i == -> . . _PORTBbits 0 4 `i -> 0 `i 364  ]
-[e ( _straight ..  ]
+[e ( _small_right_down ..  ]
 [e $U 365  ]
 "115
 [e :U 364 ]
@@ -3595,10 +3595,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 368 ]
 [e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 377  ]
 {
-[; ;sample.c: 125: if (PORTBbits.RB3==0 && PORTBbits.RB4==0) straight();
+[; ;sample.c: 125: if (PORTBbits.RB3==0 && PORTBbits.RB4==0) small_left_down();
 "125
 [e $ ! && == -> . . _PORTBbits 0 3 `i -> 0 `i == -> . . _PORTBbits 0 4 `i -> 0 `i 378  ]
-[e ( _straight ..  ]
+[e ( _small_left_down ..  ]
 [e $U 379  ]
 "126
 [e :U 378 ]
@@ -3680,9 +3680,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 396  ]
 "141
 [e :U 395 ]
-[; ;sample.c: 141: else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) straight();
+[; ;sample.c: 141: else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) small_left_down();
 [e $ ! && == -> . . _PORTBbits 0 3 `i -> 1 `i == -> . . _PORTBbits 0 4 `i -> 1 `i 397  ]
-[e ( _straight ..  ]
+[e ( _small_left_down ..  ]
 [e :U 397 ]
 "142
 [e :U 396 ]
@@ -3742,9 +3742,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 410  ]
 "152
 [e :U 409 ]
-[; ;sample.c: 152: else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) straight();
+[; ;sample.c: 152: else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) small_right_down();
 [e $ ! && == -> . . _PORTBbits 0 3 `i -> 0 `i == -> . . _PORTBbits 0 4 `i -> 1 `i 411  ]
-[e ( _straight ..  ]
+[e ( _small_right_down ..  ]
 [e $U 412  ]
 "153
 [e :U 411 ]
