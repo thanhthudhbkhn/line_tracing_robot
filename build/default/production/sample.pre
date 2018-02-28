@@ -4280,50 +4280,51 @@ for(i=0;i<3000;i++){
 
 int left_down(void){
 PORTC=0x03;
-wait00(0.3);
+wait00(0.1);
 PORTC=0x02;
-wait00(5);
+wait00(20);
 PORTC=0x00;
 wait00(20);
 }
 
 int small_left_down(void){
 PORTC=0x03;
-wait00(0.3);
+wait00(0.1);
 PORTC=0x02;
-wait00(2);
+wait00(10);
 PORTC=0x00;
 wait00(20);
 }
 
 int right_down(void){
 PORTC=0x03;
-wait00(0.3);
+wait00(0.1);
 PORTC=0x01;
-wait00(5);
+wait00(20);
 PORTC=0x00;
 wait00(20);
 }
 
 int small_right_down(void){
 PORTC=0x03;
-wait00(0.8);
+wait00(0.1);
 PORTC=0x01;
-wait00(2);
+wait00(10);
 PORTC=0x00;
 wait00(20);
+
 }
 
 int straight(void){
 PORTC=0x03;
-wait00(8);
+wait00(1);
 PORTC=0x00;
 wait00(20);
 }
 
 int do_sth(void){
 PORTC=0x03;
-wait00(2);
+wait00(0.5);
 PORTC=0x00;
 wait00(20);
 }
@@ -4361,9 +4362,72 @@ led_sens();
 
 while(1){
 led_sens();
-while(1) small_right_down();
 
-# 166
+switch (PORTBbits.RB0) {
+case 0:
+switch (PORTBbits.RB1) {
+case 0:
+if (PORTBbits.RB2==0) {
+if (PORTBbits.RB3==0 && PORTBbits.RB4==0) straight();
+else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) right_down();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) small_right_down();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) right_down();
+} else if (PORTBbits.RB2==1) {
+if (PORTBbits.RB3==0 && PORTBbits.RB4==0) straight();
+else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) small_right_down();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) left_down();
+}
+break;
+case 1:
+if (PORTBbits.RB2==0) {
+if (PORTBbits.RB3==0 && PORTBbits.RB4==0) small_left_down();
+else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) do_sth();
+} else if (PORTBbits.RB2==1) {
+if (PORTBbits.RB3==0 && PORTBbits.RB4==0) small_left_down();
+else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) straight();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) left_down();
+}
+break;
+default: break;
+}
+break;
+case 1:
+switch (PORTBbits.RB1) {
+case 0:
+if (PORTBbits.RB2==0) {
+if (PORTBbits.RB3==0 && PORTBbits.RB4==0) left_down();
+else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) straight();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) small_left_down();
+} else if (PORTBbits.RB2==1) {
+if (PORTBbits.RB3==0 && PORTBbits.RB4==0) do_sth();
+else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) do_sth();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) small_left_down();
+}
+break;
+case 1:
+if (PORTBbits.RB2==0) {
+if (PORTBbits.RB3==0 && PORTBbits.RB4==0) left_down();
+else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) small_right_down();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) do_sth();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) straight();
+} else if (PORTBbits.RB2==1) {
+if (PORTBbits.RB3==0 && PORTBbits.RB4==0) right_down();
+else if (PORTBbits.RB3==0 && PORTBbits.RB4==1) small_right_down();
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==0) right_down;
+else if (PORTBbits.RB3==1 && PORTBbits.RB4==1) straight();
+}
+break;
+default: break;
+}
+break;
+default: break;
+}
 }
 
 }

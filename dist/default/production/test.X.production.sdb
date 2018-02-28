@@ -25,11 +25,21 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "6 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
 [v _wait00 wait00 `(i  1 e 2 0 ]
+"17
+[v _left_down left_down `(i  1 e 2 0 ]
+"26
+[v _small_left_down small_left_down `(i  1 e 2 0 ]
+"35
+[v _right_down right_down `(i  1 e 2 0 ]
 "44
 [v _small_right_down small_right_down `(i  1 e 2 0 ]
-"67
+"54
+[v _straight straight `(i  1 e 2 0 ]
+"61
+[v _do_sth do_sth `(i  1 e 2 0 ]
+"68
 [v _led_sens led_sens `(i  1 e 2 0 ]
-"76
+"77
 [v _main main `(i  1 e 2 0 ]
 "2115 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -98,15 +108,45 @@
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "5398
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"76 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
+"77 C:\Users\ThuPT\MPLABXProjects\test.X\sample.c
 [v _main main `(i  1 e 2 0 ]
 {
-"168
+"169
+} 0
+"54
+[v _straight straight `(i  1 e 2 0 ]
+{
+"59
 } 0
 "44
 [v _small_right_down small_right_down `(i  1 e 2 0 ]
 {
-"51
+"52
+} 0
+"26
+[v _small_left_down small_left_down `(i  1 e 2 0 ]
+{
+"33
+} 0
+"35
+[v _right_down right_down `(i  1 e 2 0 ]
+{
+"42
+} 0
+"17
+[v _left_down left_down `(i  1 e 2 0 ]
+{
+"24
+} 0
+"68
+[v _led_sens led_sens `(i  1 e 2 0 ]
+{
+"75
+} 0
+"61
+[v _do_sth do_sth `(i  1 e 2 0 ]
+{
+"66
 } 0
 "6
 [v _wait00 wait00 `(i  1 e 2 0 ]
@@ -118,9 +158,4 @@
 "6
 [v wait00@k k `s  1 p 2 0 ]
 "15
-} 0
-"67
-[v _led_sens led_sens `(i  1 e 2 0 ]
-{
-"74
 } 0
