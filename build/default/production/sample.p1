@@ -3274,15 +3274,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 33: PORTC=0x01;
 "33
 [e = _PORTC -> -> 1 `i `uc ]
-[; ;sample.c: 34: wait00(8);
+[; ;sample.c: 34: wait00(4);
 "34
-[e ( _wait00 (1 -> -> 8 `i `f ]
+[e ( _wait00 (1 -> -> 4 `i `f ]
 [; ;sample.c: 35: PORTC=0x00;
 "35
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 36: wait00(20);
+[; ;sample.c: 36: wait00(10);
 "36
-[e ( _wait00 (1 -> -> 20 `i `f ]
+[e ( _wait00 (1 -> -> 10 `i `f ]
 [; ;sample.c: 37: }
 "37
 [e :UE 331 ]
@@ -3455,302 +3455,513 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 100: case 0b00000:
 "100
 [e :U 345 ]
-[; ;sample.c: 101: straight();
 "101
-[e ( _straight ..  ]
-[; ;sample.c: 102: break;
-"102
-[e $U 343  ]
-[; ;sample.c: 103: case 0b00001:
-"103
 [e :U 346 ]
-[; ;sample.c: 104: left_down();
+[; ;sample.c: 101: case 0b11111:
+[; ;sample.c: 102: if (status == 2) {
+"102
+[e $ ! == _status -> 2 `i 347  ]
+{
+[; ;sample.c: 103: right_down();
+"103
+[e ( _right_down ..  ]
 "104
-[e ( _left_down ..  ]
-[; ;sample.c: 105: break;
+}
+[; ;sample.c: 104: }
+[e $U 348  ]
 "105
-[e $U 343  ]
-[; ;sample.c: 106: case 0b00010:
-"106
 [e :U 347 ]
-[; ;sample.c: 107: small_left_down();
-"107
-[e ( _small_left_down ..  ]
-[; ;sample.c: 108: break;
-"108
-[e $U 343  ]
-[; ;sample.c: 109: case 0b00011:
-"109
-[e :U 348 ]
-[; ;sample.c: 110: left_down();
-"110
+[; ;sample.c: 105: else if (status == 1) {
+[e $ ! == _status -> 1 `i 349  ]
+{
+[; ;sample.c: 106: left_down();
+"106
 [e ( _left_down ..  ]
-[; ;sample.c: 111: break;
-"111
-[e $U 343  ]
-[; ;sample.c: 112: case 0b00100:
-"112
+"107
+}
+[; ;sample.c: 107: }
+[e $U 350  ]
+"108
 [e :U 349 ]
-[; ;sample.c: 113: straight();
-"113
+[; ;sample.c: 108: else straight();
 [e ( _straight ..  ]
+[e :U 350 ]
+[e :U 348 ]
+[; ;sample.c: 109: break;
+"109
+[e $U 343  ]
+[; ;sample.c: 110: case 0b00001:
+"110
+[e :U 351 ]
+[; ;sample.c: 111: background = 0;
+"111
+[e = _background -> 0 `i ]
+[; ;sample.c: 112: left_down();
+"112
+[e ( _left_down ..  ]
+[; ;sample.c: 113: status = 1;
+"113
+[e = _status -> 1 `i ]
 [; ;sample.c: 114: break;
 "114
 [e $U 343  ]
-[; ;sample.c: 115: case 0b00101: break;
+[; ;sample.c: 115: case 0b00010:
 "115
-[e :U 350 ]
-[e $U 343  ]
-[; ;sample.c: 116: case 0b00110:
-"116
-[e :U 351 ]
-[; ;sample.c: 117: straight();
-"117
-[e ( _straight ..  ]
-[; ;sample.c: 118: break;
-"118
-[e $U 343  ]
-[; ;sample.c: 119: case 0b00111:
-"119
 [e :U 352 ]
-[; ;sample.c: 120: right_down();
+[; ;sample.c: 116: background = 0;
+"116
+[e = _background -> 0 `i ]
+[; ;sample.c: 117: small_left_down();
+"117
+[e ( _small_left_down ..  ]
+[; ;sample.c: 118: status = 1;
+"118
+[e = _status -> 1 `i ]
+[; ;sample.c: 119: break;
+"119
+[e $U 343  ]
+[; ;sample.c: 120: case 0b00011:
 "120
-[e ( _right_down ..  ]
-[; ;sample.c: 121: break;
-"121
-[e $U 343  ]
-[; ;sample.c: 122: case 0b01000:
-"122
 [e :U 353 ]
-[; ;sample.c: 123: small_right_down();
-"123
+[; ;sample.c: 121: if (background == 1) {
+"121
+[e $ ! == _background -> 1 `i 354  ]
+{
+[; ;sample.c: 122: small_right_down();
+"122
 [e ( _small_right_down ..  ]
-[; ;sample.c: 124: break;
-"124
-[e $U 343  ]
-[; ;sample.c: 125: case 0b01001: break;
-"125
-[e :U 354 ]
-[e $U 343  ]
-[; ;sample.c: 126: case 0b01010: break;
-"126
-[e :U 355 ]
-[e $U 343  ]
-[; ;sample.c: 127: case 0b01011: break;
-"127
-[e :U 356 ]
-[e $U 343  ]
-[; ;sample.c: 128: case 0b01100:
-"128
-[e :U 357 ]
-[; ;sample.c: 129: straight();
-"129
-[e ( _straight ..  ]
-[; ;sample.c: 130: break;
-"130
-[e $U 343  ]
-[; ;sample.c: 131: case 0b01101: break;
-"131
-[e :U 358 ]
-[e $U 343  ]
-[; ;sample.c: 132: case 0b01110:
-"132
-[e :U 359 ]
-[; ;sample.c: 133: straight();
-"133
-[e ( _straight ..  ]
-[; ;sample.c: 134: break;
-"134
-[e $U 343  ]
-[; ;sample.c: 135: case 0b01111:
-"135
-[e :U 360 ]
-[; ;sample.c: 136: background = 1;
-"136
-[e = _background -> 1 `i ]
-[; ;sample.c: 137: right_down();
-"137
-[e ( _right_down ..  ]
-[; ;sample.c: 138: status = 2;
-"138
+[; ;sample.c: 123: status = 2;
+"123
 [e = _status -> 2 `i ]
+"124
+}
+[; ;sample.c: 124: } else {
+[e $U 355  ]
+[e :U 354 ]
+{
+[; ;sample.c: 125: left_down();
+"125
+[e ( _left_down ..  ]
+[; ;sample.c: 126: status = 1;
+"126
+[e = _status -> 1 `i ]
+"127
+}
+[e :U 355 ]
+[; ;sample.c: 127: }
+[; ;sample.c: 128: break;
+"128
+[e $U 343  ]
+[; ;sample.c: 129: case 0b00100:
+"129
+[e :U 356 ]
+[; ;sample.c: 130: background = 0;
+"130
+[e = _background -> 0 `i ]
+[; ;sample.c: 131: straight();
+"131
+[e ( _straight ..  ]
+[; ;sample.c: 132: status = 0;
+"132
+[e = _status -> 0 `i ]
+[; ;sample.c: 133: break;
+"133
+[e $U 343  ]
+[; ;sample.c: 134: case 0b00101: break;
+"134
+[e :U 357 ]
+[e $U 343  ]
+[; ;sample.c: 135: case 0b00110:
+"135
+[e :U 358 ]
+[; ;sample.c: 136: background = 0;
+"136
+[e = _background -> 0 `i ]
+[; ;sample.c: 137: small_left_down();
+"137
+[e ( _small_left_down ..  ]
+[; ;sample.c: 138: status = 1;
+"138
+[e = _status -> 1 `i ]
 [; ;sample.c: 139: break;
 "139
 [e $U 343  ]
-[; ;sample.c: 140: case 0b10000:
+[; ;sample.c: 140: case 0b00111:
 "140
-[e :U 361 ]
-[; ;sample.c: 141: right_down();
+[e :U 359 ]
+[; ;sample.c: 141: if(background == 0) {
 "141
-[e ( _right_down ..  ]
-[; ;sample.c: 142: break;
+[e $ ! == _background -> 0 `i 360  ]
+{
+[; ;sample.c: 142: small_left_down();
 "142
-[e $U 343  ]
-[; ;sample.c: 143: case 0b10001:
+[e ( _small_left_down ..  ]
+[; ;sample.c: 143: status = 1;
 "143
-[e :U 362 ]
-[; ;sample.c: 144: straight();
+[e = _status -> 1 `i ]
 "144
-[e ( _straight ..  ]
-[; ;sample.c: 145: break;
+}
+[; ;sample.c: 144: } else{
+[e $U 361  ]
+[e :U 360 ]
+{
+[; ;sample.c: 145: right_down();
 "145
-[e $U 343  ]
-[; ;sample.c: 146: case 0b10010: break;
+[e ( _right_down ..  ]
+[; ;sample.c: 146: status = 2;
 "146
-[e :U 363 ]
-[e $U 343  ]
-[; ;sample.c: 147: case 0b10011:
+[e = _status -> 2 `i ]
+[; ;sample.c: 147: background=1;
 "147
-[e :U 364 ]
-[; ;sample.c: 148: straight();
+[e = _background -> 1 `i ]
 "148
-[e ( _straight ..  ]
+}
+[e :U 361 ]
+[; ;sample.c: 148: }
 [; ;sample.c: 149: break;
 "149
 [e $U 343  ]
-[; ;sample.c: 150: case 0b10100: break;
+[; ;sample.c: 150: case 0b01000:
 "150
+[e :U 362 ]
+[; ;sample.c: 151: background= 0;
+"151
+[e = _background -> 0 `i ]
+[; ;sample.c: 152: small_right_down();
+"152
+[e ( _small_right_down ..  ]
+[; ;sample.c: 153: status = 2;
+"153
+[e = _status -> 2 `i ]
+[; ;sample.c: 154: break;
+"154
+[e $U 343  ]
+[; ;sample.c: 155: case 0b01001: break;
+"155
+[e :U 363 ]
+[e $U 343  ]
+[; ;sample.c: 156: case 0b01010: break;
+"156
+[e :U 364 ]
+[e $U 343  ]
+[; ;sample.c: 157: case 0b01011: break;
+"157
 [e :U 365 ]
 [e $U 343  ]
-[; ;sample.c: 151: case 0b10101: break;
-"151
+[; ;sample.c: 158: case 0b01100:
+"158
 [e :U 366 ]
+[; ;sample.c: 159: background = 0;
+"159
+[e = _background -> 0 `i ]
+[; ;sample.c: 160: small_right_down();
+"160
+[e ( _small_right_down ..  ]
+[; ;sample.c: 161: status = 2;
+"161
+[e = _status -> 2 `i ]
+[; ;sample.c: 162: break;
+"162
 [e $U 343  ]
-[; ;sample.c: 152: case 0b10110: break;
-"152
+[; ;sample.c: 163: case 0b01101: break;
+"163
 [e :U 367 ]
 [e $U 343  ]
-[; ;sample.c: 153: case 0b10111:
-"153
-[e :U 368 ]
-[; ;sample.c: 154: small_right_down();
-"154
-[e ( _small_right_down ..  ]
-[; ;sample.c: 155: break;
-"155
-[e $U 343  ]
-[; ;sample.c: 156: case 0b11000:
-"156
-[e :U 369 ]
-[; ;sample.c: 157: right_down();
-"157
-[e ( _right_down ..  ]
-[; ;sample.c: 158: break;
-"158
-[e $U 343  ]
-[; ;sample.c: 159: case 0b11001:
-"159
-[e :U 370 ]
-[; ;sample.c: 160: straight();
-"160
-[e ( _straight ..  ]
-[; ;sample.c: 161: break;
-"161
-[e $U 343  ]
-[; ;sample.c: 162: case 0b11010: break;
-"162
-[e :U 371 ]
-[e $U 343  ]
-[; ;sample.c: 163: case 0b11011:
-"163
-[e :U 372 ]
-[; ;sample.c: 164: straight();
+[; ;sample.c: 164: case 0b01110:
 "164
-[e ( _straight ..  ]
-[; ;sample.c: 165: break;
+[e :U 368 ]
+[; ;sample.c: 165: background = 0;
 "165
-[e $U 343  ]
-[; ;sample.c: 166: case 0b11100:
+[e = _background -> 0 `i ]
+[; ;sample.c: 166: straight();
 "166
-[e :U 373 ]
-[; ;sample.c: 167: left_down();
+[e ( _straight ..  ]
+[; ;sample.c: 167: status = 0;
 "167
-[e ( _left_down ..  ]
+[e = _status -> 0 `i ]
 [; ;sample.c: 168: break;
 "168
 [e $U 343  ]
-[; ;sample.c: 169: case 0b11101:
+[; ;sample.c: 169: case 0b01111:
 "169
-[e :U 374 ]
-[; ;sample.c: 170: small_left_down();
+[e :U 369 ]
+[; ;sample.c: 170: background = 1;
 "170
-[e ( _small_left_down ..  ]
-[; ;sample.c: 171: break;
+[e = _background -> 1 `i ]
+[; ;sample.c: 171: right_down();
 "171
-[e $U 343  ]
-[; ;sample.c: 172: case 0b11110:
+[e ( _right_down ..  ]
+[; ;sample.c: 172: status = 2;
 "172
-[e :U 375 ]
-[; ;sample.c: 173: left_down();
+[e = _status -> 2 `i ]
+[; ;sample.c: 173: break;
 "173
-[e ( _left_down ..  ]
-[; ;sample.c: 174: case 0b11111:
+[e $U 343  ]
+[; ;sample.c: 174: case 0b10000:
 "174
-[e :U 376 ]
-[; ;sample.c: 175: straight();
+[e :U 370 ]
+[; ;sample.c: 175: background = 0;
 "175
-[e ( _straight ..  ]
-[; ;sample.c: 176: break;
+[e = _background -> 0 `i ]
+[; ;sample.c: 176: right_down();
 "176
-[e $U 343  ]
-[; ;sample.c: 177: default:
+[e ( _right_down ..  ]
+[; ;sample.c: 177: status = 2;
 "177
-[e :U 377 ]
-[; ;sample.c: 178: straight();
+[e = _status -> 2 `i ]
+[; ;sample.c: 178: break;
 "178
-[e ( _straight ..  ]
-[; ;sample.c: 179: break;
-"179
 [e $U 343  ]
+[; ;sample.c: 179: case 0b10001:
+"179
+[e :U 371 ]
+[; ;sample.c: 180: background = 1;
 "180
+[e = _background -> 1 `i ]
+[; ;sample.c: 181: straight();
+"181
+[e ( _straight ..  ]
+[; ;sample.c: 182: status = 0;
+"182
+[e = _status -> 0 `i ]
+[; ;sample.c: 183: break;
+"183
+[e $U 343  ]
+[; ;sample.c: 184: case 0b10010: break;
+"184
+[e :U 372 ]
+[e $U 343  ]
+[; ;sample.c: 185: case 0b10011:
+"185
+[e :U 373 ]
+[; ;sample.c: 186: background = 1;
+"186
+[e = _background -> 1 `i ]
+[; ;sample.c: 187: small_right_down();
+"187
+[e ( _small_right_down ..  ]
+[; ;sample.c: 188: status = 2;
+"188
+[e = _status -> 2 `i ]
+[; ;sample.c: 189: break;
+"189
+[e $U 343  ]
+[; ;sample.c: 190: case 0b10100: break;
+"190
+[e :U 374 ]
+[e $U 343  ]
+[; ;sample.c: 191: case 0b10101: break;
+"191
+[e :U 375 ]
+[e $U 343  ]
+[; ;sample.c: 192: case 0b10110: break;
+"192
+[e :U 376 ]
+[e $U 343  ]
+[; ;sample.c: 193: case 0b10111:
+"193
+[e :U 377 ]
+[; ;sample.c: 194: background = 1;
+"194
+[e = _background -> 1 `i ]
+[; ;sample.c: 195: small_right_down();
+"195
+[e ( _small_right_down ..  ]
+[; ;sample.c: 196: status = 2;
+"196
+[e = _status -> 2 `i ]
+[; ;sample.c: 197: break;
+"197
+[e $U 343  ]
+[; ;sample.c: 198: case 0b11000:
+"198
+[e :U 378 ]
+[; ;sample.c: 199: if (background == 1) {
+"199
+[e $ ! == _background -> 1 `i 379  ]
+{
+[; ;sample.c: 200: small_left_down();
+"200
+[e ( _small_left_down ..  ]
+[; ;sample.c: 201: status = 1;
+"201
+[e = _status -> 1 `i ]
+"202
 }
-[; ;sample.c: 180: }
+[; ;sample.c: 202: } else {
+[e $U 380  ]
+[e :U 379 ]
+{
+[; ;sample.c: 203: right_down();
+"203
+[e ( _right_down ..  ]
+[; ;sample.c: 204: status = 2;
+"204
+[e = _status -> 2 `i ]
+"205
+}
+[e :U 380 ]
+[; ;sample.c: 205: }
+[; ;sample.c: 206: break;
+"206
+[e $U 343  ]
+[; ;sample.c: 207: case 0b11001:
+"207
+[e :U 381 ]
+[; ;sample.c: 208: background = 1;
+"208
+[e = _background -> 1 `i ]
+[; ;sample.c: 209: small_left_down();
+"209
+[e ( _small_left_down ..  ]
+[; ;sample.c: 210: status = 1;
+"210
+[e = _status -> 1 `i ]
+[; ;sample.c: 211: break;
+"211
+[e $U 343  ]
+[; ;sample.c: 212: case 0b11010: break;
+"212
+[e :U 382 ]
+[e $U 343  ]
+[; ;sample.c: 213: case 0b11011:
+"213
+[e :U 383 ]
+[; ;sample.c: 214: background = 1;
+"214
+[e = _background -> 1 `i ]
+[; ;sample.c: 215: straight();
+"215
+[e ( _straight ..  ]
+[; ;sample.c: 216: status = 0;
+"216
+[e = _status -> 0 `i ]
+[; ;sample.c: 217: break;
+"217
+[e $U 343  ]
+[; ;sample.c: 218: case 0b11100:
+"218
+[e :U 384 ]
+[; ;sample.c: 219: if (background == 0) {
+"219
+[e $ ! == _background -> 0 `i 385  ]
+{
+[; ;sample.c: 220: small_right_down();
+"220
+[e ( _small_right_down ..  ]
+[; ;sample.c: 221: status = 2;
+"221
+[e = _status -> 2 `i ]
+"222
+}
+[; ;sample.c: 222: } else {
+[e $U 386  ]
+[e :U 385 ]
+{
+[; ;sample.c: 223: left_down();
+"223
+[e ( _left_down ..  ]
+[; ;sample.c: 224: status = 1;
+"224
+[e = _status -> 1 `i ]
+[; ;sample.c: 225: background = 1;
+"225
+[e = _background -> 1 `i ]
+"226
+}
+[e :U 386 ]
+[; ;sample.c: 226: }
+[; ;sample.c: 227: break;
+"227
+[e $U 343  ]
+[; ;sample.c: 228: case 0b11101:
+"228
+[e :U 387 ]
+[; ;sample.c: 229: background = 1;
+"229
+[e = _background -> 1 `i ]
+[; ;sample.c: 230: small_left_down();
+"230
+[e ( _small_left_down ..  ]
+[; ;sample.c: 231: status = 1;
+"231
+[e = _status -> 1 `i ]
+[; ;sample.c: 232: break;
+"232
+[e $U 343  ]
+[; ;sample.c: 233: case 0b11110:
+"233
+[e :U 388 ]
+[; ;sample.c: 234: background = 1;
+"234
+[e = _background -> 1 `i ]
+[; ;sample.c: 235: left_down();
+"235
+[e ( _left_down ..  ]
+[; ;sample.c: 236: status = 1;
+"236
+[e = _status -> 1 `i ]
+[; ;sample.c: 237: break;
+"237
+[e $U 343  ]
+[; ;sample.c: 238: default:
+"238
+[e :U 389 ]
+[; ;sample.c: 239: straight();
+"239
+[e ( _straight ..  ]
+[; ;sample.c: 240: break;
+"240
+[e $U 343  ]
+"241
+}
+[; ;sample.c: 241: }
 [e $U 343  ]
 "99
 [e :U 344 ]
 [e [\ _PORTB , $ -> -> 0 `i `uc 345
- , $ -> -> 1 `i `uc 346
- , $ -> -> 2 `i `uc 347
- , $ -> -> 3 `i `uc 348
- , $ -> -> 4 `i `uc 349
- , $ -> -> 5 `i `uc 350
- , $ -> -> 6 `i `uc 351
- , $ -> -> 7 `i `uc 352
- , $ -> -> 8 `i `uc 353
- , $ -> -> 9 `i `uc 354
- , $ -> -> 10 `i `uc 355
- , $ -> -> 11 `i `uc 356
- , $ -> -> 12 `i `uc 357
- , $ -> -> 13 `i `uc 358
- , $ -> -> 14 `i `uc 359
- , $ -> -> 15 `i `uc 360
- , $ -> -> 16 `i `uc 361
- , $ -> -> 17 `i `uc 362
- , $ -> -> 18 `i `uc 363
- , $ -> -> 19 `i `uc 364
- , $ -> -> 20 `i `uc 365
- , $ -> -> 21 `i `uc 366
- , $ -> -> 22 `i `uc 367
- , $ -> -> 23 `i `uc 368
- , $ -> -> 24 `i `uc 369
- , $ -> -> 25 `i `uc 370
- , $ -> -> 26 `i `uc 371
- , $ -> -> 27 `i `uc 372
- , $ -> -> 28 `i `uc 373
- , $ -> -> 29 `i `uc 374
- , $ -> -> 30 `i `uc 375
- , $ -> -> 31 `i `uc 376
- 377 ]
-"180
+ , $ -> -> 31 `i `uc 346
+ , $ -> -> 1 `i `uc 351
+ , $ -> -> 2 `i `uc 352
+ , $ -> -> 3 `i `uc 353
+ , $ -> -> 4 `i `uc 356
+ , $ -> -> 5 `i `uc 357
+ , $ -> -> 6 `i `uc 358
+ , $ -> -> 7 `i `uc 359
+ , $ -> -> 8 `i `uc 362
+ , $ -> -> 9 `i `uc 363
+ , $ -> -> 10 `i `uc 364
+ , $ -> -> 11 `i `uc 365
+ , $ -> -> 12 `i `uc 366
+ , $ -> -> 13 `i `uc 367
+ , $ -> -> 14 `i `uc 368
+ , $ -> -> 15 `i `uc 369
+ , $ -> -> 16 `i `uc 370
+ , $ -> -> 17 `i `uc 371
+ , $ -> -> 18 `i `uc 372
+ , $ -> -> 19 `i `uc 373
+ , $ -> -> 20 `i `uc 374
+ , $ -> -> 21 `i `uc 375
+ , $ -> -> 22 `i `uc 376
+ , $ -> -> 23 `i `uc 377
+ , $ -> -> 24 `i `uc 378
+ , $ -> -> 25 `i `uc 381
+ , $ -> -> 26 `i `uc 382
+ , $ -> -> 27 `i `uc 383
+ , $ -> -> 28 `i `uc 384
+ , $ -> -> 29 `i `uc 387
+ , $ -> -> 30 `i `uc 388
+ 389 ]
+"241
 [e :U 343 ]
-"192
+"253
 }
 [e :U 340 ]
 "96
 [e $U 341  ]
 [e :U 342 ]
-[; ;sample.c: 192: }
-[; ;sample.c: 194: }
-"194
+[; ;sample.c: 253: }
+[; ;sample.c: 255: }
+"255
 [e :UE 336 ]
 }

@@ -97,89 +97,144 @@ main(void) {
         led_sens();
         
         switch (PORTB) {
-            case 0b00000:
-            case 0b11111:
-                if (status == STRAIGHT) {
-                    straight();
-                }
-                else if (status == RIGHT) {
+            case 0b00000:  /*black black black black black */
+            case 0b11111: /*white white white white white */
+                if (status == RIGHT) {
                     right_down();
                 }
                 else if (status == LEFT) {
                     left_down();
                 }
+                else straight();
                 break;
             case 0b00001: 
+                background = BLACK;
                 left_down();/* turn left */
+                status = LEFT;
                 break;
             case 0b00010: 
+                background = BLACK;
                 small_left_down();/* turn a little left */
+                status = LEFT;
                 break;
-            case 0b00011: 
-                left_down();/* turn a little left */
+            case 0b00011: /*white white black black black */
+                if (background == WHITE) {
+                    small_right_down();
+                    status = RIGHT;
+                } else {
+                    left_down();
+                    status = LEFT;
+                }
                 break;
             case 0b00100: 
+                background = BLACK;
                 straight(); /* go to straight */
+                status = STRAIGHT;
                 break;
             case 0b00101: break;
             case 0b00110: 
-                straight();
+                background = BLACK;
+                small_left_down();
+                status = LEFT;
                 break;
             case 0b00111: 
-                right_down();/* turn a little right */
+                if(background == BLACK) {
+                    small_left_down();
+                    status = LEFT;
+                } else{
+                    right_down();/* turn right */
+                    status = RIGHT;
+                    background=WHITE;
+                }
                 break;
             case 0b01000: 
+                background= BLACK;
                 small_right_down();/* turn a little right */
+                status = RIGHT;
                 break;
             case 0b01001: break;
             case 0b01010: break;
             case 0b01011: break;
             case 0b01100: 
-                straight();
+                background = BLACK;
+                small_right_down();
+                status = RIGHT;
                 break;
             case 0b01101: break;
             case 0b01110: 
+                background = BLACK;
                 straight();
+                status = STRAIGHT;
                 break;
             case 0b01111: 
                 background = WHITE;
                 right_down();
                 status = RIGHT;
                 break;
-            case 0b10000:  
+            case 0b10000: /*black black black black white */
+                background = BLACK;
                 right_down();
+                status = RIGHT;
                 break;
-            case 0b10001:  
+            case 0b10001:
+                background = WHITE;
                 straight();
+                status = STRAIGHT;
                 break;
             case 0b10010: break;
             case 0b10011: 
-                straight();
+                background = WHITE;
+                small_right_down();
+                status = RIGHT;
                 break;
             case 0b10100: break;
             case 0b10101: break;
             case 0b10110: break;
             case 0b10111: 
+                background = WHITE;
                 small_right_down();
+                status = RIGHT;
                 break;
-            case 0b11000: 
-                right_down();/* turn a little right */
+            case 0b11000:
+                if (background == WHITE) {
+                    small_left_down();
+                    status = LEFT;
+                } else {
+                    right_down();
+                    status = RIGHT;
+                }
                 break;
-            case 0b11001: 
-                straight();
+            case 0b11001:
+                background = WHITE;
+                small_left_down();
+                status = LEFT;
                 break;
             case 0b11010: break;
             case 0b11011: 
+                background = WHITE;
                 straight(); /* go to straight */
+                status = STRAIGHT;
                 break;
             case 0b11100: 
-                left_down();/* turn a little left */
+                if (background == BLACK) {
+                    small_right_down();
+                    status = RIGHT;
+                } else {
+                    left_down();
+                    status = LEFT;
+                    background = WHITE;
+                }
                 break;
             case 0b11101: 
+                background = WHITE;
                 small_left_down();/* turn a little left */
+                status = LEFT;
                 break;
             case 0b11110: 
+                background = WHITE;
                 left_down();/* turn left */
+                status = LEFT;
+                break;
             default: 
                 straight();
                 break;

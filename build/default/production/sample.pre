@@ -4325,9 +4325,9 @@ int small_right_down(void){
 PORTC=0x03;
 wait00(0.3);
 PORTC=0x01;
-wait00(8);
+wait00(4);
 PORTC=0x00;
-wait00(20);
+wait00(10);
 }
 
 int left_down(void){
@@ -4392,39 +4392,73 @@ led_sens();
 
 switch (PORTB) {
 case 0b00000:
-straight();
+case 0b11111:
+if (status == 2) {
+right_down();
+}
+else if (status == 1) {
+left_down();
+}
+else straight();
 break;
 case 0b00001:
+background = 0;
 left_down();
+status = 1;
 break;
 case 0b00010:
+background = 0;
 small_left_down();
+status = 1;
 break;
 case 0b00011:
+if (background == 1) {
+small_right_down();
+status = 2;
+} else {
 left_down();
+status = 1;
+}
 break;
 case 0b00100:
+background = 0;
 straight();
+status = 0;
 break;
 case 0b00101: break;
 case 0b00110:
-straight();
+background = 0;
+small_left_down();
+status = 1;
 break;
 case 0b00111:
+if(background == 0) {
+small_left_down();
+status = 1;
+} else{
 right_down();
+status = 2;
+background=1;
+}
 break;
 case 0b01000:
+background= 0;
 small_right_down();
+status = 2;
 break;
 case 0b01001: break;
 case 0b01010: break;
 case 0b01011: break;
 case 0b01100:
-straight();
+background = 0;
+small_right_down();
+status = 2;
 break;
 case 0b01101: break;
 case 0b01110:
+background = 0;
 straight();
+status = 0;
 break;
 case 0b01111:
 background = 1;
@@ -4432,48 +4466,75 @@ right_down();
 status = 2;
 break;
 case 0b10000:
+background = 0;
 right_down();
+status = 2;
 break;
 case 0b10001:
+background = 1;
 straight();
+status = 0;
 break;
 case 0b10010: break;
 case 0b10011:
-straight();
+background = 1;
+small_right_down();
+status = 2;
 break;
 case 0b10100: break;
 case 0b10101: break;
 case 0b10110: break;
 case 0b10111:
+background = 1;
 small_right_down();
+status = 2;
 break;
 case 0b11000:
+if (background == 1) {
+small_left_down();
+status = 1;
+} else {
 right_down();
+status = 2;
+}
 break;
 case 0b11001:
-straight();
+background = 1;
+small_left_down();
+status = 1;
 break;
 case 0b11010: break;
 case 0b11011:
+background = 1;
 straight();
+status = 0;
 break;
 case 0b11100:
+if (background == 0) {
+small_right_down();
+status = 2;
+} else {
 left_down();
+status = 1;
+background = 1;
+}
 break;
 case 0b11101:
+background = 1;
 small_left_down();
+status = 1;
 break;
 case 0b11110:
+background = 1;
 left_down();
-case 0b11111:
-straight();
+status = 1;
 break;
 default:
 straight();
 break;
 }
 
-# 192
+# 253
 }
 
 }
