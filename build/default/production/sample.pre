@@ -4266,7 +4266,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 4 "sample.c"
+# 6 "sample.c"
 wait00(short k)
 {
 
@@ -4352,7 +4352,7 @@ PORTAbits.RA4 = PORTBbits.RB4;
 
 main(void){
 
-int last,right=1,left=0,strght=2,flag=2;
+int last, right=1, left=0, strght=2, map=-1;
 
 ADCON1 = 0x0F;
 
@@ -4381,116 +4381,108 @@ if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==1 
 
 right_down();
 last=right;
-flag=1;
-
+map=1;
 }
 else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
 
-if(flag==0)
+if(map == 0)
 small_left_down();
 else{
 small_right_down();
 last=right;
-flag=1;
+map=1;
 }
 }
 else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==1){
 
 fast_straight();
 last=strght;
-flag=1;
+map=1;
 }
 
 else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1){
 
-if(flag==0)
+if(map == 0)
 small_right_down();
 else{
 small_left_down();
 last=left;
-flag=1;
+map = 1;
 }
 }
 else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1){
 
 left_down();
 last=left;
-flag=1;
+map = 1;
 }
 
-else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==1) {mini_left_down();last=left;flag=1;}
-else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==1) {mini_right_down();last=right; flag=1;}
-else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==1) {mini_right_down();last=right; flag=1;}
-else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1) {mini_left_down();last=left;flag=1;}
+else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==1) {mini_left_down();last=left;map = 1;}
+else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==1) {mini_right_down();last=right; map = 1;}
+else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==1) {mini_right_down();last=right; map = 1;}
+else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1) {mini_left_down();last=left;map = 1;}
 
 
 else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==1){
 
 right_down();
 last=right;
-flag=0;
+map = 0;
 }
 
 else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==1){
 
-if(flag==1)
+if(map == 1)
 small_left_down();
 else{
 small_right_down();
 last=right;
-flag=0;
+map = 0;
 }
 }
 else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
 
-fast_straight(); last=strght;flag=0;}
+fast_straight(); last=strght;map = 0;}
 
 else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
 
-if(flag==1)
-small_right_down();
+if(map == 1) small_right_down();
 else{
 small_left_down();
 last=left;
-flag=0;
+map = 0;
 }
 }
 else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
 
 left_down();
 last=left;
-flag=0;
+map = 0;
 }
 
-else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==0) {mini_right_down();last=right;flag=0;}
-else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==0) {mini_left_down();last=left;flag=0;}
-else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==0) {mini_right_down();last=left;flag=0;}
-else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0) {mini_left_down();last=right;flag=0;}
+else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==0) {mini_right_down();last=right;map = 0;}
+else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==0) {mini_left_down();last=left;map = 0;}
+else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==0) {mini_right_down();last=left;map = 0;}
+else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0) {mini_left_down();last=right;map = 0;}
 
 
-else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
-if(last==right)
-{right_down();
-last=right;}
-else if(last==left)
-{left_down();
-last=left;}
-else if(last==strght)
-{straight();
-last=strght;}
+else if((PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0)||
+(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1)){
+if(last==right) {
+right_down();
+last=right;
 }
-else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1){
-if(last==right)
-{right_down();
-last=right;}
-else if(last==left)
-{left_down();
-last=left;}
-else if(last==strght)
-{straight();
-last=strght;}
+else if (last==left) {
+left_down();
+last=left;
 }
-else{
-straight();}
+else if (last==strght) {
+straight();
+last=strght;
+}
+}
+else {
+straight();
+}
 }
 }

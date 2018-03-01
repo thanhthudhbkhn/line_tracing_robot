@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Wed Feb 28 20:37:22 2018
+                                                                                               Thu Mar 01 14:25:20 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F2553
@@ -79,18 +79,18 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
     65                           ; #config settings
     66                           
     67                           	psect	cinit
-    68  007B10                     __pcinit:
+    68  007B50                     __pcinit:
     69                           	opt stack 0
-    70  007B10                     start_initialization:
+    70  007B50                     start_initialization:
     71                           	opt stack 0
-    72  007B10                     __initialization:
+    72  007B50                     __initialization:
     73                           	opt stack 0
-    74  007B10                     end_of_initialization:
+    74  007B50                     end_of_initialization:
     75                           	opt stack 0
-    76  007B10                     __end_of__initialization:
+    76  007B50                     __end_of__initialization:
     77                           	opt stack 0
-    78  007B10  0100               	movlb	0
-    79  007B12  EF7E  F03E         	goto	_main	;jump to C main() function
+    78  007B50  0100               	movlb	0
+    79  007B52  EF9E  F03E         	goto	_main	;jump to C main() function
     80                           
     81                           	psect	cstackCOMRAM
     82  000001                     __pcstackCOMRAM:
@@ -119,12 +119,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    105                           
    106                           ; 2 bytes @ 0x7
    107  000008                     	ds	2
-   108  00000A                     main@flag:
+   108  00000A                     main@last:
    109                           	opt stack 0
    110                           
    111                           ; 2 bytes @ 0x9
    112  00000A                     	ds	2
-   113  00000C                     main@last:
+   113  00000C                     main@map:
    114                           	opt stack 0
    115                           
    116                           ; 2 bytes @ 0xB
@@ -145,14 +145,14 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    131 ;;
    132 ;; *************** function _main *****************
    133 ;; Defined at:
-   134 ;;		line 87 in file "sample.c"
+   134 ;;		line 89 in file "sample.c"
    135 ;; Parameters:    Size  Location     Type
    136 ;;		None
    137 ;; Auto vars:     Size  Location     Type
    138 ;;  left            2   15[COMRAM] int 
    139 ;;  right           2   13[COMRAM] int 
-   140 ;;  last            2   11[COMRAM] int 
-   141 ;;  flag            2    9[COMRAM] int 
+   140 ;;  map             2   11[COMRAM] int 
+   141 ;;  last            2    9[COMRAM] int 
    142 ;;  strght          2    7[COMRAM] int 
    143 ;; Return value:  Size  Location     Type
    144 ;;                  2   57[None  ] int 
@@ -185,1325 +185,1279 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    171 ;;
    172                           
    173                           	psect	text0
-   174  007CFC                     __ptext0:
+   174  007D3C                     __ptext0:
    175                           	opt stack 0
-   176  007CFC                     _main:
+   176  007D3C                     _main:
    177                           	opt stack 29
    178                           
-   179                           ;sample.c: 89: int last,right=1,left=0,strght=2,flag=2;
+   179                           ;sample.c: 91: int last, right=1, left=0, strght=2, map=-1;
    180                           
    181                           ;incstack = 0
-   182  007CFC  0E00               	movlw	0
-   183  007CFE  6E0F               	movwf	main@right+1,c
-   184  007D00  0E01               	movlw	1
-   185  007D02  6E0E               	movwf	main@right,c
-   186  007D04  0E00               	movlw	0
-   187  007D06  6E11               	movwf	main@left+1,c
-   188  007D08  0E00               	movlw	0
-   189  007D0A  6E10               	movwf	main@left,c
-   190  007D0C  0E00               	movlw	0
-   191  007D0E  6E09               	movwf	main@strght+1,c
-   192  007D10  0E02               	movlw	2
-   193  007D12  6E08               	movwf	main@strght,c
-   194  007D14  0E00               	movlw	0
-   195  007D16  6E0B               	movwf	main@flag+1,c
-   196  007D18  0E02               	movlw	2
-   197  007D1A  6E0A               	movwf	main@flag,c
-   198                           
-   199                           ;sample.c: 91: ADCON1 = 0x0F;
-   200  007D1C  0E0F               	movlw	15
-   201  007D1E  6EC1               	movwf	4033,c	;volatile
-   202                           
-   203                           ;sample.c: 95: TRISA = 0x20;
-   204  007D20  0E20               	movlw	32
-   205  007D22  6E92               	movwf	3986,c	;volatile
-   206                           
-   207                           ;sample.c: 96: TRISB = 0xFF;
-   208  007D24  6893               	setf	3987,c	;volatile
-   209                           
-   210                           ;sample.c: 97: TRISC = 0x00;
-   211  007D26  0E00               	movlw	0
-   212  007D28  6E94               	movwf	3988,c	;volatile
-   213                           
-   214                           ;sample.c: 100: PORTA = 0x00;
-   215  007D2A  0E00               	movlw	0
-   216  007D2C  6E80               	movwf	3968,c	;volatile
-   217                           
-   218                           ;sample.c: 101: PORTB = 0x00;
-   219  007D2E  0E00               	movlw	0
-   220  007D30  6E81               	movwf	3969,c	;volatile
-   221                           
-   222                           ;sample.c: 102: PORTC = 0x00;
-   223  007D32  0E00               	movlw	0
-   224  007D34  6E82               	movwf	3970,c	;volatile
-   225                           
-   226                           ;sample.c: 105: while(PORTAbits.RA5==1){
-   227  007D36  D002               	goto	l58
-   228  007D38                     
-   229                           ;sample.c: 106: led_sens();
-   230  007D38  EC43  F03E         	call	_led_sens	;wreg free
-   231  007D3C                     l58:
-   232  007D3C  BA80               	btfsc	3968,5,c	;volatile
-   233  007D3E  D7FC               	goto	l59
-   234  007D40                     u1230:
+   182  007D3C  0E00               	movlw	0
+   183  007D3E  6E0F               	movwf	main@right+1,c
+   184  007D40  0E01               	movlw	1
+   185  007D42  6E0E               	movwf	main@right,c
+   186  007D44  0E00               	movlw	0
+   187  007D46  6E11               	movwf	main@left+1,c
+   188  007D48  0E00               	movlw	0
+   189  007D4A  6E10               	movwf	main@left,c
+   190  007D4C  0E00               	movlw	0
+   191  007D4E  6E09               	movwf	main@strght+1,c
+   192  007D50  0E02               	movlw	2
+   193  007D52  6E08               	movwf	main@strght,c
+   194  007D54  680C               	setf	main@map,c
+   195  007D56  680D               	setf	main@map+1,c
+   196                           
+   197                           ;sample.c: 93: ADCON1 = 0x0F;
+   198  007D58  0E0F               	movlw	15
+   199  007D5A  6EC1               	movwf	4033,c	;volatile
+   200                           
+   201                           ;sample.c: 97: TRISA = 0x20;
+   202  007D5C  0E20               	movlw	32
+   203  007D5E  6E92               	movwf	3986,c	;volatile
+   204                           
+   205                           ;sample.c: 98: TRISB = 0xFF;
+   206  007D60  6893               	setf	3987,c	;volatile
+   207                           
+   208                           ;sample.c: 99: TRISC = 0x00;
+   209  007D62  0E00               	movlw	0
+   210  007D64  6E94               	movwf	3988,c	;volatile
+   211                           
+   212                           ;sample.c: 102: PORTA = 0x00;
+   213  007D66  0E00               	movlw	0
+   214  007D68  6E80               	movwf	3968,c	;volatile
+   215                           
+   216                           ;sample.c: 103: PORTB = 0x00;
+   217  007D6A  0E00               	movlw	0
+   218  007D6C  6E81               	movwf	3969,c	;volatile
+   219                           
+   220                           ;sample.c: 104: PORTC = 0x00;
+   221  007D6E  0E00               	movlw	0
+   222  007D70  6E82               	movwf	3970,c	;volatile
+   223                           
+   224                           ;sample.c: 107: while(PORTAbits.RA5==1){
+   225  007D72  D002               	goto	l58
+   226  007D74                     
+   227                           ;sample.c: 108: led_sens();
+   228  007D74  EC63  F03E         	call	_led_sens	;wreg free
+   229  007D78                     l58:
+   230  007D78  BA80               	btfsc	3968,5,c	;volatile
+   231  007D7A  D7FC               	goto	l59
+   232  007D7C                     u1200:
+   233                           
+   234                           ;sample.c: 113: led_sens();
    235                           
-   236                           ;sample.c: 111: led_sens();
-   237                           
-   238                           ;sample.c: 107: }
-   239                           ;sample.c: 110: while(1){
-   240  007D40  EC43  F03E         	call	_led_sens	;wreg free
-   241                           
-   242                           ;sample.c: 114: if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits
+   236                           ;sample.c: 109: }
+   237                           ;sample.c: 112: while(1){
+   238  007D7C  EC63  F03E         	call	_led_sens	;wreg free
+   239                           
+   240                           ;sample.c: 116: if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits
       +                          .RB3==1 && PORTBbits.RB4==0){
-   243  007D44  B081               	btfsc	3969,0,c	;volatile
-   244  007D46  A281               	btfss	3969,1,c	;volatile
-   245  007D48  D00D               	goto	l62
-   246  007D4A  B481               	btfsc	3969,2,c	;volatile
-   247  007D4C  A681               	btfss	3969,3,c	;volatile
-   248  007D4E  D00A               	goto	l62
-   249  007D50  B881               	btfsc	3969,4,c	;volatile
-   250  007D52  D008               	goto	l62
-   251                           
-   252                           ;sample.c: 116: right_down();
-   253  007D54  ECF8  F03D         	call	_right_down	;wreg free
-   254  007D58  D063               	goto	l1384
-   255  007D5A                     l1280:
-   256                           
-   257                           ;sample.c: 118: flag=1;
-   258  007D5A  0E00               	movlw	0
-   259  007D5C  6E0B               	movwf	main@flag+1,c
-   260  007D5E  0E01               	movlw	1
-   261  007D60                     L1:
-   262  007D60  6E0A               	movwf	main@flag,c
-   263                           
-   264                           ;sample.c: 120: }
-   265  007D62  D7EE               	goto	u1230
-   266  007D64                     l62:
-   267                           
-   268                           ;sample.c: 121: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORT
+   241  007D80  B081               	btfsc	3969,0,c	;volatile
+   242  007D82  A281               	btfss	3969,1,c	;volatile
+   243  007D84  D00D               	goto	l62
+   244  007D86  B481               	btfsc	3969,2,c	;volatile
+   245  007D88  A681               	btfss	3969,3,c	;volatile
+   246  007D8A  D00A               	goto	l62
+   247  007D8C  B881               	btfsc	3969,4,c	;volatile
+   248  007D8E  D008               	goto	l62
+   249                           
+   250                           ;sample.c: 118: right_down();
+   251  007D90  EC18  F03E         	call	_right_down	;wreg free
+   252  007D94  D063               	goto	l1367
+   253  007D96                     l1263:
+   254                           
+   255                           ;sample.c: 120: map=1;
+   256  007D96  0E00               	movlw	0
+   257  007D98  6E0D               	movwf	main@map+1,c
+   258  007D9A  0E01               	movlw	1
+   259  007D9C                     L1:
+   260  007D9C  6E0C               	movwf	main@map,c
+   261                           
+   262                           ;sample.c: 121: }
+   263  007D9E  D7EE               	goto	u1200
+   264  007DA0                     l62:
+   265                           
+   266                           ;sample.c: 122: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORT
       +                          Bbits.RB3==0 && PORTBbits.RB4==0){
-   269  007D64  B081               	btfsc	3969,0,c	;volatile
-   270  007D66  A281               	btfss	3969,1,c	;volatile
-   271  007D68  D00F               	goto	l64
-   272  007D6A  B481               	btfsc	3969,2,c	;volatile
-   273  007D6C  B681               	btfsc	3969,3,c	;volatile
-   274  007D6E  D00C               	goto	l64
-   275  007D70  B881               	btfsc	3969,4,c	;volatile
-   276  007D72  D00A               	goto	l64
-   277                           
-   278                           ;sample.c: 123: if(flag==0)
-   279  007D74  500A               	movf	main@flag,w,c
-   280  007D76  100B               	iorwf	main@flag+1,w,c
-   281  007D78  A4D8               	btfss	status,2,c
-   282  007D7A  D003               	goto	l65
-   283                           
-   284                           ;sample.c: 124: small_left_down();
-   285  007D7C  EC11  F03E         	call	_small_left_down	;wreg free
-   286  007D80  D7DF               	goto	u1230
-   287  007D82                     l65:
-   288                           
-   289                           ;sample.c: 125: else{
-   290                           ;sample.c: 126: small_right_down();
-   291  007D82  EC2A  F03E         	call	_small_right_down	;wreg free
-   292  007D86  D04C               	goto	l1384
-   293  007D88                     l64:
-   294                           
-   295                           ;sample.c: 131: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORT
+   267  007DA0  B081               	btfsc	3969,0,c	;volatile
+   268  007DA2  A281               	btfss	3969,1,c	;volatile
+   269  007DA4  D00F               	goto	l64
+   270  007DA6  B481               	btfsc	3969,2,c	;volatile
+   271  007DA8  B681               	btfsc	3969,3,c	;volatile
+   272  007DAA  D00C               	goto	l64
+   273  007DAC  B881               	btfsc	3969,4,c	;volatile
+   274  007DAE  D00A               	goto	l64
+   275                           
+   276                           ;sample.c: 124: if(map == 0)
+   277  007DB0  500C               	movf	main@map,w,c
+   278  007DB2  100D               	iorwf	main@map+1,w,c
+   279  007DB4  A4D8               	btfss	status,2,c
+   280  007DB6  D003               	goto	l65
+   281                           
+   282                           ;sample.c: 125: small_left_down();
+   283  007DB8  EC31  F03E         	call	_small_left_down	;wreg free
+   284  007DBC  D7DF               	goto	u1200
+   285  007DBE                     l65:
+   286                           
+   287                           ;sample.c: 126: else{
+   288                           ;sample.c: 127: small_right_down();
+   289  007DBE  EC4A  F03E         	call	_small_right_down	;wreg free
+   290  007DC2  D04C               	goto	l1367
+   291  007DC4                     l64:
+   292                           
+   293                           ;sample.c: 132: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORT
       +                          Bbits.RB3==1 && PORTBbits.RB4==1){
-   296  007D88  B081               	btfsc	3969,0,c	;volatile
-   297  007D8A  A281               	btfss	3969,1,c	;volatile
-   298  007D8C  D00C               	goto	l68
-   299  007D8E  A481               	btfss	3969,2,c	;volatile
-   300  007D90  A681               	btfss	3969,3,c	;volatile
-   301  007D92  D009               	goto	l68
-   302  007D94  A881               	btfss	3969,4,c	;volatile
-   303  007D96  D007               	goto	l68
-   304                           
-   305                           ;sample.c: 133: fast_straight();
-   306  007D98  EC8B  F03D         	call	_fast_straight	;wreg free
-   307                           
-   308                           ;sample.c: 134: last=strght;
-   309  007D9C  C008  F00C         	movff	main@strght,main@last
-   310  007DA0  C009  F00D         	movff	main@strght+1,main@last+1
-   311  007DA4  D7DA               	goto	l1280
-   312  007DA6                     l68:
-   313                           
-   314                           ;sample.c: 138: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORT
+   294  007DC4  B081               	btfsc	3969,0,c	;volatile
+   295  007DC6  A281               	btfss	3969,1,c	;volatile
+   296  007DC8  D00C               	goto	l68
+   297  007DCA  A481               	btfss	3969,2,c	;volatile
+   298  007DCC  A681               	btfss	3969,3,c	;volatile
+   299  007DCE  D009               	goto	l68
+   300  007DD0  A881               	btfss	3969,4,c	;volatile
+   301  007DD2  D007               	goto	l68
+   302                           
+   303                           ;sample.c: 134: fast_straight();
+   304  007DD4  ECAB  F03D         	call	_fast_straight	;wreg free
+   305                           
+   306                           ;sample.c: 135: last=strght;
+   307  007DD8  C008  F00A         	movff	main@strght,main@last
+   308  007DDC  C009  F00B         	movff	main@strght+1,main@last+1
+   309  007DE0  D7DA               	goto	l1263
+   310  007DE2                     l68:
+   311                           
+   312                           ;sample.c: 139: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORT
       +                          Bbits.RB3==1 && PORTBbits.RB4==1){
-   315  007DA6  A081               	btfss	3969,0,c	;volatile
-   316  007DA8  B281               	btfsc	3969,1,c	;volatile
-   317  007DAA  D00F               	goto	l70
-   318  007DAC  B481               	btfsc	3969,2,c	;volatile
-   319  007DAE  A681               	btfss	3969,3,c	;volatile
-   320  007DB0  D00C               	goto	l70
-   321  007DB2  A881               	btfss	3969,4,c	;volatile
-   322  007DB4  D00A               	goto	l70
-   323                           
-   324                           ;sample.c: 140: if(flag==0)
-   325  007DB6  500A               	movf	main@flag,w,c
-   326  007DB8  100B               	iorwf	main@flag+1,w,c
-   327  007DBA  A4D8               	btfss	status,2,c
-   328  007DBC  D003               	goto	l71
-   329                           
-   330                           ;sample.c: 141: small_right_down();
-   331  007DBE  EC2A  F03E         	call	_small_right_down	;wreg free
-   332  007DC2  D7BE               	goto	u1230
-   333  007DC4                     l71:
-   334                           
-   335                           ;sample.c: 142: else{
-   336                           ;sample.c: 143: small_left_down();
-   337  007DC4  EC11  F03E         	call	_small_left_down	;wreg free
-   338  007DC8  D03A               	goto	l1398
-   339  007DCA                     l70:
-   340                           
-   341                           ;sample.c: 148: else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORT
+   313  007DE2  A081               	btfss	3969,0,c	;volatile
+   314  007DE4  B281               	btfsc	3969,1,c	;volatile
+   315  007DE6  D00F               	goto	l70
+   316  007DE8  B481               	btfsc	3969,2,c	;volatile
+   317  007DEA  A681               	btfss	3969,3,c	;volatile
+   318  007DEC  D00C               	goto	l70
+   319  007DEE  A881               	btfss	3969,4,c	;volatile
+   320  007DF0  D00A               	goto	l70
+   321                           
+   322                           ;sample.c: 141: if(map == 0)
+   323  007DF2  500C               	movf	main@map,w,c
+   324  007DF4  100D               	iorwf	main@map+1,w,c
+   325  007DF6  A4D8               	btfss	status,2,c
+   326  007DF8  D003               	goto	l71
+   327                           
+   328                           ;sample.c: 142: small_right_down();
+   329  007DFA  EC4A  F03E         	call	_small_right_down	;wreg free
+   330  007DFE  D7BE               	goto	u1200
+   331  007E00                     l71:
+   332                           
+   333                           ;sample.c: 143: else{
+   334                           ;sample.c: 144: small_left_down();
+   335  007E00  EC31  F03E         	call	_small_left_down	;wreg free
+   336  007E04  D03A               	goto	l1381
+   337  007E06                     l70:
+   338                           
+   339                           ;sample.c: 149: else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORT
       +                          Bbits.RB3==1 && PORTBbits.RB4==1){
-   342  007DCA  A081               	btfss	3969,0,c	;volatile
-   343  007DCC  A281               	btfss	3969,1,c	;volatile
-   344  007DCE  D008               	goto	l74
-   345  007DD0  B481               	btfsc	3969,2,c	;volatile
-   346  007DD2  A681               	btfss	3969,3,c	;volatile
-   347  007DD4  D005               	goto	l74
-   348  007DD6  A881               	btfss	3969,4,c	;volatile
-   349  007DD8  D003               	goto	l74
-   350                           
-   351                           ;sample.c: 150: left_down();
-   352  007DDA  ECAD  F03D         	call	_left_down	;wreg free
-   353  007DDE  D02F               	goto	l1398
-   354  007DE0                     l74:
-   355                           
-   356                           ;sample.c: 155: else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
-      +                          Bbits.RB3==1 && PORTBbits.RB4==1) {mini_left_down();last=left;flag=1;}
-   357  007DE0  B081               	btfsc	3969,0,c	;volatile
-   358  007DE2  B281               	btfsc	3969,1,c	;volatile
-   359  007DE4  D008               	goto	l76
-   360  007DE6  A481               	btfss	3969,2,c	;volatile
-   361  007DE8  A681               	btfss	3969,3,c	;volatile
-   362  007DEA  D005               	goto	l76
-   363  007DEC  A881               	btfss	3969,4,c	;volatile
-   364  007DEE  D003               	goto	l76
-   365  007DF0  ECC6  F03D         	call	_mini_left_down	;wreg free
-   366  007DF4  D024               	goto	l1398
-   367  007DF6                     l76:
-   368                           
-   369                           ;sample.c: 156: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORT
-      +                          Bbits.RB3==0 && PORTBbits.RB4==1) {mini_right_down();last=right; flag=1;}
-   370  007DF6  B081               	btfsc	3969,0,c	;volatile
-   371  007DF8  A281               	btfss	3969,1,c	;volatile
-   372  007DFA  D008               	goto	l78
-   373  007DFC  A481               	btfss	3969,2,c	;volatile
-   374  007DFE  B681               	btfsc	3969,3,c	;volatile
-   375  007E00  D005               	goto	l78
-   376  007E02  A881               	btfss	3969,4,c	;volatile
-   377  007E04  D003               	goto	l78
-   378  007E06  ECDF  F03D         	call	_mini_right_down	;wreg free
-   379  007E0A  D00A               	goto	l1384
-   380  007E0C                     l78:
-   381                           
-   382                           ;sample.c: 157: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORT
-      +                          Bbits.RB3==0 && PORTBbits.RB4==1) {mini_right_down();last=right; flag=1;}
-   383  007E0C  B081               	btfsc	3969,0,c	;volatile
-   384  007E0E  A281               	btfss	3969,1,c	;volatile
-   385  007E10  D00C               	goto	l80
-   386  007E12  B481               	btfsc	3969,2,c	;volatile
-   387  007E14  B681               	btfsc	3969,3,c	;volatile
-   388  007E16  D009               	goto	l80
-   389  007E18  A881               	btfss	3969,4,c	;volatile
-   390  007E1A  D007               	goto	l80
-   391  007E1C  ECDF  F03D         	call	_mini_right_down	;wreg free
-   392  007E20                     l1384:
-   393  007E20  C00E  F00C         	movff	main@right,main@last
-   394  007E24  C00F  F00D         	movff	main@right+1,main@last+1
-   395  007E28  D798               	goto	l1280
-   396  007E2A                     l80:
-   397                           
-   398                           ;sample.c: 158: else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORT
-      +                          Bbits.RB3==1 && PORTBbits.RB4==1) {mini_left_down();last=left;flag=1;}
-   399  007E2A  B081               	btfsc	3969,0,c	;volatile
-   400  007E2C  B281               	btfsc	3969,1,c	;volatile
-   401  007E2E  D00C               	goto	l82
-   402  007E30  B481               	btfsc	3969,2,c	;volatile
-   403  007E32  A681               	btfss	3969,3,c	;volatile
-   404  007E34  D009               	goto	l82
-   405  007E36  A881               	btfss	3969,4,c	;volatile
-   406  007E38  D007               	goto	l82
-   407  007E3A  ECC6  F03D         	call	_mini_left_down	;wreg free
-   408  007E3E                     l1398:
-   409  007E3E  C010  F00C         	movff	main@left,main@last
-   410  007E42  C011  F00D         	movff	main@left+1,main@last+1
-   411  007E46  D789               	goto	l1280
-   412  007E48                     l82:
-   413                           
-   414                           ;sample.c: 161: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
+   340  007E06  A081               	btfss	3969,0,c	;volatile
+   341  007E08  A281               	btfss	3969,1,c	;volatile
+   342  007E0A  D008               	goto	l74
+   343  007E0C  B481               	btfsc	3969,2,c	;volatile
+   344  007E0E  A681               	btfss	3969,3,c	;volatile
+   345  007E10  D005               	goto	l74
+   346  007E12  A881               	btfss	3969,4,c	;volatile
+   347  007E14  D003               	goto	l74
+   348                           
+   349                           ;sample.c: 151: left_down();
+   350  007E16  ECCD  F03D         	call	_left_down	;wreg free
+   351  007E1A  D02F               	goto	l1381
+   352  007E1C                     l74:
+   353                           
+   354                           ;sample.c: 156: else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
+      +                          Bbits.RB3==1 && PORTBbits.RB4==1) {mini_left_down();last=left;map = 1;}
+   355  007E1C  B081               	btfsc	3969,0,c	;volatile
+   356  007E1E  B281               	btfsc	3969,1,c	;volatile
+   357  007E20  D008               	goto	l76
+   358  007E22  A481               	btfss	3969,2,c	;volatile
+   359  007E24  A681               	btfss	3969,3,c	;volatile
+   360  007E26  D005               	goto	l76
+   361  007E28  A881               	btfss	3969,4,c	;volatile
+   362  007E2A  D003               	goto	l76
+   363  007E2C  ECE6  F03D         	call	_mini_left_down	;wreg free
+   364  007E30  D024               	goto	l1381
+   365  007E32                     l76:
+   366                           
+   367                           ;sample.c: 157: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORT
+      +                          Bbits.RB3==0 && PORTBbits.RB4==1) {mini_right_down();last=right; map = 1;}
+   368  007E32  B081               	btfsc	3969,0,c	;volatile
+   369  007E34  A281               	btfss	3969,1,c	;volatile
+   370  007E36  D008               	goto	l78
+   371  007E38  A481               	btfss	3969,2,c	;volatile
+   372  007E3A  B681               	btfsc	3969,3,c	;volatile
+   373  007E3C  D005               	goto	l78
+   374  007E3E  A881               	btfss	3969,4,c	;volatile
+   375  007E40  D003               	goto	l78
+   376  007E42  ECFF  F03D         	call	_mini_right_down	;wreg free
+   377  007E46  D00A               	goto	l1367
+   378  007E48                     l78:
+   379                           
+   380                           ;sample.c: 158: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORT
+      +                          Bbits.RB3==0 && PORTBbits.RB4==1) {mini_right_down();last=right; map = 1;}
+   381  007E48  B081               	btfsc	3969,0,c	;volatile
+   382  007E4A  A281               	btfss	3969,1,c	;volatile
+   383  007E4C  D00C               	goto	l80
+   384  007E4E  B481               	btfsc	3969,2,c	;volatile
+   385  007E50  B681               	btfsc	3969,3,c	;volatile
+   386  007E52  D009               	goto	l80
+   387  007E54  A881               	btfss	3969,4,c	;volatile
+   388  007E56  D007               	goto	l80
+   389  007E58  ECFF  F03D         	call	_mini_right_down	;wreg free
+   390  007E5C                     l1367:
+   391  007E5C  C00E  F00A         	movff	main@right,main@last
+   392  007E60  C00F  F00B         	movff	main@right+1,main@last+1
+   393  007E64  D798               	goto	l1263
+   394  007E66                     l80:
+   395                           
+   396                           ;sample.c: 159: else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORT
+      +                          Bbits.RB3==1 && PORTBbits.RB4==1) {mini_left_down();last=left;map = 1;}
+   397  007E66  B081               	btfsc	3969,0,c	;volatile
+   398  007E68  B281               	btfsc	3969,1,c	;volatile
+   399  007E6A  D00C               	goto	l82
+   400  007E6C  B481               	btfsc	3969,2,c	;volatile
+   401  007E6E  A681               	btfss	3969,3,c	;volatile
+   402  007E70  D009               	goto	l82
+   403  007E72  A881               	btfss	3969,4,c	;volatile
+   404  007E74  D007               	goto	l82
+   405  007E76  ECE6  F03D         	call	_mini_left_down	;wreg free
+   406  007E7A                     l1381:
+   407  007E7A  C010  F00A         	movff	main@left,main@last
+   408  007E7E  C011  F00B         	movff	main@left+1,main@last+1
+   409  007E82  D789               	goto	l1263
+   410  007E84                     l82:
+   411                           
+   412                           ;sample.c: 162: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
       +                          Bbits.RB3==0 && PORTBbits.RB4==1){
-   415  007E48  A081               	btfss	3969,0,c	;volatile
-   416  007E4A  B281               	btfsc	3969,1,c	;volatile
-   417  007E4C  D00C               	goto	l84
-   418  007E4E  A481               	btfss	3969,2,c	;volatile
-   419  007E50  B681               	btfsc	3969,3,c	;volatile
-   420  007E52  D009               	goto	l84
-   421  007E54  A881               	btfss	3969,4,c	;volatile
-   422  007E56  D007               	goto	l84
-   423                           
-   424                           ;sample.c: 163: right_down();
-   425  007E58  ECF8  F03D         	call	_right_down	;wreg free
-   426  007E5C  D071               	goto	l1532
-   427  007E5E                     l1414:
-   428                           
-   429                           ;sample.c: 165: flag=0;
-   430  007E5E  0E00               	movlw	0
-   431  007E60  6E0B               	movwf	main@flag+1,c
-   432  007E62  0E00               	movlw	0
-   433  007E64  D77D               	goto	L1
-   434  007E66                     l84:
-   435                           
-   436                           ;sample.c: 168: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
+   413  007E84  A081               	btfss	3969,0,c	;volatile
+   414  007E86  B281               	btfsc	3969,1,c	;volatile
+   415  007E88  D00C               	goto	l84
+   416  007E8A  A481               	btfss	3969,2,c	;volatile
+   417  007E8C  B681               	btfsc	3969,3,c	;volatile
+   418  007E8E  D009               	goto	l84
+   419  007E90  A881               	btfss	3969,4,c	;volatile
+   420  007E92  D007               	goto	l84
+   421                           
+   422                           ;sample.c: 164: right_down();
+   423  007E94  EC18  F03E         	call	_right_down	;wreg free
+   424  007E98  D071               	goto	l1515
+   425  007E9A                     l1397:
+   426                           
+   427                           ;sample.c: 166: map = 0;
+   428  007E9A  0E00               	movlw	0
+   429  007E9C  6E0D               	movwf	main@map+1,c
+   430  007E9E  0E00               	movlw	0
+   431  007EA0  D77D               	goto	L1
+   432  007EA2                     l84:
+   433                           
+   434                           ;sample.c: 169: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
       +                          Bbits.RB3==1 && PORTBbits.RB4==1){
-   437  007E66  A081               	btfss	3969,0,c	;volatile
-   438  007E68  B281               	btfsc	3969,1,c	;volatile
-   439  007E6A  D00F               	goto	l86
-   440  007E6C  A481               	btfss	3969,2,c	;volatile
-   441  007E6E  A681               	btfss	3969,3,c	;volatile
-   442  007E70  D00C               	goto	l86
-   443  007E72  A881               	btfss	3969,4,c	;volatile
-   444  007E74  D00A               	goto	l86
-   445                           
-   446                           ;sample.c: 170: if(flag==1)
-   447  007E76  040A               	decf	main@flag,w,c
-   448  007E78  100B               	iorwf	main@flag+1,w,c
-   449  007E7A  A4D8               	btfss	status,2,c
-   450  007E7C  D003               	goto	l87
-   451                           
-   452                           ;sample.c: 171: small_left_down();
-   453  007E7E  EC11  F03E         	call	_small_left_down	;wreg free
-   454  007E82  D75E               	goto	u1230
-   455  007E84                     l87:
-   456                           
-   457                           ;sample.c: 172: else{
-   458                           ;sample.c: 173: small_right_down();
-   459  007E84  EC2A  F03E         	call	_small_right_down	;wreg free
-   460  007E88  D05B               	goto	l1532
-   461  007E8A                     l86:
-   462                           
-   463                           ;sample.c: 178: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORT
+   435  007EA2  A081               	btfss	3969,0,c	;volatile
+   436  007EA4  B281               	btfsc	3969,1,c	;volatile
+   437  007EA6  D00F               	goto	l86
+   438  007EA8  A481               	btfss	3969,2,c	;volatile
+   439  007EAA  A681               	btfss	3969,3,c	;volatile
+   440  007EAC  D00C               	goto	l86
+   441  007EAE  A881               	btfss	3969,4,c	;volatile
+   442  007EB0  D00A               	goto	l86
+   443                           
+   444                           ;sample.c: 171: if(map == 1)
+   445  007EB2  040C               	decf	main@map,w,c
+   446  007EB4  100D               	iorwf	main@map+1,w,c
+   447  007EB6  A4D8               	btfss	status,2,c
+   448  007EB8  D003               	goto	l87
+   449                           
+   450                           ;sample.c: 172: small_left_down();
+   451  007EBA  EC31  F03E         	call	_small_left_down	;wreg free
+   452  007EBE  D75E               	goto	u1200
+   453  007EC0                     l87:
+   454                           
+   455                           ;sample.c: 173: else{
+   456                           ;sample.c: 174: small_right_down();
+   457  007EC0  EC4A  F03E         	call	_small_right_down	;wreg free
+   458  007EC4  D05B               	goto	l1515
+   459  007EC6                     l86:
+   460                           
+   461                           ;sample.c: 179: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORT
       +                          Bbits.RB3==0 && PORTBbits.RB4==0){
-   464  007E8A  A081               	btfss	3969,0,c	;volatile
-   465  007E8C  B281               	btfsc	3969,1,c	;volatile
-   466  007E8E  D00C               	goto	l90
-   467  007E90  B481               	btfsc	3969,2,c	;volatile
-   468  007E92  B681               	btfsc	3969,3,c	;volatile
-   469  007E94  D009               	goto	l90
-   470  007E96  B881               	btfsc	3969,4,c	;volatile
-   471  007E98  D007               	goto	l90
-   472                           
-   473                           ;sample.c: 180: fast_straight(); last=strght;flag=0;}
-   474  007E9A  EC8B  F03D         	call	_fast_straight	;wreg free
-   475  007E9E  C008  F00C         	movff	main@strght,main@last
-   476  007EA2  C009  F00D         	movff	main@strght+1,main@last+1
-   477  007EA6  D7DB               	goto	l1414
-   478  007EA8                     l90:
-   479                           
-   480                           ;sample.c: 182: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORT
+   462  007EC6  A081               	btfss	3969,0,c	;volatile
+   463  007EC8  B281               	btfsc	3969,1,c	;volatile
+   464  007ECA  D00C               	goto	l90
+   465  007ECC  B481               	btfsc	3969,2,c	;volatile
+   466  007ECE  B681               	btfsc	3969,3,c	;volatile
+   467  007ED0  D009               	goto	l90
+   468  007ED2  B881               	btfsc	3969,4,c	;volatile
+   469  007ED4  D007               	goto	l90
+   470                           
+   471                           ;sample.c: 181: fast_straight(); last=strght;map = 0;}
+   472  007ED6  ECAB  F03D         	call	_fast_straight	;wreg free
+   473  007EDA  C008  F00A         	movff	main@strght,main@last
+   474  007EDE  C009  F00B         	movff	main@strght+1,main@last+1
+   475  007EE2  D7DB               	goto	l1397
+   476  007EE4                     l90:
+   477                           
+   478                           ;sample.c: 183: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORT
       +                          Bbits.RB3==0 && PORTBbits.RB4==0){
-   481  007EA8  B081               	btfsc	3969,0,c	;volatile
-   482  007EAA  A281               	btfss	3969,1,c	;volatile
-   483  007EAC  D00F               	goto	l92
-   484  007EAE  A481               	btfss	3969,2,c	;volatile
-   485  007EB0  B681               	btfsc	3969,3,c	;volatile
-   486  007EB2  D00C               	goto	l92
-   487  007EB4  B881               	btfsc	3969,4,c	;volatile
-   488  007EB6  D00A               	goto	l92
-   489                           
-   490                           ;sample.c: 184: if(flag==1)
-   491  007EB8  040A               	decf	main@flag,w,c
-   492  007EBA  100B               	iorwf	main@flag+1,w,c
-   493  007EBC  A4D8               	btfss	status,2,c
-   494  007EBE  D003               	goto	l93
-   495                           
-   496                           ;sample.c: 185: small_right_down();
-   497  007EC0  EC2A  F03E         	call	_small_right_down	;wreg free
-   498  007EC4  D73D               	goto	u1230
-   499  007EC6                     l93:
-   500                           
-   501                           ;sample.c: 186: else{
-   502                           ;sample.c: 187: small_left_down();
-   503  007EC6  EC11  F03E         	call	_small_left_down	;wreg free
-   504  007ECA  D02B               	goto	l1518
-   505  007ECC                     l92:
-   506                           
-   507                           ;sample.c: 192: else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
+   479  007EE4  B081               	btfsc	3969,0,c	;volatile
+   480  007EE6  A281               	btfss	3969,1,c	;volatile
+   481  007EE8  D00F               	goto	l92
+   482  007EEA  A481               	btfss	3969,2,c	;volatile
+   483  007EEC  B681               	btfsc	3969,3,c	;volatile
+   484  007EEE  D00C               	goto	l92
+   485  007EF0  B881               	btfsc	3969,4,c	;volatile
+   486  007EF2  D00A               	goto	l92
+   487                           
+   488                           ;sample.c: 185: if(map == 1) small_right_down();
+   489  007EF4  040C               	decf	main@map,w,c
+   490  007EF6  100D               	iorwf	main@map+1,w,c
+   491  007EF8  A4D8               	btfss	status,2,c
+   492  007EFA  D003               	goto	l93
+   493  007EFC  EC4A  F03E         	call	_small_right_down	;wreg free
+   494  007F00  D73D               	goto	u1200
+   495  007F02                     l93:
+   496                           
+   497                           ;sample.c: 186: else{
+   498                           ;sample.c: 187: small_left_down();
+   499  007F02  EC31  F03E         	call	_small_left_down	;wreg free
+   500  007F06  D02B               	goto	l1501
+   501  007F08                     l92:
+   502                           
+   503                           ;sample.c: 192: else if(PORTBbits.RB0==1 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
       +                          Bbits.RB3==0 && PORTBbits.RB4==0){
-   508  007ECC  B081               	btfsc	3969,0,c	;volatile
-   509  007ECE  B281               	btfsc	3969,1,c	;volatile
-   510  007ED0  D008               	goto	l96
-   511  007ED2  A481               	btfss	3969,2,c	;volatile
-   512  007ED4  B681               	btfsc	3969,3,c	;volatile
-   513  007ED6  D005               	goto	l96
-   514  007ED8  B881               	btfsc	3969,4,c	;volatile
-   515  007EDA  D003               	goto	l96
-   516                           
-   517                           ;sample.c: 194: left_down();
-   518  007EDC  ECAD  F03D         	call	_left_down	;wreg free
-   519  007EE0  D020               	goto	l1518
-   520  007EE2                     l96:
-   521                           
-   522                           ;sample.c: 199: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORT
-      +                          Bbits.RB3==1 && PORTBbits.RB4==0) {mini_right_down();last=right;flag=0;}
-   523  007EE2  A081               	btfss	3969,0,c	;volatile
-   524  007EE4  B281               	btfsc	3969,1,c	;volatile
-   525  007EE6  D008               	goto	l98
-   526  007EE8  B481               	btfsc	3969,2,c	;volatile
-   527  007EEA  A681               	btfss	3969,3,c	;volatile
-   528  007EEC  D005               	goto	l98
-   529  007EEE  B881               	btfsc	3969,4,c	;volatile
-   530  007EF0  D003               	goto	l98
-   531  007EF2  ECDF  F03D         	call	_mini_right_down	;wreg free
-   532  007EF6  D024               	goto	l1532
-   533  007EF8                     l98:
-   534                           
-   535                           ;sample.c: 200: else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORT
-      +                          Bbits.RB3==0 && PORTBbits.RB4==0) {mini_left_down();last=left;flag=0;}
-   536  007EF8  A081               	btfss	3969,0,c	;volatile
-   537  007EFA  A281               	btfss	3969,1,c	;volatile
-   538  007EFC  D008               	goto	l100
-   539  007EFE  B481               	btfsc	3969,2,c	;volatile
-   540  007F00  B681               	btfsc	3969,3,c	;volatile
-   541  007F02  D005               	goto	l100
-   542  007F04  B881               	btfsc	3969,4,c	;volatile
-   543  007F06  D003               	goto	l100
-   544  007F08  ECC6  F03D         	call	_mini_left_down	;wreg free
-   545  007F0C  D00A               	goto	l1518
-   546  007F0E                     l100:
-   547                           
-   548                           ;sample.c: 201: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
-      +                          Bbits.RB3==1 && PORTBbits.RB4==0) {mini_right_down();last=left;flag=0;}
-   549  007F0E  A081               	btfss	3969,0,c	;volatile
-   550  007F10  B281               	btfsc	3969,1,c	;volatile
-   551  007F12  D00C               	goto	l102
-   552  007F14  A481               	btfss	3969,2,c	;volatile
-   553  007F16  A681               	btfss	3969,3,c	;volatile
-   554  007F18  D009               	goto	l102
-   555  007F1A  B881               	btfsc	3969,4,c	;volatile
-   556  007F1C  D007               	goto	l102
-   557  007F1E  ECDF  F03D         	call	_mini_right_down	;wreg free
-   558  007F22                     l1518:
-   559  007F22  C010  F00C         	movff	main@left,main@last
-   560  007F26  C011  F00D         	movff	main@left+1,main@last+1
-   561  007F2A  D799               	goto	l1414
-   562  007F2C                     l102:
-   563                           
-   564                           ;sample.c: 202: else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORT
-      +                          Bbits.RB3==0 && PORTBbits.RB4==0) {mini_left_down();last=right;flag=0;}
-   565  007F2C  A081               	btfss	3969,0,c	;volatile
-   566  007F2E  A281               	btfss	3969,1,c	;volatile
-   567  007F30  D00C               	goto	l104
-   568  007F32  A481               	btfss	3969,2,c	;volatile
-   569  007F34  B681               	btfsc	3969,3,c	;volatile
-   570  007F36  D009               	goto	l104
-   571  007F38  B881               	btfsc	3969,4,c	;volatile
-   572  007F3A  D007               	goto	l104
-   573  007F3C  ECC6  F03D         	call	_mini_left_down	;wreg free
-   574  007F40                     l1532:
-   575  007F40  C00E  F00C         	movff	main@right,main@last
-   576  007F44  C00F  F00D         	movff	main@right+1,main@last+1
-   577  007F48  D78A               	goto	l1414
-   578  007F4A                     l104:
-   579                           
-   580                           ;sample.c: 205: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
-      +                          Bbits.RB3==0 && PORTBbits.RB4==0){
-   581  007F4A  A081               	btfss	3969,0,c	;volatile
-   582  007F4C  B281               	btfsc	3969,1,c	;volatile
-   583  007F4E  D023               	goto	l106
-   584  007F50  A481               	btfss	3969,2,c	;volatile
-   585  007F52  B681               	btfsc	3969,3,c	;volatile
-   586  007F54  D020               	goto	l106
-   587  007F56  B881               	btfsc	3969,4,c	;volatile
-   588  007F58  D01E               	goto	l106
-   589                           
-   590                           ;sample.c: 206: if(last==right)
-   591  007F5A  500E               	movf	main@right,w,c
-   592  007F5C  180C               	xorwf	main@last,w,c
-   593  007F5E  E107               	bnz	l1550
-   594  007F60  500F               	movf	main@right+1,w,c
-   595  007F62  180D               	xorwf	main@last+1,w,c
-   596  007F64  A4D8               	btfss	status,2,c
-   597  007F66  D003               	goto	l107
-   598                           
-   599                           ;sample.c: 207: {right_down();
-   600  007F68  ECF8  F03D         	call	_right_down	;wreg free
-   601  007F6C  D025               	goto	l1574
-   602  007F6E                     l107:
-   603  007F6E                     l1550:
-   604                           
-   605                           ;sample.c: 209: else if(last==left)
-   606  007F6E  5010               	movf	main@left,w,c
-   607  007F70  180C               	xorwf	main@last,w,c
-   608  007F72  E107               	bnz	l1556
-   609  007F74  5011               	movf	main@left+1,w,c
-   610  007F76  180D               	xorwf	main@last+1,w,c
-   611  007F78  A4D8               	btfss	status,2,c
-   612  007F7A  D003               	goto	l109
-   613                           
-   614                           ;sample.c: 210: {left_down();
-   615  007F7C  ECAD  F03D         	call	_left_down	;wreg free
-   616  007F80  D029               	goto	l1580
-   617  007F82                     l109:
-   618  007F82                     l1556:
-   619                           
-   620                           ;sample.c: 212: else if(last==strght)
-   621  007F82  5008               	movf	main@strght,w,c
-   622  007F84  180C               	xorwf	main@last,w,c
-   623  007F86  E103               	bnz	u2251
-   624  007F88  5009               	movf	main@strght+1,w,c
-   625  007F8A  180D               	xorwf	main@last+1,w,c
-   626  007F8C  A4D8               	btfss	status,2,c
-   627  007F8E                     u2251:
-   628  007F8E  D6D8               	goto	u1230
+   504  007F08  B081               	btfsc	3969,0,c	;volatile
+   505  007F0A  B281               	btfsc	3969,1,c	;volatile
+   506  007F0C  D008               	goto	l96
+   507  007F0E  A481               	btfss	3969,2,c	;volatile
+   508  007F10  B681               	btfsc	3969,3,c	;volatile
+   509  007F12  D005               	goto	l96
+   510  007F14  B881               	btfsc	3969,4,c	;volatile
+   511  007F16  D003               	goto	l96
+   512                           
+   513                           ;sample.c: 194: left_down();
+   514  007F18  ECCD  F03D         	call	_left_down	;wreg free
+   515  007F1C  D020               	goto	l1501
+   516  007F1E                     l96:
+   517                           
+   518                           ;sample.c: 199: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==1 && PORT
+      +                          Bbits.RB3==1 && PORTBbits.RB4==0) {mini_right_down();last=right;map = 0;}
+   519  007F1E  A081               	btfss	3969,0,c	;volatile
+   520  007F20  B281               	btfsc	3969,1,c	;volatile
+   521  007F22  D008               	goto	l98
+   522  007F24  B481               	btfsc	3969,2,c	;volatile
+   523  007F26  A681               	btfss	3969,3,c	;volatile
+   524  007F28  D005               	goto	l98
+   525  007F2A  B881               	btfsc	3969,4,c	;volatile
+   526  007F2C  D003               	goto	l98
+   527  007F2E  ECFF  F03D         	call	_mini_right_down	;wreg free
+   528  007F32  D024               	goto	l1515
+   529  007F34                     l98:
+   530                           
+   531                           ;sample.c: 200: else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORT
+      +                          Bbits.RB3==0 && PORTBbits.RB4==0) {mini_left_down();last=left;map = 0;}
+   532  007F34  A081               	btfss	3969,0,c	;volatile
+   533  007F36  A281               	btfss	3969,1,c	;volatile
+   534  007F38  D008               	goto	l100
+   535  007F3A  B481               	btfsc	3969,2,c	;volatile
+   536  007F3C  B681               	btfsc	3969,3,c	;volatile
+   537  007F3E  D005               	goto	l100
+   538  007F40  B881               	btfsc	3969,4,c	;volatile
+   539  007F42  D003               	goto	l100
+   540  007F44  ECE6  F03D         	call	_mini_left_down	;wreg free
+   541  007F48  D00A               	goto	l1501
+   542  007F4A                     l100:
+   543                           
+   544                           ;sample.c: 201: else if(PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && PORT
+      +                          Bbits.RB3==1 && PORTBbits.RB4==0) {mini_right_down();last=left;map = 0;}
+   545  007F4A  A081               	btfss	3969,0,c	;volatile
+   546  007F4C  B281               	btfsc	3969,1,c	;volatile
+   547  007F4E  D00C               	goto	l102
+   548  007F50  A481               	btfss	3969,2,c	;volatile
+   549  007F52  A681               	btfss	3969,3,c	;volatile
+   550  007F54  D009               	goto	l102
+   551  007F56  B881               	btfsc	3969,4,c	;volatile
+   552  007F58  D007               	goto	l102
+   553  007F5A  ECFF  F03D         	call	_mini_right_down	;wreg free
+   554  007F5E                     l1501:
+   555  007F5E  C010  F00A         	movff	main@left,main@last
+   556  007F62  C011  F00B         	movff	main@left+1,main@last+1
+   557  007F66  D799               	goto	l1397
+   558  007F68                     l102:
+   559                           
+   560                           ;sample.c: 202: else if(PORTBbits.RB0==0 && PORTBbits.RB1==1 && PORTBbits.RB2==0 && PORT
+      +                          Bbits.RB3==0 && PORTBbits.RB4==0) {mini_left_down();last=right;map = 0;}
+   561  007F68  A081               	btfss	3969,0,c	;volatile
+   562  007F6A  A281               	btfss	3969,1,c	;volatile
+   563  007F6C  D00C               	goto	l104
+   564  007F6E  A481               	btfss	3969,2,c	;volatile
+   565  007F70  B681               	btfsc	3969,3,c	;volatile
+   566  007F72  D009               	goto	l104
+   567  007F74  B881               	btfsc	3969,4,c	;volatile
+   568  007F76  D007               	goto	l104
+   569  007F78  ECE6  F03D         	call	_mini_left_down	;wreg free
+   570  007F7C                     l1515:
+   571  007F7C  C00E  F00A         	movff	main@right,main@last
+   572  007F80  C00F  F00B         	movff	main@right+1,main@last+1
+   573  007F84  D78A               	goto	l1397
+   574  007F86                     l104:
+   575                           
+   576                           ;sample.c: 205: else if((PORTBbits.RB0==0 && PORTBbits.RB1==0 && PORTBbits.RB2==0 && POR
+      +                          TBbits.RB3==0 && PORTBbits.RB4==0)||
+   577                           ;sample.c: 206: (PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORTBbits.R
+      +                          B3==1 && PORTBbits.RB4==1)){
+   578  007F86  A081               	btfss	3969,0,c	;volatile
+   579  007F88  B281               	btfsc	3969,1,c	;volatile
+   580  007F8A  D005               	goto	u2190
+   581  007F8C  A481               	btfss	3969,2,c	;volatile
+   582  007F8E  B681               	btfsc	3969,3,c	;volatile
+   583  007F90  D002               	goto	u2190
+   584  007F92  A881               	btfss	3969,4,c	;volatile
+   585  007F94  D008               	goto	u2240
+   586  007F96                     u2190:
+   587  007F96  B081               	btfsc	3969,0,c	;volatile
+   588  007F98  A281               	btfss	3969,1,c	;volatile
+   589  007F9A  D02F               	goto	l106
+   590  007F9C  B481               	btfsc	3969,2,c	;volatile
+   591  007F9E  A681               	btfss	3969,3,c	;volatile
+   592  007FA0  D02C               	goto	l106
+   593  007FA2  A881               	btfss	3969,4,c	;volatile
+   594  007FA4  D02A               	goto	l106
+   595  007FA6                     u2240:
+   596                           
+   597                           ;sample.c: 207: if(last==right) {
+   598  007FA6  500E               	movf	main@right,w,c
+   599  007FA8  180A               	xorwf	main@last,w,c
+   600  007FAA  E10B               	bnz	l1541
+   601  007FAC  500F               	movf	main@right+1,w,c
+   602  007FAE  180B               	xorwf	main@last+1,w,c
+   603  007FB0  A4D8               	btfss	status,2,c
+   604  007FB2  D007               	goto	l111
+   605                           
+   606                           ;sample.c: 208: right_down();
+   607  007FB4  EC18  F03E         	call	_right_down	;wreg free
+   608                           
+   609                           ;sample.c: 209: last=right;
+   610  007FB8  C00E  F00A         	movff	main@right,main@last
+   611  007FBC  C00F  F00B         	movff	main@right+1,main@last+1
+   612                           
+   613                           ;sample.c: 210: }
+   614  007FC0  D6DD               	goto	u1200
+   615  007FC2                     l111:
+   616  007FC2                     l1541:
+   617                           
+   618                           ;sample.c: 211: else if (last==left) {
+   619  007FC2  5010               	movf	main@left,w,c
+   620  007FC4  180A               	xorwf	main@last,w,c
+   621  007FC6  E10B               	bnz	l1547
+   622  007FC8  5011               	movf	main@left+1,w,c
+   623  007FCA  180B               	xorwf	main@last+1,w,c
+   624  007FCC  A4D8               	btfss	status,2,c
+   625  007FCE  D007               	goto	l113
+   626                           
+   627                           ;sample.c: 212: left_down();
+   628  007FD0  ECCD  F03D         	call	_left_down	;wreg free
    629                           
-   630                           ;sample.c: 213: {straight();
-   631  007F90  EC9C  F03D         	call	_straight	;wreg free
-   632  007F94  D02D               	goto	l1586
-   633  007F96                     l106:
-   634                           
-   635                           ;sample.c: 216: else if(PORTBbits.RB0==1 && PORTBbits.RB1==1 && PORTBbits.RB2==1 && PORT
-      +                          Bbits.RB3==1 && PORTBbits.RB4==1){
-   636  007F96  B081               	btfsc	3969,0,c	;volatile
-   637  007F98  A281               	btfss	3969,1,c	;volatile
-   638  007F9A  D02F               	goto	l113
-   639  007F9C  B481               	btfsc	3969,2,c	;volatile
-   640  007F9E  A681               	btfss	3969,3,c	;volatile
-   641  007FA0  D02C               	goto	l113
-   642  007FA2  A881               	btfss	3969,4,c	;volatile
-   643  007FA4  D02A               	goto	l113
-   644                           
-   645                           ;sample.c: 217: if(last==right)
-   646  007FA6  500E               	movf	main@right,w,c
-   647  007FA8  180C               	xorwf	main@last,w,c
-   648  007FAA  E10B               	bnz	l1576
-   649  007FAC  500F               	movf	main@right+1,w,c
-   650  007FAE  180D               	xorwf	main@last+1,w,c
-   651  007FB0  A4D8               	btfss	status,2,c
-   652  007FB2  D007               	goto	l114
-   653                           
-   654                           ;sample.c: 218: {right_down();
-   655  007FB4  ECF8  F03D         	call	_right_down	;wreg free
-   656  007FB8                     l1574:
-   657                           
-   658                           ;sample.c: 219: last=right;}
-   659  007FB8  C00E  F00C         	movff	main@right,main@last
-   660  007FBC  C00F  F00D         	movff	main@right+1,main@last+1
-   661  007FC0  D6BF               	goto	u1230
-   662  007FC2                     l114:
-   663  007FC2                     l1576:
-   664                           
-   665                           ;sample.c: 220: else if(last==left)
-   666  007FC2  5010               	movf	main@left,w,c
-   667  007FC4  180C               	xorwf	main@last,w,c
-   668  007FC6  E10B               	bnz	l1582
-   669  007FC8  5011               	movf	main@left+1,w,c
-   670  007FCA  180D               	xorwf	main@last+1,w,c
-   671  007FCC  A4D8               	btfss	status,2,c
-   672  007FCE  D007               	goto	l116
-   673                           
-   674                           ;sample.c: 221: {left_down();
-   675  007FD0  ECAD  F03D         	call	_left_down	;wreg free
-   676  007FD4                     l1580:
-   677                           
-   678                           ;sample.c: 222: last=left;}
-   679  007FD4  C010  F00C         	movff	main@left,main@last
-   680  007FD8  C011  F00D         	movff	main@left+1,main@last+1
-   681  007FDC  D6B1               	goto	u1230
-   682  007FDE                     l116:
-   683  007FDE                     l1582:
-   684                           
-   685                           ;sample.c: 223: else if(last==strght)
-   686  007FDE  5008               	movf	main@strght,w,c
-   687  007FE0  180C               	xorwf	main@last,w,c
-   688  007FE2  E103               	bnz	u2331
-   689  007FE4  5009               	movf	main@strght+1,w,c
-   690  007FE6  180D               	xorwf	main@last+1,w,c
-   691  007FE8  A4D8               	btfss	status,2,c
-   692  007FEA                     u2331:
-   693  007FEA  D6AA               	goto	u1230
-   694                           
-   695                           ;sample.c: 224: {straight();
-   696  007FEC  EC9C  F03D         	call	_straight	;wreg free
-   697  007FF0                     l1586:
+   630                           ;sample.c: 213: last=left;
+   631  007FD4  C010  F00A         	movff	main@left,main@last
+   632  007FD8  C011  F00B         	movff	main@left+1,main@last+1
+   633                           
+   634                           ;sample.c: 214: }
+   635  007FDC  D6CF               	goto	u1200
+   636  007FDE                     l113:
+   637  007FDE                     l1547:
+   638                           
+   639                           ;sample.c: 215: else if (last==strght) {
+   640  007FDE  5008               	movf	main@strght,w,c
+   641  007FE0  180A               	xorwf	main@last,w,c
+   642  007FE2  E103               	bnz	u2271
+   643  007FE4  5009               	movf	main@strght+1,w,c
+   644  007FE6  180B               	xorwf	main@last+1,w,c
+   645  007FE8  A4D8               	btfss	status,2,c
+   646  007FEA                     u2271:
+   647  007FEA  D6C8               	goto	u1200
+   648                           
+   649                           ;sample.c: 216: straight();
+   650  007FEC  ECBC  F03D         	call	_straight	;wreg free
+   651                           
+   652                           ;sample.c: 217: last=strght;
+   653  007FF0  C008  F00A         	movff	main@strght,main@last
+   654  007FF4  C009  F00B         	movff	main@strght+1,main@last+1
+   655                           
+   656                           ;sample.c: 218: }
+   657                           ;sample.c: 219: }
+   658  007FF8  D6C1               	goto	u1200
+   659  007FFA                     l106:
+   660                           
+   661                           ;sample.c: 220: else {
+   662                           ;sample.c: 221: straight();
+   663  007FFA  ECBC  F03D         	call	_straight	;wreg free
+   664  007FFE  D6BE               	goto	u1200
+   665  008000                     __end_of_main:
+   666                           	opt stack 0
+   667                           status	equ	0xFD8
+   668                           
+   669 ;; *************** function _straight *****************
+   670 ;; Defined at:
+   671 ;;		line 68 in file "sample.c"
+   672 ;; Parameters:    Size  Location     Type
+   673 ;;		None
+   674 ;; Auto vars:     Size  Location     Type
+   675 ;;		None
+   676 ;; Return value:  Size  Location     Type
+   677 ;;                  2   46[None  ] int 
+   678 ;; Registers used:
+   679 ;;		wreg, status,2, status,0, cstack
+   680 ;; Tracked objects:
+   681 ;;		On entry : 0/0
+   682 ;;		On exit  : 0/0
+   683 ;;		Unchanged: 0/0
+   684 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   685 ;;      Params:         0       0       0       0       0       0       0       0       0
+   686 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   687 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   688 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   689 ;;Total ram usage:        0 bytes
+   690 ;; Hardware stack levels used:    1
+   691 ;; Hardware stack levels required when called:    1
+   692 ;; This function calls:
+   693 ;;		_wait00
+   694 ;; This function is called by:
+   695 ;;		_main
+   696 ;; This function uses a non-reentrant model
+   697 ;;
    698                           
-   699                           ;sample.c: 225: last=strght;}
-   700  007FF0  C008  F00C         	movff	main@strght,main@last
-   701  007FF4  C009  F00D         	movff	main@strght+1,main@last+1
-   702                           
-   703                           ;sample.c: 226: }
-   704  007FF8  D6A3               	goto	u1230
-   705  007FFA                     l113:
+   699                           	psect	text1
+   700  007B78                     __ptext1:
+   701                           	opt stack 0
+   702  007B78                     _straight:
+   703                           	opt stack 29
+   704                           
+   705                           ;sample.c: 69: PORTC=0x03;
    706                           
-   707                           ;sample.c: 227: else{
-   708                           ;sample.c: 228: straight();}
-   709  007FFA  EC9C  F03D         	call	_straight	;wreg free
-   710  007FFE  D6A0               	goto	u1230
-   711  008000                     __end_of_main:
-   712                           	opt stack 0
-   713                           status	equ	0xFD8
-   714                           
-   715 ;; *************** function _straight *****************
-   716 ;; Defined at:
-   717 ;;		line 66 in file "sample.c"
-   718 ;; Parameters:    Size  Location     Type
-   719 ;;		None
-   720 ;; Auto vars:     Size  Location     Type
-   721 ;;		None
-   722 ;; Return value:  Size  Location     Type
-   723 ;;                  2   46[None  ] int 
-   724 ;; Registers used:
-   725 ;;		wreg, status,2, status,0, cstack
-   726 ;; Tracked objects:
-   727 ;;		On entry : 0/0
-   728 ;;		On exit  : 0/0
-   729 ;;		Unchanged: 0/0
-   730 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   731 ;;      Params:         0       0       0       0       0       0       0       0       0
-   732 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   733 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   734 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   735 ;;Total ram usage:        0 bytes
-   736 ;; Hardware stack levels used:    1
-   737 ;; Hardware stack levels required when called:    1
-   738 ;; This function calls:
-   739 ;;		_wait00
-   740 ;; This function is called by:
-   741 ;;		_main
-   742 ;; This function uses a non-reentrant model
-   743 ;;
-   744                           
-   745                           	psect	text1
-   746  007B38                     __ptext1:
-   747                           	opt stack 0
-   748  007B38                     _straight:
-   749                           	opt stack 29
-   750                           
-   751                           ;sample.c: 67: PORTC=0x03;
-   752                           
-   753                           ;incstack = 0
-   754  007B38  0E03               	movlw	3
-   755  007B3A  6E82               	movwf	3970,c	;volatile
-   756                           
-   757                           ;sample.c: 68: wait00(10);
-   758  007B3C  0E00               	movlw	0
-   759  007B3E  6E02               	movwf	wait00@k+1,c
-   760  007B40  0E0A               	movlw	10
-   761  007B42  6E01               	movwf	wait00@k,c
-   762  007B44  EC5D  F03E         	call	_wait00	;wreg free
-   763                           
-   764                           ;sample.c: 69: PORTC=0x00;
-   765  007B48  0E00               	movlw	0
-   766  007B4A  6E82               	movwf	3970,c	;volatile
-   767                           
-   768                           ;sample.c: 70: wait00(10);
-   769  007B4C  0E00               	movlw	0
-   770  007B4E  6E02               	movwf	wait00@k+1,c
-   771  007B50  0E0A               	movlw	10
-   772  007B52  6E01               	movwf	wait00@k,c
-   773  007B54  EC5D  F03E         	call	_wait00	;wreg free
-   774  007B58  0012               	return		;funcret
-   775  007B5A                     __end_of_straight:
-   776                           	opt stack 0
-   777                           status	equ	0xFD8
-   778                           
-   779 ;; *************** function _small_right_down *****************
-   780 ;; Defined at:
-   781 ;;		line 42 in file "sample.c"
-   782 ;; Parameters:    Size  Location     Type
-   783 ;;		None
-   784 ;; Auto vars:     Size  Location     Type
-   785 ;;		None
-   786 ;; Return value:  Size  Location     Type
-   787 ;;                  2   37[None  ] int 
-   788 ;; Registers used:
-   789 ;;		wreg, status,2, status,0, cstack
-   790 ;; Tracked objects:
-   791 ;;		On entry : 0/0
-   792 ;;		On exit  : 0/0
-   793 ;;		Unchanged: 0/0
-   794 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   795 ;;      Params:         0       0       0       0       0       0       0       0       0
-   796 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   797 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   798 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   799 ;;Total ram usage:        0 bytes
-   800 ;; Hardware stack levels used:    1
-   801 ;; Hardware stack levels required when called:    1
-   802 ;; This function calls:
-   803 ;;		_wait00
-   804 ;; This function is called by:
-   805 ;;		_main
-   806 ;; This function uses a non-reentrant model
-   807 ;;
-   808                           
-   809                           	psect	text2
-   810  007C54                     __ptext2:
-   811                           	opt stack 0
-   812  007C54                     _small_right_down:
-   813                           	opt stack 29
-   814                           
-   815                           ;sample.c: 43: PORTC=0x03;
-   816                           
-   817                           ;incstack = 0
-   818  007C54  0E03               	movlw	3
-   819  007C56  6E82               	movwf	3970,c	;volatile
-   820                           
-   821                           ;sample.c: 44: wait00(0.3);
-   822  007C58  0E00               	movlw	0
-   823  007C5A  6E02               	movwf	wait00@k+1,c
-   824  007C5C  0E00               	movlw	0
-   825  007C5E  6E01               	movwf	wait00@k,c
-   826  007C60  EC5D  F03E         	call	_wait00	;wreg free
-   827                           
-   828                           ;sample.c: 45: PORTC=0x01;
-   829  007C64  0E01               	movlw	1
-   830  007C66  6E82               	movwf	3970,c	;volatile
-   831                           
-   832                           ;sample.c: 46: wait00(8);
-   833  007C68  0E00               	movlw	0
-   834  007C6A  6E02               	movwf	wait00@k+1,c
-   835  007C6C  0E08               	movlw	8
-   836  007C6E  6E01               	movwf	wait00@k,c
-   837  007C70  EC5D  F03E         	call	_wait00	;wreg free
-   838                           
-   839                           ;sample.c: 47: PORTC=0x00;
-   840  007C74  0E00               	movlw	0
-   841  007C76  6E82               	movwf	3970,c	;volatile
-   842                           
-   843                           ;sample.c: 48: wait00(16);
-   844  007C78  0E00               	movlw	0
-   845  007C7A  6E02               	movwf	wait00@k+1,c
-   846  007C7C  0E10               	movlw	16
-   847  007C7E  6E01               	movwf	wait00@k,c
-   848  007C80  EC5D  F03E         	call	_wait00	;wreg free
-   849  007C84  0012               	return		;funcret
-   850  007C86                     __end_of_small_right_down:
-   851                           	opt stack 0
-   852                           status	equ	0xFD8
-   853                           
-   854 ;; *************** function _small_left_down *****************
-   855 ;; Defined at:
-   856 ;;		line 24 in file "sample.c"
-   857 ;; Parameters:    Size  Location     Type
-   858 ;;		None
-   859 ;; Auto vars:     Size  Location     Type
-   860 ;;		None
-   861 ;; Return value:  Size  Location     Type
-   862 ;;                  2   31[None  ] int 
-   863 ;; Registers used:
-   864 ;;		wreg, status,2, status,0, cstack
-   865 ;; Tracked objects:
-   866 ;;		On entry : 0/0
-   867 ;;		On exit  : 0/0
-   868 ;;		Unchanged: 0/0
-   869 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   870 ;;      Params:         0       0       0       0       0       0       0       0       0
-   871 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   872 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   873 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   874 ;;Total ram usage:        0 bytes
-   875 ;; Hardware stack levels used:    1
-   876 ;; Hardware stack levels required when called:    1
-   877 ;; This function calls:
-   878 ;;		_wait00
-   879 ;; This function is called by:
-   880 ;;		_main
-   881 ;; This function uses a non-reentrant model
-   882 ;;
-   883                           
-   884                           	psect	text3
-   885  007C22                     __ptext3:
-   886                           	opt stack 0
-   887  007C22                     _small_left_down:
-   888                           	opt stack 29
-   889                           
-   890                           ;sample.c: 25: PORTC=0x03;
-   891                           
-   892                           ;incstack = 0
-   893  007C22  0E03               	movlw	3
-   894  007C24  6E82               	movwf	3970,c	;volatile
-   895                           
-   896                           ;sample.c: 26: wait00(0.3);
-   897  007C26  0E00               	movlw	0
-   898  007C28  6E02               	movwf	wait00@k+1,c
-   899  007C2A  0E00               	movlw	0
-   900  007C2C  6E01               	movwf	wait00@k,c
-   901  007C2E  EC5D  F03E         	call	_wait00	;wreg free
-   902                           
-   903                           ;sample.c: 27: PORTC=0x02;
-   904  007C32  0E02               	movlw	2
-   905  007C34  6E82               	movwf	3970,c	;volatile
-   906                           
-   907                           ;sample.c: 28: wait00(8);
-   908  007C36  0E00               	movlw	0
-   909  007C38  6E02               	movwf	wait00@k+1,c
-   910  007C3A  0E08               	movlw	8
-   911  007C3C  6E01               	movwf	wait00@k,c
-   912  007C3E  EC5D  F03E         	call	_wait00	;wreg free
-   913                           
-   914                           ;sample.c: 29: PORTC=0x00;
-   915  007C42  0E00               	movlw	0
-   916  007C44  6E82               	movwf	3970,c	;volatile
-   917                           
-   918                           ;sample.c: 30: wait00(16);
-   919  007C46  0E00               	movlw	0
-   920  007C48  6E02               	movwf	wait00@k+1,c
-   921  007C4A  0E10               	movlw	16
-   922  007C4C  6E01               	movwf	wait00@k,c
-   923  007C4E  EC5D  F03E         	call	_wait00	;wreg free
-   924  007C52  0012               	return		;funcret
-   925  007C54                     __end_of_small_left_down:
-   926                           	opt stack 0
-   927                           status	equ	0xFD8
-   928                           
-   929 ;; *************** function _right_down *****************
-   930 ;; Defined at:
-   931 ;;		line 33 in file "sample.c"
-   932 ;; Parameters:    Size  Location     Type
-   933 ;;		None
-   934 ;; Auto vars:     Size  Location     Type
-   935 ;;		None
-   936 ;; Return value:  Size  Location     Type
-   937 ;;                  2   34[None  ] int 
-   938 ;; Registers used:
-   939 ;;		wreg, status,2, status,0, cstack
-   940 ;; Tracked objects:
-   941 ;;		On entry : 0/0
-   942 ;;		On exit  : 0/0
-   943 ;;		Unchanged: 0/0
-   944 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   945 ;;      Params:         0       0       0       0       0       0       0       0       0
-   946 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   947 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   948 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   949 ;;Total ram usage:        0 bytes
-   950 ;; Hardware stack levels used:    1
-   951 ;; Hardware stack levels required when called:    1
-   952 ;; This function calls:
-   953 ;;		_wait00
-   954 ;; This function is called by:
-   955 ;;		_main
-   956 ;; This function uses a non-reentrant model
-   957 ;;
-   958                           
-   959                           	psect	text4
-   960  007BF0                     __ptext4:
-   961                           	opt stack 0
-   962  007BF0                     _right_down:
-   963                           	opt stack 29
-   964                           
-   965                           ;sample.c: 34: PORTC=0x03;
-   966                           
-   967                           ;incstack = 0
-   968  007BF0  0E03               	movlw	3
-   969  007BF2  6E82               	movwf	3970,c	;volatile
-   970                           
-   971                           ;sample.c: 35: wait00(0.3);
-   972  007BF4  0E00               	movlw	0
-   973  007BF6  6E02               	movwf	wait00@k+1,c
-   974  007BF8  0E00               	movlw	0
-   975  007BFA  6E01               	movwf	wait00@k,c
-   976  007BFC  EC5D  F03E         	call	_wait00	;wreg free
-   977                           
-   978                           ;sample.c: 36: PORTC=0x01;
-   979  007C00  0E01               	movlw	1
-   980  007C02  6E82               	movwf	3970,c	;volatile
-   981                           
-   982                           ;sample.c: 37: wait00(15);
-   983  007C04  0E00               	movlw	0
-   984  007C06  6E02               	movwf	wait00@k+1,c
-   985  007C08  0E0F               	movlw	15
-   986  007C0A  6E01               	movwf	wait00@k,c
-   987  007C0C  EC5D  F03E         	call	_wait00	;wreg free
-   988                           
-   989                           ;sample.c: 38: PORTC=0x00;
-   990  007C10  0E00               	movlw	0
-   991  007C12  6E82               	movwf	3970,c	;volatile
-   992                           
-   993                           ;sample.c: 39: wait00(20);
-   994  007C14  0E00               	movlw	0
-   995  007C16  6E02               	movwf	wait00@k+1,c
-   996  007C18  0E14               	movlw	20
-   997  007C1A  6E01               	movwf	wait00@k,c
-   998  007C1C  EC5D  F03E         	call	_wait00	;wreg free
-   999  007C20  0012               	return		;funcret
-  1000  007C22                     __end_of_right_down:
-  1001                           	opt stack 0
-  1002                           status	equ	0xFD8
-  1003                           
-  1004 ;; *************** function _mini_right_down *****************
-  1005 ;; Defined at:
-  1006 ;;		line 58 in file "sample.c"
-  1007 ;; Parameters:    Size  Location     Type
-  1008 ;;		None
-  1009 ;; Auto vars:     Size  Location     Type
-  1010 ;;		None
-  1011 ;; Return value:  Size  Location     Type
-  1012 ;;                  2   43[None  ] int 
-  1013 ;; Registers used:
-  1014 ;;		wreg, status,2, status,0, cstack
-  1015 ;; Tracked objects:
-  1016 ;;		On entry : 0/0
-  1017 ;;		On exit  : 0/0
-  1018 ;;		Unchanged: 0/0
-  1019 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-  1020 ;;      Params:         0       0       0       0       0       0       0       0       0
-  1021 ;;      Locals:         0       0       0       0       0       0       0       0       0
-  1022 ;;      Temps:          0       0       0       0       0       0       0       0       0
-  1023 ;;      Totals:         0       0       0       0       0       0       0       0       0
-  1024 ;;Total ram usage:        0 bytes
-  1025 ;; Hardware stack levels used:    1
-  1026 ;; Hardware stack levels required when called:    1
-  1027 ;; This function calls:
-  1028 ;;		_wait00
-  1029 ;; This function is called by:
-  1030 ;;		_main
-  1031 ;; This function uses a non-reentrant model
-  1032 ;;
-  1033                           
-  1034                           	psect	text5
-  1035  007BBE                     __ptext5:
-  1036                           	opt stack 0
-  1037  007BBE                     _mini_right_down:
-  1038                           	opt stack 29
-  1039                           
-  1040                           ;sample.c: 59: PORTC=0x03;
-  1041                           
-  1042                           ;incstack = 0
-  1043  007BBE  0E03               	movlw	3
-  1044  007BC0  6E82               	movwf	3970,c	;volatile
-  1045                           
-  1046                           ;sample.c: 60: wait00(0.3);
-  1047  007BC2  0E00               	movlw	0
-  1048  007BC4  6E02               	movwf	wait00@k+1,c
-  1049  007BC6  0E00               	movlw	0
-  1050  007BC8  6E01               	movwf	wait00@k,c
-  1051  007BCA  EC5D  F03E         	call	_wait00	;wreg free
-  1052                           
-  1053                           ;sample.c: 61: PORTC=0x01;
-  1054  007BCE  0E01               	movlw	1
-  1055  007BD0  6E82               	movwf	3970,c	;volatile
-  1056                           
-  1057                           ;sample.c: 62: wait00(4);
-  1058  007BD2  0E00               	movlw	0
-  1059  007BD4  6E02               	movwf	wait00@k+1,c
-  1060  007BD6  0E04               	movlw	4
-  1061  007BD8  6E01               	movwf	wait00@k,c
-  1062  007BDA  EC5D  F03E         	call	_wait00	;wreg free
-  1063                           
-  1064                           ;sample.c: 63: PORTC=0x00;
-  1065  007BDE  0E00               	movlw	0
-  1066  007BE0  6E82               	movwf	3970,c	;volatile
-  1067                           
-  1068                           ;sample.c: 64: wait00(8);
-  1069  007BE2  0E00               	movlw	0
-  1070  007BE4  6E02               	movwf	wait00@k+1,c
-  1071  007BE6  0E08               	movlw	8
-  1072  007BE8  6E01               	movwf	wait00@k,c
-  1073  007BEA  EC5D  F03E         	call	_wait00	;wreg free
-  1074  007BEE  0012               	return		;funcret
-  1075  007BF0                     __end_of_mini_right_down:
-  1076                           	opt stack 0
-  1077                           status	equ	0xFD8
-  1078                           
-  1079 ;; *************** function _mini_left_down *****************
-  1080 ;; Defined at:
-  1081 ;;		line 50 in file "sample.c"
-  1082 ;; Parameters:    Size  Location     Type
-  1083 ;;		None
-  1084 ;; Auto vars:     Size  Location     Type
-  1085 ;;		None
-  1086 ;; Return value:  Size  Location     Type
-  1087 ;;                  2   40[None  ] int 
-  1088 ;; Registers used:
-  1089 ;;		wreg, status,2, status,0, cstack
-  1090 ;; Tracked objects:
-  1091 ;;		On entry : 0/0
-  1092 ;;		On exit  : 0/0
-  1093 ;;		Unchanged: 0/0
-  1094 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-  1095 ;;      Params:         0       0       0       0       0       0       0       0       0
-  1096 ;;      Locals:         0       0       0       0       0       0       0       0       0
-  1097 ;;      Temps:          0       0       0       0       0       0       0       0       0
-  1098 ;;      Totals:         0       0       0       0       0       0       0       0       0
-  1099 ;;Total ram usage:        0 bytes
-  1100 ;; Hardware stack levels used:    1
-  1101 ;; Hardware stack levels required when called:    1
-  1102 ;; This function calls:
-  1103 ;;		_wait00
-  1104 ;; This function is called by:
-  1105 ;;		_main
-  1106 ;; This function uses a non-reentrant model
-  1107 ;;
-  1108                           
-  1109                           	psect	text6
-  1110  007B8C                     __ptext6:
-  1111                           	opt stack 0
-  1112  007B8C                     _mini_left_down:
-  1113                           	opt stack 29
-  1114                           
-  1115                           ;sample.c: 51: PORTC=0x03;
-  1116                           
-  1117                           ;incstack = 0
-  1118  007B8C  0E03               	movlw	3
-  1119  007B8E  6E82               	movwf	3970,c	;volatile
-  1120                           
-  1121                           ;sample.c: 52: wait00(0.3);
-  1122  007B90  0E00               	movlw	0
-  1123  007B92  6E02               	movwf	wait00@k+1,c
-  1124  007B94  0E00               	movlw	0
-  1125  007B96  6E01               	movwf	wait00@k,c
-  1126  007B98  EC5D  F03E         	call	_wait00	;wreg free
-  1127                           
-  1128                           ;sample.c: 53: PORTC=0x02;
-  1129  007B9C  0E02               	movlw	2
-  1130  007B9E  6E82               	movwf	3970,c	;volatile
-  1131                           
-  1132                           ;sample.c: 54: wait00(4);
-  1133  007BA0  0E00               	movlw	0
-  1134  007BA2  6E02               	movwf	wait00@k+1,c
-  1135  007BA4  0E04               	movlw	4
-  1136  007BA6  6E01               	movwf	wait00@k,c
-  1137  007BA8  EC5D  F03E         	call	_wait00	;wreg free
-  1138                           
-  1139                           ;sample.c: 55: PORTC=0x00;
-  1140  007BAC  0E00               	movlw	0
-  1141  007BAE  6E82               	movwf	3970,c	;volatile
-  1142                           
-  1143                           ;sample.c: 56: wait00(8);
-  1144  007BB0  0E00               	movlw	0
-  1145  007BB2  6E02               	movwf	wait00@k+1,c
-  1146  007BB4  0E08               	movlw	8
-  1147  007BB6  6E01               	movwf	wait00@k,c
-  1148  007BB8  EC5D  F03E         	call	_wait00	;wreg free
-  1149  007BBC  0012               	return		;funcret
-  1150  007BBE                     __end_of_mini_left_down:
-  1151                           	opt stack 0
-  1152                           status	equ	0xFD8
-  1153                           
-  1154 ;; *************** function _left_down *****************
-  1155 ;; Defined at:
-  1156 ;;		line 15 in file "sample.c"
-  1157 ;; Parameters:    Size  Location     Type
-  1158 ;;		None
-  1159 ;; Auto vars:     Size  Location     Type
-  1160 ;;		None
-  1161 ;; Return value:  Size  Location     Type
-  1162 ;;                  2   28[None  ] int 
-  1163 ;; Registers used:
-  1164 ;;		wreg, status,2, status,0, cstack
-  1165 ;; Tracked objects:
-  1166 ;;		On entry : 0/0
-  1167 ;;		On exit  : 0/0
-  1168 ;;		Unchanged: 0/0
-  1169 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-  1170 ;;      Params:         0       0       0       0       0       0       0       0       0
-  1171 ;;      Locals:         0       0       0       0       0       0       0       0       0
-  1172 ;;      Temps:          0       0       0       0       0       0       0       0       0
-  1173 ;;      Totals:         0       0       0       0       0       0       0       0       0
-  1174 ;;Total ram usage:        0 bytes
-  1175 ;; Hardware stack levels used:    1
-  1176 ;; Hardware stack levels required when called:    1
-  1177 ;; This function calls:
-  1178 ;;		_wait00
-  1179 ;; This function is called by:
-  1180 ;;		_main
-  1181 ;; This function uses a non-reentrant model
-  1182 ;;
-  1183                           
-  1184                           	psect	text7
-  1185  007B5A                     __ptext7:
-  1186                           	opt stack 0
-  1187  007B5A                     _left_down:
-  1188                           	opt stack 29
-  1189                           
-  1190                           ;sample.c: 16: PORTC=0x03;
-  1191                           
-  1192                           ;incstack = 0
-  1193  007B5A  0E03               	movlw	3
-  1194  007B5C  6E82               	movwf	3970,c	;volatile
-  1195                           
-  1196                           ;sample.c: 17: wait00(0.3);
-  1197  007B5E  0E00               	movlw	0
-  1198  007B60  6E02               	movwf	wait00@k+1,c
-  1199  007B62  0E00               	movlw	0
-  1200  007B64  6E01               	movwf	wait00@k,c
-  1201  007B66  EC5D  F03E         	call	_wait00	;wreg free
-  1202                           
-  1203                           ;sample.c: 18: PORTC=0x02;
-  1204  007B6A  0E02               	movlw	2
-  1205  007B6C  6E82               	movwf	3970,c	;volatile
-  1206                           
-  1207                           ;sample.c: 19: wait00(15);
-  1208  007B6E  0E00               	movlw	0
-  1209  007B70  6E02               	movwf	wait00@k+1,c
-  1210  007B72  0E0F               	movlw	15
-  1211  007B74  6E01               	movwf	wait00@k,c
-  1212  007B76  EC5D  F03E         	call	_wait00	;wreg free
-  1213                           
-  1214                           ;sample.c: 20: PORTC=0x00;
-  1215  007B7A  0E00               	movlw	0
-  1216  007B7C  6E82               	movwf	3970,c	;volatile
+   707                           ;incstack = 0
+   708  007B78  0E03               	movlw	3
+   709  007B7A  6E82               	movwf	3970,c	;volatile
+   710                           
+   711                           ;sample.c: 70: wait00(10);
+   712  007B7C  0E00               	movlw	0
+   713  007B7E  6E02               	movwf	wait00@k+1,c
+   714  007B80  0E0A               	movlw	10
+   715  007B82  6E01               	movwf	wait00@k,c
+   716  007B84  EC7D  F03E         	call	_wait00	;wreg free
+   717                           
+   718                           ;sample.c: 71: PORTC=0x00;
+   719  007B88  0E00               	movlw	0
+   720  007B8A  6E82               	movwf	3970,c	;volatile
+   721                           
+   722                           ;sample.c: 72: wait00(10);
+   723  007B8C  0E00               	movlw	0
+   724  007B8E  6E02               	movwf	wait00@k+1,c
+   725  007B90  0E0A               	movlw	10
+   726  007B92  6E01               	movwf	wait00@k,c
+   727  007B94  EC7D  F03E         	call	_wait00	;wreg free
+   728  007B98  0012               	return		;funcret
+   729  007B9A                     __end_of_straight:
+   730                           	opt stack 0
+   731                           status	equ	0xFD8
+   732                           
+   733 ;; *************** function _small_right_down *****************
+   734 ;; Defined at:
+   735 ;;		line 44 in file "sample.c"
+   736 ;; Parameters:    Size  Location     Type
+   737 ;;		None
+   738 ;; Auto vars:     Size  Location     Type
+   739 ;;		None
+   740 ;; Return value:  Size  Location     Type
+   741 ;;                  2   37[None  ] int 
+   742 ;; Registers used:
+   743 ;;		wreg, status,2, status,0, cstack
+   744 ;; Tracked objects:
+   745 ;;		On entry : 0/0
+   746 ;;		On exit  : 0/0
+   747 ;;		Unchanged: 0/0
+   748 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   749 ;;      Params:         0       0       0       0       0       0       0       0       0
+   750 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   751 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   752 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   753 ;;Total ram usage:        0 bytes
+   754 ;; Hardware stack levels used:    1
+   755 ;; Hardware stack levels required when called:    1
+   756 ;; This function calls:
+   757 ;;		_wait00
+   758 ;; This function is called by:
+   759 ;;		_main
+   760 ;; This function uses a non-reentrant model
+   761 ;;
+   762                           
+   763                           	psect	text2
+   764  007C94                     __ptext2:
+   765                           	opt stack 0
+   766  007C94                     _small_right_down:
+   767                           	opt stack 29
+   768                           
+   769                           ;sample.c: 45: PORTC=0x03;
+   770                           
+   771                           ;incstack = 0
+   772  007C94  0E03               	movlw	3
+   773  007C96  6E82               	movwf	3970,c	;volatile
+   774                           
+   775                           ;sample.c: 46: wait00(0.3);
+   776  007C98  0E00               	movlw	0
+   777  007C9A  6E02               	movwf	wait00@k+1,c
+   778  007C9C  0E00               	movlw	0
+   779  007C9E  6E01               	movwf	wait00@k,c
+   780  007CA0  EC7D  F03E         	call	_wait00	;wreg free
+   781                           
+   782                           ;sample.c: 47: PORTC=0x01;
+   783  007CA4  0E01               	movlw	1
+   784  007CA6  6E82               	movwf	3970,c	;volatile
+   785                           
+   786                           ;sample.c: 48: wait00(8);
+   787  007CA8  0E00               	movlw	0
+   788  007CAA  6E02               	movwf	wait00@k+1,c
+   789  007CAC  0E08               	movlw	8
+   790  007CAE  6E01               	movwf	wait00@k,c
+   791  007CB0  EC7D  F03E         	call	_wait00	;wreg free
+   792                           
+   793                           ;sample.c: 49: PORTC=0x00;
+   794  007CB4  0E00               	movlw	0
+   795  007CB6  6E82               	movwf	3970,c	;volatile
+   796                           
+   797                           ;sample.c: 50: wait00(16);
+   798  007CB8  0E00               	movlw	0
+   799  007CBA  6E02               	movwf	wait00@k+1,c
+   800  007CBC  0E10               	movlw	16
+   801  007CBE  6E01               	movwf	wait00@k,c
+   802  007CC0  EC7D  F03E         	call	_wait00	;wreg free
+   803  007CC4  0012               	return		;funcret
+   804  007CC6                     __end_of_small_right_down:
+   805                           	opt stack 0
+   806                           status	equ	0xFD8
+   807                           
+   808 ;; *************** function _small_left_down *****************
+   809 ;; Defined at:
+   810 ;;		line 26 in file "sample.c"
+   811 ;; Parameters:    Size  Location     Type
+   812 ;;		None
+   813 ;; Auto vars:     Size  Location     Type
+   814 ;;		None
+   815 ;; Return value:  Size  Location     Type
+   816 ;;                  2   31[None  ] int 
+   817 ;; Registers used:
+   818 ;;		wreg, status,2, status,0, cstack
+   819 ;; Tracked objects:
+   820 ;;		On entry : 0/0
+   821 ;;		On exit  : 0/0
+   822 ;;		Unchanged: 0/0
+   823 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   824 ;;      Params:         0       0       0       0       0       0       0       0       0
+   825 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   826 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   827 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   828 ;;Total ram usage:        0 bytes
+   829 ;; Hardware stack levels used:    1
+   830 ;; Hardware stack levels required when called:    1
+   831 ;; This function calls:
+   832 ;;		_wait00
+   833 ;; This function is called by:
+   834 ;;		_main
+   835 ;; This function uses a non-reentrant model
+   836 ;;
+   837                           
+   838                           	psect	text3
+   839  007C62                     __ptext3:
+   840                           	opt stack 0
+   841  007C62                     _small_left_down:
+   842                           	opt stack 29
+   843                           
+   844                           ;sample.c: 27: PORTC=0x03;
+   845                           
+   846                           ;incstack = 0
+   847  007C62  0E03               	movlw	3
+   848  007C64  6E82               	movwf	3970,c	;volatile
+   849                           
+   850                           ;sample.c: 28: wait00(0.3);
+   851  007C66  0E00               	movlw	0
+   852  007C68  6E02               	movwf	wait00@k+1,c
+   853  007C6A  0E00               	movlw	0
+   854  007C6C  6E01               	movwf	wait00@k,c
+   855  007C6E  EC7D  F03E         	call	_wait00	;wreg free
+   856                           
+   857                           ;sample.c: 29: PORTC=0x02;
+   858  007C72  0E02               	movlw	2
+   859  007C74  6E82               	movwf	3970,c	;volatile
+   860                           
+   861                           ;sample.c: 30: wait00(8);
+   862  007C76  0E00               	movlw	0
+   863  007C78  6E02               	movwf	wait00@k+1,c
+   864  007C7A  0E08               	movlw	8
+   865  007C7C  6E01               	movwf	wait00@k,c
+   866  007C7E  EC7D  F03E         	call	_wait00	;wreg free
+   867                           
+   868                           ;sample.c: 31: PORTC=0x00;
+   869  007C82  0E00               	movlw	0
+   870  007C84  6E82               	movwf	3970,c	;volatile
+   871                           
+   872                           ;sample.c: 32: wait00(16);
+   873  007C86  0E00               	movlw	0
+   874  007C88  6E02               	movwf	wait00@k+1,c
+   875  007C8A  0E10               	movlw	16
+   876  007C8C  6E01               	movwf	wait00@k,c
+   877  007C8E  EC7D  F03E         	call	_wait00	;wreg free
+   878  007C92  0012               	return		;funcret
+   879  007C94                     __end_of_small_left_down:
+   880                           	opt stack 0
+   881                           status	equ	0xFD8
+   882                           
+   883 ;; *************** function _right_down *****************
+   884 ;; Defined at:
+   885 ;;		line 35 in file "sample.c"
+   886 ;; Parameters:    Size  Location     Type
+   887 ;;		None
+   888 ;; Auto vars:     Size  Location     Type
+   889 ;;		None
+   890 ;; Return value:  Size  Location     Type
+   891 ;;                  2   34[None  ] int 
+   892 ;; Registers used:
+   893 ;;		wreg, status,2, status,0, cstack
+   894 ;; Tracked objects:
+   895 ;;		On entry : 0/0
+   896 ;;		On exit  : 0/0
+   897 ;;		Unchanged: 0/0
+   898 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   899 ;;      Params:         0       0       0       0       0       0       0       0       0
+   900 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   901 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   902 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   903 ;;Total ram usage:        0 bytes
+   904 ;; Hardware stack levels used:    1
+   905 ;; Hardware stack levels required when called:    1
+   906 ;; This function calls:
+   907 ;;		_wait00
+   908 ;; This function is called by:
+   909 ;;		_main
+   910 ;; This function uses a non-reentrant model
+   911 ;;
+   912                           
+   913                           	psect	text4
+   914  007C30                     __ptext4:
+   915                           	opt stack 0
+   916  007C30                     _right_down:
+   917                           	opt stack 29
+   918                           
+   919                           ;sample.c: 36: PORTC=0x03;
+   920                           
+   921                           ;incstack = 0
+   922  007C30  0E03               	movlw	3
+   923  007C32  6E82               	movwf	3970,c	;volatile
+   924                           
+   925                           ;sample.c: 37: wait00(0.3);
+   926  007C34  0E00               	movlw	0
+   927  007C36  6E02               	movwf	wait00@k+1,c
+   928  007C38  0E00               	movlw	0
+   929  007C3A  6E01               	movwf	wait00@k,c
+   930  007C3C  EC7D  F03E         	call	_wait00	;wreg free
+   931                           
+   932                           ;sample.c: 38: PORTC=0x01;
+   933  007C40  0E01               	movlw	1
+   934  007C42  6E82               	movwf	3970,c	;volatile
+   935                           
+   936                           ;sample.c: 39: wait00(15);
+   937  007C44  0E00               	movlw	0
+   938  007C46  6E02               	movwf	wait00@k+1,c
+   939  007C48  0E0F               	movlw	15
+   940  007C4A  6E01               	movwf	wait00@k,c
+   941  007C4C  EC7D  F03E         	call	_wait00	;wreg free
+   942                           
+   943                           ;sample.c: 40: PORTC=0x00;
+   944  007C50  0E00               	movlw	0
+   945  007C52  6E82               	movwf	3970,c	;volatile
+   946                           
+   947                           ;sample.c: 41: wait00(20);
+   948  007C54  0E00               	movlw	0
+   949  007C56  6E02               	movwf	wait00@k+1,c
+   950  007C58  0E14               	movlw	20
+   951  007C5A  6E01               	movwf	wait00@k,c
+   952  007C5C  EC7D  F03E         	call	_wait00	;wreg free
+   953  007C60  0012               	return		;funcret
+   954  007C62                     __end_of_right_down:
+   955                           	opt stack 0
+   956                           status	equ	0xFD8
+   957                           
+   958 ;; *************** function _mini_right_down *****************
+   959 ;; Defined at:
+   960 ;;		line 60 in file "sample.c"
+   961 ;; Parameters:    Size  Location     Type
+   962 ;;		None
+   963 ;; Auto vars:     Size  Location     Type
+   964 ;;		None
+   965 ;; Return value:  Size  Location     Type
+   966 ;;                  2   43[None  ] int 
+   967 ;; Registers used:
+   968 ;;		wreg, status,2, status,0, cstack
+   969 ;; Tracked objects:
+   970 ;;		On entry : 0/0
+   971 ;;		On exit  : 0/0
+   972 ;;		Unchanged: 0/0
+   973 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   974 ;;      Params:         0       0       0       0       0       0       0       0       0
+   975 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   976 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   977 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   978 ;;Total ram usage:        0 bytes
+   979 ;; Hardware stack levels used:    1
+   980 ;; Hardware stack levels required when called:    1
+   981 ;; This function calls:
+   982 ;;		_wait00
+   983 ;; This function is called by:
+   984 ;;		_main
+   985 ;; This function uses a non-reentrant model
+   986 ;;
+   987                           
+   988                           	psect	text5
+   989  007BFE                     __ptext5:
+   990                           	opt stack 0
+   991  007BFE                     _mini_right_down:
+   992                           	opt stack 29
+   993                           
+   994                           ;sample.c: 61: PORTC=0x03;
+   995                           
+   996                           ;incstack = 0
+   997  007BFE  0E03               	movlw	3
+   998  007C00  6E82               	movwf	3970,c	;volatile
+   999                           
+  1000                           ;sample.c: 62: wait00(0.3);
+  1001  007C02  0E00               	movlw	0
+  1002  007C04  6E02               	movwf	wait00@k+1,c
+  1003  007C06  0E00               	movlw	0
+  1004  007C08  6E01               	movwf	wait00@k,c
+  1005  007C0A  EC7D  F03E         	call	_wait00	;wreg free
+  1006                           
+  1007                           ;sample.c: 63: PORTC=0x01;
+  1008  007C0E  0E01               	movlw	1
+  1009  007C10  6E82               	movwf	3970,c	;volatile
+  1010                           
+  1011                           ;sample.c: 64: wait00(4);
+  1012  007C12  0E00               	movlw	0
+  1013  007C14  6E02               	movwf	wait00@k+1,c
+  1014  007C16  0E04               	movlw	4
+  1015  007C18  6E01               	movwf	wait00@k,c
+  1016  007C1A  EC7D  F03E         	call	_wait00	;wreg free
+  1017                           
+  1018                           ;sample.c: 65: PORTC=0x00;
+  1019  007C1E  0E00               	movlw	0
+  1020  007C20  6E82               	movwf	3970,c	;volatile
+  1021                           
+  1022                           ;sample.c: 66: wait00(8);
+  1023  007C22  0E00               	movlw	0
+  1024  007C24  6E02               	movwf	wait00@k+1,c
+  1025  007C26  0E08               	movlw	8
+  1026  007C28  6E01               	movwf	wait00@k,c
+  1027  007C2A  EC7D  F03E         	call	_wait00	;wreg free
+  1028  007C2E  0012               	return		;funcret
+  1029  007C30                     __end_of_mini_right_down:
+  1030                           	opt stack 0
+  1031                           status	equ	0xFD8
+  1032                           
+  1033 ;; *************** function _mini_left_down *****************
+  1034 ;; Defined at:
+  1035 ;;		line 52 in file "sample.c"
+  1036 ;; Parameters:    Size  Location     Type
+  1037 ;;		None
+  1038 ;; Auto vars:     Size  Location     Type
+  1039 ;;		None
+  1040 ;; Return value:  Size  Location     Type
+  1041 ;;                  2   40[None  ] int 
+  1042 ;; Registers used:
+  1043 ;;		wreg, status,2, status,0, cstack
+  1044 ;; Tracked objects:
+  1045 ;;		On entry : 0/0
+  1046 ;;		On exit  : 0/0
+  1047 ;;		Unchanged: 0/0
+  1048 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1049 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1050 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1051 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1052 ;;      Totals:         0       0       0       0       0       0       0       0       0
+  1053 ;;Total ram usage:        0 bytes
+  1054 ;; Hardware stack levels used:    1
+  1055 ;; Hardware stack levels required when called:    1
+  1056 ;; This function calls:
+  1057 ;;		_wait00
+  1058 ;; This function is called by:
+  1059 ;;		_main
+  1060 ;; This function uses a non-reentrant model
+  1061 ;;
+  1062                           
+  1063                           	psect	text6
+  1064  007BCC                     __ptext6:
+  1065                           	opt stack 0
+  1066  007BCC                     _mini_left_down:
+  1067                           	opt stack 29
+  1068                           
+  1069                           ;sample.c: 53: PORTC=0x03;
+  1070                           
+  1071                           ;incstack = 0
+  1072  007BCC  0E03               	movlw	3
+  1073  007BCE  6E82               	movwf	3970,c	;volatile
+  1074                           
+  1075                           ;sample.c: 54: wait00(0.3);
+  1076  007BD0  0E00               	movlw	0
+  1077  007BD2  6E02               	movwf	wait00@k+1,c
+  1078  007BD4  0E00               	movlw	0
+  1079  007BD6  6E01               	movwf	wait00@k,c
+  1080  007BD8  EC7D  F03E         	call	_wait00	;wreg free
+  1081                           
+  1082                           ;sample.c: 55: PORTC=0x02;
+  1083  007BDC  0E02               	movlw	2
+  1084  007BDE  6E82               	movwf	3970,c	;volatile
+  1085                           
+  1086                           ;sample.c: 56: wait00(4);
+  1087  007BE0  0E00               	movlw	0
+  1088  007BE2  6E02               	movwf	wait00@k+1,c
+  1089  007BE4  0E04               	movlw	4
+  1090  007BE6  6E01               	movwf	wait00@k,c
+  1091  007BE8  EC7D  F03E         	call	_wait00	;wreg free
+  1092                           
+  1093                           ;sample.c: 57: PORTC=0x00;
+  1094  007BEC  0E00               	movlw	0
+  1095  007BEE  6E82               	movwf	3970,c	;volatile
+  1096                           
+  1097                           ;sample.c: 58: wait00(8);
+  1098  007BF0  0E00               	movlw	0
+  1099  007BF2  6E02               	movwf	wait00@k+1,c
+  1100  007BF4  0E08               	movlw	8
+  1101  007BF6  6E01               	movwf	wait00@k,c
+  1102  007BF8  EC7D  F03E         	call	_wait00	;wreg free
+  1103  007BFC  0012               	return		;funcret
+  1104  007BFE                     __end_of_mini_left_down:
+  1105                           	opt stack 0
+  1106                           status	equ	0xFD8
+  1107                           
+  1108 ;; *************** function _left_down *****************
+  1109 ;; Defined at:
+  1110 ;;		line 17 in file "sample.c"
+  1111 ;; Parameters:    Size  Location     Type
+  1112 ;;		None
+  1113 ;; Auto vars:     Size  Location     Type
+  1114 ;;		None
+  1115 ;; Return value:  Size  Location     Type
+  1116 ;;                  2   28[None  ] int 
+  1117 ;; Registers used:
+  1118 ;;		wreg, status,2, status,0, cstack
+  1119 ;; Tracked objects:
+  1120 ;;		On entry : 0/0
+  1121 ;;		On exit  : 0/0
+  1122 ;;		Unchanged: 0/0
+  1123 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1124 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1125 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1126 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1127 ;;      Totals:         0       0       0       0       0       0       0       0       0
+  1128 ;;Total ram usage:        0 bytes
+  1129 ;; Hardware stack levels used:    1
+  1130 ;; Hardware stack levels required when called:    1
+  1131 ;; This function calls:
+  1132 ;;		_wait00
+  1133 ;; This function is called by:
+  1134 ;;		_main
+  1135 ;; This function uses a non-reentrant model
+  1136 ;;
+  1137                           
+  1138                           	psect	text7
+  1139  007B9A                     __ptext7:
+  1140                           	opt stack 0
+  1141  007B9A                     _left_down:
+  1142                           	opt stack 29
+  1143                           
+  1144                           ;sample.c: 18: PORTC=0x03;
+  1145                           
+  1146                           ;incstack = 0
+  1147  007B9A  0E03               	movlw	3
+  1148  007B9C  6E82               	movwf	3970,c	;volatile
+  1149                           
+  1150                           ;sample.c: 19: wait00(0.3);
+  1151  007B9E  0E00               	movlw	0
+  1152  007BA0  6E02               	movwf	wait00@k+1,c
+  1153  007BA2  0E00               	movlw	0
+  1154  007BA4  6E01               	movwf	wait00@k,c
+  1155  007BA6  EC7D  F03E         	call	_wait00	;wreg free
+  1156                           
+  1157                           ;sample.c: 20: PORTC=0x02;
+  1158  007BAA  0E02               	movlw	2
+  1159  007BAC  6E82               	movwf	3970,c	;volatile
+  1160                           
+  1161                           ;sample.c: 21: wait00(15);
+  1162  007BAE  0E00               	movlw	0
+  1163  007BB0  6E02               	movwf	wait00@k+1,c
+  1164  007BB2  0E0F               	movlw	15
+  1165  007BB4  6E01               	movwf	wait00@k,c
+  1166  007BB6  EC7D  F03E         	call	_wait00	;wreg free
+  1167                           
+  1168                           ;sample.c: 22: PORTC=0x00;
+  1169  007BBA  0E00               	movlw	0
+  1170  007BBC  6E82               	movwf	3970,c	;volatile
+  1171                           
+  1172                           ;sample.c: 23: wait00(20);
+  1173  007BBE  0E00               	movlw	0
+  1174  007BC0  6E02               	movwf	wait00@k+1,c
+  1175  007BC2  0E14               	movlw	20
+  1176  007BC4  6E01               	movwf	wait00@k,c
+  1177  007BC6  EC7D  F03E         	call	_wait00	;wreg free
+  1178  007BCA  0012               	return		;funcret
+  1179  007BCC                     __end_of_left_down:
+  1180                           	opt stack 0
+  1181                           status	equ	0xFD8
+  1182                           
+  1183 ;; *************** function _led_sens *****************
+  1184 ;; Defined at:
+  1185 ;;		line 81 in file "sample.c"
+  1186 ;; Parameters:    Size  Location     Type
+  1187 ;;		None
+  1188 ;; Auto vars:     Size  Location     Type
+  1189 ;;		None
+  1190 ;; Return value:  Size  Location     Type
+  1191 ;;                  2   52[None  ] int 
+  1192 ;; Registers used:
+  1193 ;;		None
+  1194 ;; Tracked objects:
+  1195 ;;		On entry : 0/0
+  1196 ;;		On exit  : 0/0
+  1197 ;;		Unchanged: 0/0
+  1198 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1199 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1200 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1201 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1202 ;;      Totals:         0       0       0       0       0       0       0       0       0
+  1203 ;;Total ram usage:        0 bytes
+  1204 ;; Hardware stack levels used:    1
+  1205 ;; This function calls:
+  1206 ;;		Nothing
+  1207 ;; This function is called by:
+  1208 ;;		_main
+  1209 ;; This function uses a non-reentrant model
+  1210 ;;
+  1211                           
+  1212                           	psect	text8
+  1213  007CC6                     __ptext8:
+  1214                           	opt stack 0
+  1215  007CC6                     _led_sens:
+  1216                           	opt stack 30
   1217                           
-  1218                           ;sample.c: 21: wait00(20);
-  1219  007B7E  0E00               	movlw	0
-  1220  007B80  6E02               	movwf	wait00@k+1,c
-  1221  007B82  0E14               	movlw	20
-  1222  007B84  6E01               	movwf	wait00@k,c
-  1223  007B86  EC5D  F03E         	call	_wait00	;wreg free
-  1224  007B8A  0012               	return		;funcret
-  1225  007B8C                     __end_of_left_down:
-  1226                           	opt stack 0
-  1227                           status	equ	0xFD8
+  1218                           ;sample.c: 82: PORTAbits.RA0 = PORTBbits.RB0;
+  1219                           
+  1220                           ;incstack = 0
+  1221  007CC6  A081               	btfss	3969,0,c	;volatile
+  1222  007CC8  D002               	bra	u45
+  1223  007CCA  8080               	bsf	3968,0,c	;volatile
+  1224  007CCC  D001               	bra	u47
+  1225  007CCE                     u45:
+  1226  007CCE  9080               	bcf	3968,0,c	;volatile
+  1227  007CD0                     u47:
   1228                           
-  1229 ;; *************** function _led_sens *****************
-  1230 ;; Defined at:
-  1231 ;;		line 79 in file "sample.c"
-  1232 ;; Parameters:    Size  Location     Type
-  1233 ;;		None
-  1234 ;; Auto vars:     Size  Location     Type
-  1235 ;;		None
-  1236 ;; Return value:  Size  Location     Type
-  1237 ;;                  2   52[None  ] int 
-  1238 ;; Registers used:
-  1239 ;;		None
-  1240 ;; Tracked objects:
-  1241 ;;		On entry : 0/0
-  1242 ;;		On exit  : 0/0
-  1243 ;;		Unchanged: 0/0
-  1244 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-  1245 ;;      Params:         0       0       0       0       0       0       0       0       0
-  1246 ;;      Locals:         0       0       0       0       0       0       0       0       0
-  1247 ;;      Temps:          0       0       0       0       0       0       0       0       0
-  1248 ;;      Totals:         0       0       0       0       0       0       0       0       0
-  1249 ;;Total ram usage:        0 bytes
-  1250 ;; Hardware stack levels used:    1
-  1251 ;; This function calls:
-  1252 ;;		Nothing
-  1253 ;; This function is called by:
-  1254 ;;		_main
-  1255 ;; This function uses a non-reentrant model
-  1256 ;;
-  1257                           
-  1258                           	psect	text8
-  1259  007C86                     __ptext8:
-  1260                           	opt stack 0
-  1261  007C86                     _led_sens:
-  1262                           	opt stack 30
-  1263                           
-  1264                           ;sample.c: 80: PORTAbits.RA0 = PORTBbits.RB0;
-  1265                           
-  1266                           ;incstack = 0
-  1267  007C86  A081               	btfss	3969,0,c	;volatile
-  1268  007C88  D002               	bra	u45
-  1269  007C8A  8080               	bsf	3968,0,c	;volatile
-  1270  007C8C  D001               	bra	u47
-  1271  007C8E                     u45:
-  1272  007C8E  9080               	bcf	3968,0,c	;volatile
-  1273  007C90                     u47:
-  1274                           
-  1275                           ;sample.c: 81: PORTAbits.RA1 = PORTBbits.RB1;
-  1276  007C90  A281               	btfss	3969,1,c	;volatile
-  1277  007C92  D002               	bra	u55
-  1278  007C94  8280               	bsf	3968,1,c	;volatile
-  1279  007C96  D001               	bra	u57
-  1280  007C98                     u55:
-  1281  007C98  9280               	bcf	3968,1,c	;volatile
-  1282  007C9A                     u57:
-  1283                           
-  1284                           ;sample.c: 82: PORTAbits.RA2 = PORTBbits.RB2;
-  1285  007C9A  A481               	btfss	3969,2,c	;volatile
-  1286  007C9C  D002               	bra	u65
-  1287  007C9E  8480               	bsf	3968,2,c	;volatile
-  1288  007CA0  D001               	bra	u67
-  1289  007CA2                     u65:
-  1290  007CA2  9480               	bcf	3968,2,c	;volatile
-  1291  007CA4                     u67:
-  1292                           
-  1293                           ;sample.c: 83: PORTAbits.RA3 = PORTBbits.RB3;
-  1294  007CA4  A681               	btfss	3969,3,c	;volatile
-  1295  007CA6  D002               	bra	u75
-  1296  007CA8  8680               	bsf	3968,3,c	;volatile
-  1297  007CAA  D001               	bra	u77
-  1298  007CAC                     u75:
-  1299  007CAC  9680               	bcf	3968,3,c	;volatile
-  1300  007CAE                     u77:
-  1301                           
-  1302                           ;sample.c: 84: PORTAbits.RA4 = PORTBbits.RB4;
-  1303  007CAE  A881               	btfss	3969,4,c	;volatile
-  1304  007CB0  D002               	bra	u85
-  1305  007CB2  8880               	bsf	3968,4,c	;volatile
-  1306  007CB4  D001               	bra	u87
-  1307  007CB6                     u85:
-  1308  007CB6  9880               	bcf	3968,4,c	;volatile
-  1309  007CB8                     u87:
-  1310  007CB8  0012               	return		;funcret
-  1311  007CBA                     __end_of_led_sens:
-  1312                           	opt stack 0
-  1313                           status	equ	0xFD8
-  1314                           
-  1315 ;; *************** function _fast_straight *****************
-  1316 ;; Defined at:
-  1317 ;;		line 72 in file "sample.c"
-  1318 ;; Parameters:    Size  Location     Type
-  1319 ;;		None
-  1320 ;; Auto vars:     Size  Location     Type
-  1321 ;;		None
-  1322 ;; Return value:  Size  Location     Type
-  1323 ;;                  2   49[None  ] int 
-  1324 ;; Registers used:
-  1325 ;;		wreg, status,2, status,0, cstack
-  1326 ;; Tracked objects:
-  1327 ;;		On entry : 0/0
-  1328 ;;		On exit  : 0/0
-  1329 ;;		Unchanged: 0/0
-  1330 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-  1331 ;;      Params:         0       0       0       0       0       0       0       0       0
-  1332 ;;      Locals:         0       0       0       0       0       0       0       0       0
-  1333 ;;      Temps:          0       0       0       0       0       0       0       0       0
-  1334 ;;      Totals:         0       0       0       0       0       0       0       0       0
-  1335 ;;Total ram usage:        0 bytes
-  1336 ;; Hardware stack levels used:    1
-  1337 ;; Hardware stack levels required when called:    1
-  1338 ;; This function calls:
-  1339 ;;		_wait00
-  1340 ;; This function is called by:
-  1341 ;;		_main
-  1342 ;; This function uses a non-reentrant model
-  1343 ;;
-  1344                           
-  1345                           	psect	text9
-  1346  007B16                     __ptext9:
-  1347                           	opt stack 0
-  1348  007B16                     _fast_straight:
-  1349                           	opt stack 29
-  1350                           
-  1351                           ;sample.c: 73: PORTC=0x03;
-  1352                           
-  1353                           ;incstack = 0
-  1354  007B16  0E03               	movlw	3
-  1355  007B18  6E82               	movwf	3970,c	;volatile
-  1356                           
-  1357                           ;sample.c: 74: wait00(20);
-  1358  007B1A  0E00               	movlw	0
-  1359  007B1C  6E02               	movwf	wait00@k+1,c
-  1360  007B1E  0E14               	movlw	20
-  1361  007B20  6E01               	movwf	wait00@k,c
-  1362  007B22  EC5D  F03E         	call	_wait00	;wreg free
-  1363                           
-  1364                           ;sample.c: 75: PORTC=0x00;
-  1365  007B26  0E00               	movlw	0
-  1366  007B28  6E82               	movwf	3970,c	;volatile
-  1367                           
-  1368                           ;sample.c: 76: wait00(5);
-  1369  007B2A  0E00               	movlw	0
-  1370  007B2C  6E02               	movwf	wait00@k+1,c
-  1371  007B2E  0E05               	movlw	5
-  1372  007B30  6E01               	movwf	wait00@k,c
-  1373  007B32  EC5D  F03E         	call	_wait00	;wreg free
-  1374  007B36  0012               	return		;funcret
-  1375  007B38                     __end_of_fast_straight:
-  1376                           	opt stack 0
-  1377                           status	equ	0xFD8
-  1378                           
-  1379 ;; *************** function _wait00 *****************
-  1380 ;; Defined at:
-  1381 ;;		line 4 in file "sample.c"
-  1382 ;; Parameters:    Size  Location     Type
-  1383 ;;  k               2    0[COMRAM] short 
-  1384 ;; Auto vars:     Size  Location     Type
-  1385 ;;  i               2    5[COMRAM] short 
-  1386 ;;  j               2    3[COMRAM] short 
-  1387 ;; Return value:  Size  Location     Type
-  1388 ;;                  2    0[COMRAM] int 
-  1389 ;; Registers used:
-  1390 ;;		wreg, status,2, status,0
-  1391 ;; Tracked objects:
-  1392 ;;		On entry : 0/0
-  1393 ;;		On exit  : 0/0
-  1394 ;;		Unchanged: 0/0
-  1395 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-  1396 ;;      Params:         2       0       0       0       0       0       0       0       0
-  1397 ;;      Locals:         4       0       0       0       0       0       0       0       0
-  1398 ;;      Temps:          1       0       0       0       0       0       0       0       0
-  1399 ;;      Totals:         7       0       0       0       0       0       0       0       0
-  1400 ;;Total ram usage:        7 bytes
-  1401 ;; Hardware stack levels used:    1
-  1402 ;; This function calls:
-  1403 ;;		Nothing
-  1404 ;; This function is called by:
-  1405 ;;		_left_down
-  1406 ;;		_small_left_down
-  1407 ;;		_right_down
-  1408 ;;		_small_right_down
-  1409 ;;		_mini_left_down
-  1410 ;;		_mini_right_down
-  1411 ;;		_straight
-  1412 ;;		_fast_straight
-  1413 ;; This function uses a non-reentrant model
-  1414 ;;
-  1415                           
-  1416                           	psect	text10
-  1417  007CBA                     __ptext10:
-  1418                           	opt stack 0
-  1419  007CBA                     _wait00:
-  1420                           	opt stack 29
-  1421                           
-  1422                           ;sample.c: 7: short i;
-  1423                           ;sample.c: 8: short j;
-  1424                           ;sample.c: 9: for(j=0;j<k;j++){
-  1425                           
-  1426                           ;incstack = 0
-  1427  007CBA  0E00               	movlw	0
-  1428  007CBC  6E05               	movwf	wait00@j+1,c
-  1429  007CBE  0E00               	movlw	0
-  1430  007CC0  6E04               	movwf	wait00@j,c
-  1431  007CC2  D011               	goto	l21
-  1432  007CC4                     
-  1433                           ;sample.c: 10: for(i=0;i<3000;i++){
-  1434  007CC4  0E00               	movlw	0
-  1435  007CC6  6E07               	movwf	wait00@i+1,c
-  1436  007CC8  0E00               	movlw	0
-  1437  007CCA  6E06               	movwf	wait00@i,c
-  1438  007CCC                     l1172:
-  1439  007CCC  BE07               	btfsc	wait00@i+1,7,c
-  1440  007CCE  D006               	goto	l23
-  1441  007CD0  0EB8               	movlw	184
-  1442  007CD2  5C06               	subwf	wait00@i,w,c
-  1443  007CD4  0E0B               	movlw	11
-  1444  007CD6  5807               	subwfb	wait00@i+1,w,c
-  1445  007CD8  B0D8               	btfsc	status,0,c
-  1446  007CDA  D003               	goto	u1210
-  1447  007CDC                     l23:
-  1448  007CDC  4A06               	infsnz	wait00@i,f,c
-  1449  007CDE  2A07               	incf	wait00@i+1,f,c
-  1450  007CE0  D7F5               	goto	l1172
-  1451  007CE2                     u1210:
-  1452  007CE2  4A04               	infsnz	wait00@j,f,c
-  1453  007CE4  2A05               	incf	wait00@j+1,f,c
-  1454  007CE6                     l21:
-  1455  007CE6  5001               	movf	wait00@k,w,c
-  1456  007CE8  5C04               	subwf	wait00@j,w,c
-  1457  007CEA  5005               	movf	wait00@j+1,w,c
-  1458  007CEC  0A80               	xorlw	128
-  1459  007CEE  6E03               	movwf	??_wait00& (0+255),c
-  1460  007CF0  5002               	movf	wait00@k+1,w,c
-  1461  007CF2  0A80               	xorlw	128
-  1462  007CF4  5803               	subwfb	??_wait00& (0+255),w,c
-  1463  007CF6  B0D8               	btfsc	status,0,c
-  1464  007CF8  0012               	return	
-  1465  007CFA  D7E4               	goto	l22
-  1466  007CFC                     __end_of_wait00:
-  1467                           	opt stack 0
-  1468  0000                     status	equ	0xFD8
-  1469                           status	equ	0xFD8
-  1470                           
-  1471                           	psect	rparam
-  1472  0000                     status	equ	0xFD8
+  1229                           ;sample.c: 83: PORTAbits.RA1 = PORTBbits.RB1;
+  1230  007CD0  A281               	btfss	3969,1,c	;volatile
+  1231  007CD2  D002               	bra	u55
+  1232  007CD4  8280               	bsf	3968,1,c	;volatile
+  1233  007CD6  D001               	bra	u57
+  1234  007CD8                     u55:
+  1235  007CD8  9280               	bcf	3968,1,c	;volatile
+  1236  007CDA                     u57:
+  1237                           
+  1238                           ;sample.c: 84: PORTAbits.RA2 = PORTBbits.RB2;
+  1239  007CDA  A481               	btfss	3969,2,c	;volatile
+  1240  007CDC  D002               	bra	u65
+  1241  007CDE  8480               	bsf	3968,2,c	;volatile
+  1242  007CE0  D001               	bra	u67
+  1243  007CE2                     u65:
+  1244  007CE2  9480               	bcf	3968,2,c	;volatile
+  1245  007CE4                     u67:
+  1246                           
+  1247                           ;sample.c: 85: PORTAbits.RA3 = PORTBbits.RB3;
+  1248  007CE4  A681               	btfss	3969,3,c	;volatile
+  1249  007CE6  D002               	bra	u75
+  1250  007CE8  8680               	bsf	3968,3,c	;volatile
+  1251  007CEA  D001               	bra	u77
+  1252  007CEC                     u75:
+  1253  007CEC  9680               	bcf	3968,3,c	;volatile
+  1254  007CEE                     u77:
+  1255                           
+  1256                           ;sample.c: 86: PORTAbits.RA4 = PORTBbits.RB4;
+  1257  007CEE  A881               	btfss	3969,4,c	;volatile
+  1258  007CF0  D002               	bra	u85
+  1259  007CF2  8880               	bsf	3968,4,c	;volatile
+  1260  007CF4  D001               	bra	u87
+  1261  007CF6                     u85:
+  1262  007CF6  9880               	bcf	3968,4,c	;volatile
+  1263  007CF8                     u87:
+  1264  007CF8  0012               	return		;funcret
+  1265  007CFA                     __end_of_led_sens:
+  1266                           	opt stack 0
+  1267                           status	equ	0xFD8
+  1268                           
+  1269 ;; *************** function _fast_straight *****************
+  1270 ;; Defined at:
+  1271 ;;		line 74 in file "sample.c"
+  1272 ;; Parameters:    Size  Location     Type
+  1273 ;;		None
+  1274 ;; Auto vars:     Size  Location     Type
+  1275 ;;		None
+  1276 ;; Return value:  Size  Location     Type
+  1277 ;;                  2   49[None  ] int 
+  1278 ;; Registers used:
+  1279 ;;		wreg, status,2, status,0, cstack
+  1280 ;; Tracked objects:
+  1281 ;;		On entry : 0/0
+  1282 ;;		On exit  : 0/0
+  1283 ;;		Unchanged: 0/0
+  1284 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1285 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1286 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1287 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1288 ;;      Totals:         0       0       0       0       0       0       0       0       0
+  1289 ;;Total ram usage:        0 bytes
+  1290 ;; Hardware stack levels used:    1
+  1291 ;; Hardware stack levels required when called:    1
+  1292 ;; This function calls:
+  1293 ;;		_wait00
+  1294 ;; This function is called by:
+  1295 ;;		_main
+  1296 ;; This function uses a non-reentrant model
+  1297 ;;
+  1298                           
+  1299                           	psect	text9
+  1300  007B56                     __ptext9:
+  1301                           	opt stack 0
+  1302  007B56                     _fast_straight:
+  1303                           	opt stack 29
+  1304                           
+  1305                           ;sample.c: 75: PORTC=0x03;
+  1306                           
+  1307                           ;incstack = 0
+  1308  007B56  0E03               	movlw	3
+  1309  007B58  6E82               	movwf	3970,c	;volatile
+  1310                           
+  1311                           ;sample.c: 76: wait00(20);
+  1312  007B5A  0E00               	movlw	0
+  1313  007B5C  6E02               	movwf	wait00@k+1,c
+  1314  007B5E  0E14               	movlw	20
+  1315  007B60  6E01               	movwf	wait00@k,c
+  1316  007B62  EC7D  F03E         	call	_wait00	;wreg free
+  1317                           
+  1318                           ;sample.c: 77: PORTC=0x00;
+  1319  007B66  0E00               	movlw	0
+  1320  007B68  6E82               	movwf	3970,c	;volatile
+  1321                           
+  1322                           ;sample.c: 78: wait00(5);
+  1323  007B6A  0E00               	movlw	0
+  1324  007B6C  6E02               	movwf	wait00@k+1,c
+  1325  007B6E  0E05               	movlw	5
+  1326  007B70  6E01               	movwf	wait00@k,c
+  1327  007B72  EC7D  F03E         	call	_wait00	;wreg free
+  1328  007B76  0012               	return		;funcret
+  1329  007B78                     __end_of_fast_straight:
+  1330                           	opt stack 0
+  1331                           status	equ	0xFD8
+  1332                           
+  1333 ;; *************** function _wait00 *****************
+  1334 ;; Defined at:
+  1335 ;;		line 6 in file "sample.c"
+  1336 ;; Parameters:    Size  Location     Type
+  1337 ;;  k               2    0[COMRAM] short 
+  1338 ;; Auto vars:     Size  Location     Type
+  1339 ;;  i               2    5[COMRAM] short 
+  1340 ;;  j               2    3[COMRAM] short 
+  1341 ;; Return value:  Size  Location     Type
+  1342 ;;                  2    0[COMRAM] int 
+  1343 ;; Registers used:
+  1344 ;;		wreg, status,2, status,0
+  1345 ;; Tracked objects:
+  1346 ;;		On entry : 0/0
+  1347 ;;		On exit  : 0/0
+  1348 ;;		Unchanged: 0/0
+  1349 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1350 ;;      Params:         2       0       0       0       0       0       0       0       0
+  1351 ;;      Locals:         4       0       0       0       0       0       0       0       0
+  1352 ;;      Temps:          1       0       0       0       0       0       0       0       0
+  1353 ;;      Totals:         7       0       0       0       0       0       0       0       0
+  1354 ;;Total ram usage:        7 bytes
+  1355 ;; Hardware stack levels used:    1
+  1356 ;; This function calls:
+  1357 ;;		Nothing
+  1358 ;; This function is called by:
+  1359 ;;		_left_down
+  1360 ;;		_small_left_down
+  1361 ;;		_right_down
+  1362 ;;		_small_right_down
+  1363 ;;		_mini_left_down
+  1364 ;;		_mini_right_down
+  1365 ;;		_straight
+  1366 ;;		_fast_straight
+  1367 ;; This function uses a non-reentrant model
+  1368 ;;
+  1369                           
+  1370                           	psect	text10
+  1371  007CFA                     __ptext10:
+  1372                           	opt stack 0
+  1373  007CFA                     _wait00:
+  1374                           	opt stack 29
+  1375                           
+  1376                           ;sample.c: 9: short i;
+  1377                           ;sample.c: 10: short j;
+  1378                           ;sample.c: 11: for(j=0;j<k;j++){
+  1379                           
+  1380                           ;incstack = 0
+  1381  007CFA  0E00               	movlw	0
+  1382  007CFC  6E05               	movwf	wait00@j+1,c
+  1383  007CFE  0E00               	movlw	0
+  1384  007D00  6E04               	movwf	wait00@j,c
+  1385  007D02  D011               	goto	l21
+  1386  007D04                     
+  1387                           ;sample.c: 12: for(i=0;i<3000;i++){
+  1388  007D04  0E00               	movlw	0
+  1389  007D06  6E07               	movwf	wait00@i+1,c
+  1390  007D08  0E00               	movlw	0
+  1391  007D0A  6E06               	movwf	wait00@i,c
+  1392  007D0C                     l1153:
+  1393  007D0C  BE07               	btfsc	wait00@i+1,7,c
+  1394  007D0E  D006               	goto	l23
+  1395  007D10  0EB8               	movlw	184
+  1396  007D12  5C06               	subwf	wait00@i,w,c
+  1397  007D14  0E0B               	movlw	11
+  1398  007D16  5807               	subwfb	wait00@i+1,w,c
+  1399  007D18  B0D8               	btfsc	status,0,c
+  1400  007D1A  D003               	goto	u1180
+  1401  007D1C                     l23:
+  1402  007D1C  4A06               	infsnz	wait00@i,f,c
+  1403  007D1E  2A07               	incf	wait00@i+1,f,c
+  1404  007D20  D7F5               	goto	l1153
+  1405  007D22                     u1180:
+  1406  007D22  4A04               	infsnz	wait00@j,f,c
+  1407  007D24  2A05               	incf	wait00@j+1,f,c
+  1408  007D26                     l21:
+  1409  007D26  5001               	movf	wait00@k,w,c
+  1410  007D28  5C04               	subwf	wait00@j,w,c
+  1411  007D2A  5005               	movf	wait00@j+1,w,c
+  1412  007D2C  0A80               	xorlw	128
+  1413  007D2E  6E03               	movwf	??_wait00& (0+255),c
+  1414  007D30  5002               	movf	wait00@k+1,w,c
+  1415  007D32  0A80               	xorlw	128
+  1416  007D34  5803               	subwfb	??_wait00& (0+255),w,c
+  1417  007D36  B0D8               	btfsc	status,0,c
+  1418  007D38  0012               	return	
+  1419  007D3A  D7E4               	goto	l22
+  1420  007D3C                     __end_of_wait00:
+  1421                           	opt stack 0
+  1422  0000                     status	equ	0xFD8
+  1423                           status	equ	0xFD8
+  1424                           
+  1425                           	psect	rparam
+  1426  0000                     status	equ	0xFD8
 
 
 Data Sizes:
@@ -1578,7 +1532,7 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                10    10      0   15038
+ (0) _main                                                10    10      0   14837
                                               7 COMRAM    10    10      0
                       _fast_straight
                            _led_sens
@@ -1675,59 +1629,57 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Wed Feb 28 20:37:22 2018
+Symbol Table                                                                                   Thu Mar 01 14:25:20 2018
 
-                       l21 7CE6                         l22 7CC4                         l23 7CDC  
-                       l70 7DCA                         l62 7D64                         l71 7DC4  
-                       l80 7E2A                         l64 7D88                         l65 7D82  
-                       l90 7EA8                         l82 7E48                         l74 7DE0  
-                       l58 7D3C                         l59 7D38                         l92 7ECC  
-                       l84 7E66                         l76 7DF6                         l68 7DA6  
-                       l93 7EC6                         l86 7E8A                         l78 7E0C  
-                       l87 7E84                         l96 7EE2                         l98 7EF8  
-                       u45 7C8E                         u55 7C98                         u47 7C90  
-                       u65 7CA2                         u57 7C9A                         u75 7CAC  
-                       u67 7CA4                         u85 7CB6                         u77 7CAE  
-                       u87 7CB8                        l100 7F0E                        l102 7F2C  
-                      l104 7F4A                        l113 7FFA                        l114 7FC2  
-                      l106 7F96                        l107 7F6E                        l116 7FDE  
-                      l109 7F82                       l1172 7CCC                       l1414 7E5E  
-                     l1280 7D5A                       l1532 7F40                       l1550 7F6E  
-                     l1518 7F22                       l1384 7E20                       l1580 7FD4  
-                     l1556 7F82                       l1582 7FDE                       l1574 7FB8  
-                     l1398 7E3E                       l1576 7FC2                       l1586 7FF0  
-                     u1210 7CE2                       u1230 7D40                       u2331 7FEA  
-                     u2251 7F8E                       _main 7CFC            ??_fast_straight 0008  
-                     start 2000               ___param_bank 000000                      ?_main 0001  
-                    _PORTA 000F80                      _PORTB 000F81                      _PORTC 000F82  
-                    _TRISA 000F92                      _TRISB 000F93                      _TRISC 000F94  
-__size_of_small_right_down 0032            _small_left_down 7C22                      status 000FD8  
-          __initialization 7B10               __end_of_main 8000                     ??_main 0008  
-            __activetblptr 000000                     _ADCON1 000FC1           ??_mini_left_down 0008  
-         __end_of_led_sens 7CBA                     _wait00 7CBA    __end_of_small_left_down 7C54  
-         __end_of_straight 7B5A                 __accesstop 0060    __end_of__initialization 7B10  
-            ___rparam_used 000001   __size_of_mini_right_down 0032             __pcstackCOMRAM 0001  
-         _small_right_down 7C54         __size_of_left_down 0032                    ?_wait00 0001  
-         ?_small_left_down 0001                  ?_led_sens 0001      __end_of_fast_straight 7B38  
-                  __Hparam 0000                    __Lparam 0000                  ?_straight 0001  
-                  __pcinit 7B10                    __ramtop 0800            __size_of_wait00 0042  
-        __end_of_left_down 7B8C                    __ptext0 7CFC                    __ptext1 7B38  
-                  __ptext2 7C54                    __ptext3 7C22                    __ptext4 7BF0  
-                  __ptext5 7BBE                    __ptext6 7B8C                    __ptext7 7B5A  
-                  __ptext8 7C86                    __ptext9 7B16          ??_mini_right_down 0008  
-     end_of_initialization 7B10                 ??_led_sens 0001                    wait00@i 0006  
-                  wait00@j 0004                    wait00@k 0001                 _right_down 7BF0  
+                       l21 7D26                         l22 7D04                         l23 7D1C  
+                       l70 7E06                         l62 7DA0                         l71 7E00  
+                       l80 7E66                         l64 7DC4                         l65 7DBE  
+                       l90 7EE4                         l82 7E84                         l74 7E1C  
+                       l58 7D78                         l59 7D74                         l92 7F08  
+                       l84 7EA2                         l76 7E32                         l68 7DE2  
+                       l93 7F02                         l86 7EC6                         l78 7E48  
+                       l87 7EC0                         l96 7F1E                         l98 7F34  
+                       u45 7CCE                         u55 7CD8                         u47 7CD0  
+                       u65 7CE2                         u57 7CDA                         u75 7CEC  
+                       u67 7CE4                         u85 7CF6                         u77 7CEE  
+                       u87 7CF8                        l100 7F4A                        l102 7F68  
+                      l111 7FC2                        l104 7F86                        l113 7FDE  
+                      l106 7FFA                       l1153 7D0C                       l1501 7F5E  
+                     l1263 7D96                       l1515 7F7C                       l1541 7FC2  
+                     l1381 7E7A                       l1367 7E5C                       l1547 7FDE  
+                     l1397 7E9A                       u1200 7D7C                       u1180 7D22  
+                     u2240 7FA6                       u2190 7F96                       u2271 7FEA  
+                     _main 7D3C            ??_fast_straight 0008                       start 2000  
+             ___param_bank 000000                      ?_main 0001                      _PORTA 000F80  
+                    _PORTB 000F81                      _PORTC 000F82                      _TRISA 000F92  
+                    _TRISB 000F93                      _TRISC 000F94  __size_of_small_right_down 0032  
+          _small_left_down 7C62                      status 000FD8            __initialization 7B50  
+             __end_of_main 8000                     ??_main 0008              __activetblptr 000000  
+                   _ADCON1 000FC1           ??_mini_left_down 0008           __end_of_led_sens 7CFA  
+                   _wait00 7CFA    __end_of_small_left_down 7C94           __end_of_straight 7B9A  
+               __accesstop 0060    __end_of__initialization 7B50              ___rparam_used 000001  
+ __size_of_mini_right_down 0032             __pcstackCOMRAM 0001           _small_right_down 7C94  
+       __size_of_left_down 0032                    ?_wait00 0001           ?_small_left_down 0001  
+                ?_led_sens 0001      __end_of_fast_straight 7B78                    __Hparam 0000  
+                  __Lparam 0000                  ?_straight 0001                    __pcinit 7B50  
+                  __ramtop 0800            __size_of_wait00 0042          __end_of_left_down 7BCC  
+                  __ptext0 7D3C                    __ptext1 7B78                    __ptext2 7C94  
+                  __ptext3 7C62                    __ptext4 7C30                    __ptext5 7BFE  
+                  __ptext6 7BCC                    __ptext7 7B9A                    __ptext8 7CC6  
+                  __ptext9 7B56          ??_mini_right_down 0008                    main@map 000C  
+     end_of_initialization 7B50                 ??_led_sens 0001                    wait00@i 0006  
+                  wait00@j 0004                    wait00@k 0001                 _right_down 7C30  
                ??_straight 0008                  _PORTAbits 000F80                  _PORTBbits 000F81  
-               main@strght 0008   __end_of_small_right_down 7C86             __end_of_wait00 7CFC  
-      start_initialization 7B10                ?_right_down 0001    __size_of_mini_left_down 0032  
-                 ??_wait00 0003          __size_of_led_sens 0034            _mini_right_down 7BBE  
-        __size_of_straight 0022                  _left_down 7B5A        __size_of_right_down 0032  
+               main@strght 0008   __end_of_small_right_down 7CC6             __end_of_wait00 7D3C  
+      start_initialization 7B50                ?_right_down 0001    __size_of_mini_left_down 0032  
+                 ??_wait00 0003          __size_of_led_sens 0034            _mini_right_down 7BFE  
+        __size_of_straight 0022                  _left_down 7B9A        __size_of_right_down 0032  
  __size_of_small_left_down 0032                  main@right 000E                 ?_left_down 0001  
-   __size_of_fast_straight 0022    __end_of_mini_right_down 7BF0                   __Hrparam 0000  
-           _mini_left_down 7B8C                   __Lrparam 0000          ?_small_right_down 0001  
-       ??_small_right_down 0008                   __ptext10 7CBA                   _led_sens 7C86  
-            __size_of_main 0304     __end_of_mini_left_down 7BBE               ??_right_down 0008  
-            _fast_straight 7B16          ??_small_left_down 0008                   main@flag 000A  
-                 main@left 0010                   main@last 000C                   _straight 7B38  
-              ??_left_down 0008         __end_of_right_down 7C22           ?_mini_right_down 0001  
-          ?_mini_left_down 0001             ?_fast_straight 0001  
+   __size_of_fast_straight 0022    __end_of_mini_right_down 7C30                   __Hrparam 0000  
+           _mini_left_down 7BCC                   __Lrparam 0000          ?_small_right_down 0001  
+       ??_small_right_down 0008                   __ptext10 7CFA                   _led_sens 7CC6  
+            __size_of_main 02C4     __end_of_mini_left_down 7BFE               ??_right_down 0008  
+            _fast_straight 7B56          ??_small_left_down 0008                   main@left 0010  
+                 main@last 000A                   _straight 7B78                ??_left_down 0008  
+       __end_of_right_down 7C62           ?_mini_right_down 0001            ?_mini_left_down 0001  
+           ?_fast_straight 0001  
