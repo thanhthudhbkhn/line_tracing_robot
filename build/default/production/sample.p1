@@ -3274,15 +3274,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 33: PORTC=0x01;
 "33
 [e = _PORTC -> -> 1 `i `uc ]
-[; ;sample.c: 34: wait00(4);
+[; ;sample.c: 34: wait00(6);
 "34
-[e ( _wait00 (1 -> -> 4 `i `f ]
+[e ( _wait00 (1 -> -> 6 `i `f ]
 [; ;sample.c: 35: PORTC=0x00;
 "35
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 36: wait00(10);
+[; ;sample.c: 36: wait00(12);
 "36
-[e ( _wait00 (1 -> -> 10 `i `f ]
+[e ( _wait00 (1 -> -> 12 `i `f ]
 [; ;sample.c: 37: }
 "37
 [e :UE 331 ]
@@ -3330,15 +3330,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 51: PORTC=0x02;
 "51
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;sample.c: 52: wait00(8);
+[; ;sample.c: 52: wait00(6);
 "52
-[e ( _wait00 (1 -> -> 8 `i `f ]
+[e ( _wait00 (1 -> -> 6 `i `f ]
 [; ;sample.c: 53: PORTC=0x00;
 "53
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 54: wait00(20);
+[; ;sample.c: 54: wait00(12);
 "54
-[e ( _wait00 (1 -> -> 20 `i `f ]
+[e ( _wait00 (1 -> -> 12 `i `f ]
 [; ;sample.c: 55: }
 "55
 [e :UE 333 ]
@@ -3358,9 +3358,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sample.c: 60: PORTC=0x00;
 "60
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;sample.c: 61: wait00(20);
+[; ;sample.c: 61: wait00(10);
 "61
-[e ( _wait00 (1 -> -> 20 `i `f ]
+[e ( _wait00 (1 -> -> 10 `i `f ]
 [; ;sample.c: 62: }
 "62
 [e :UE 334 ]

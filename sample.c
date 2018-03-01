@@ -31,9 +31,9 @@ int small_right_down(void){
     PORTC=0x03;  /* both motor on */
     wait00(0.3); /* 0.003msec wait */
     PORTC=0x01;  /* left motor on */
-    wait00(4);   /* 0.02msec wait */
+    wait00(6);   /* 0.02msec wait */
     PORTC=0x00;  /* both motor off */
-    wait00(10);  /* 0.20msec wait */
+    wait00(12);  /* 0.20msec wait */
 }
 
 int left_down(void){
@@ -49,16 +49,16 @@ int small_left_down(void){
    PORTC=0x03;  /* both motor on */
    wait00(0.3); /* 0.003msec wait */
    PORTC=0x02;  /* right motor on */
-   wait00(8);   /* 0.02sec wait */
+   wait00(6);   /* 0.02sec wait */
    PORTC=0x00;  /* both motor off */
-   wait00(20);  /* 0.20msec wait */
+   wait00(12);  /* 0.20msec wait */
 }
 
 int straight(void){
     PORTC=0x03; /* both motor on */
     wait00(10); /* 0.08msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(20); /* 0.2msec wait */
+    wait00(10); /* 0.2msec wait */
 }
 
 int led_sens(void) {

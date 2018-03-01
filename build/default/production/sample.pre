@@ -4325,9 +4325,9 @@ int small_right_down(void){
 PORTC=0x03;
 wait00(0.3);
 PORTC=0x01;
-wait00(4);
+wait00(6);
 PORTC=0x00;
-wait00(10);
+wait00(12);
 }
 
 int left_down(void){
@@ -4343,16 +4343,16 @@ int small_left_down(void){
 PORTC=0x03;
 wait00(0.3);
 PORTC=0x02;
-wait00(8);
+wait00(6);
 PORTC=0x00;
-wait00(20);
+wait00(12);
 }
 
 int straight(void){
 PORTC=0x03;
 wait00(10);
 PORTC=0x00;
-wait00(20);
+wait00(10);
 }
 
 int led_sens(void) {
