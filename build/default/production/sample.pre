@@ -4301,9 +4301,8 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 7 "sample.c"
-wait00(float k)
-{
+# 11 "sample.c"
+wait00(float k) {
 
 short i;
 short j;
@@ -4315,49 +4314,48 @@ for(i=0;i<3000;i++){
 
 int right_down(void){
 PORTC=0x03;
-wait00(0.1);
+wait00(0.3);
 PORTC=0x01;
-wait00(20);
+wait00(15);
 PORTC=0x00;
-wait00(500);
+wait00(20);
 }
 
 int small_right_down(void){
 PORTC=0x03;
-wait00(0.1);
+wait00(0.3);
 PORTC=0x01;
 wait00(8);
 PORTC=0x00;
-wait00(500);
+wait00(20);
 }
 
 int left_down(void){
 PORTC=0x03;
-wait00(0.1);
+wait00(0.3);
 PORTC=0x02;
-wait00(20);
+wait00(15);
 PORTC=0x00;
-wait00(500);
+wait00(20);
 }
 
 int small_left_down(void){
 PORTC=0x03;
-wait00(0.1);
+wait00(0.3);
 PORTC=0x02;
 wait00(8);
 PORTC=0x00;
-wait00(500);
+wait00(20);
 }
 
 int straight(void){
 PORTC=0x03;
-wait00(2);
+wait00(10);
 PORTC=0x00;
-wait00(500);
+wait00(20);
 }
 
-int led_sens(void)
-{
+int led_sens(void) {
 PORTAbits.RA0 = PORTBbits.RB0;
 PORTAbits.RA1 = PORTBbits.RB1;
 PORTAbits.RA2 = PORTBbits.RB2;
@@ -4365,8 +4363,10 @@ PORTAbits.RA3 = PORTBbits.RB3;
 PORTAbits.RA4 = PORTBbits.RB4;
 }
 
-main(void)
-{
+main(void) {
+
+int background = -1;
+int status = -1;
 
 ADCON1 = 0x0F;
 
@@ -4427,7 +4427,9 @@ case 0b01110:
 straight();
 break;
 case 0b01111:
+background = 1;
 right_down();
+status = 2;
 break;
 case 0b10000:
 right_down();
@@ -4471,7 +4473,7 @@ straight();
 break;
 }
 
-# 186
+# 192
 }
 
 }

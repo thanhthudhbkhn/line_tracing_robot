@@ -1,11 +1,14 @@
-//test
-
 #include <xc.h>
 #include <p18f2553.h>
 #include <string.h>
 
-wait00(float k)
-{ 	 
+#define BLACK 0
+#define WHITE 1
+#define STRAIGHT 0
+#define LEFT 1
+#define RIGHT 2
+
+wait00(float k) { 	 
 /*Wait time about (k?~0.01 sec.) */ 		 
     short i; 		 
     short j; /* Declaration of 16 bit variables 	*/ 	 
@@ -17,58 +20,59 @@ wait00(float k)
 
 int right_down(void){
     PORTC=0x03; /* both motor on */
-    wait00(0.1); /* 0.03msec wait */
+    wait00(0.3); /* 0.03msec wait */
     PORTC=0x01; /* left motor on */
-    wait00(20); /* 0.05msec wait */
+    wait00(15); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(500); /* 0.2msec wait */
+    wait00(20); /* 0.2msec wait */
 }
 
 int small_right_down(void){
     PORTC=0x03;  /* both motor on */
-    wait00(0.1); /* 0.003msec wait */
+    wait00(0.3); /* 0.003msec wait */
     PORTC=0x01;  /* left motor on */
-    wait00(8);   /* 0.02msec wait */
+    wait00(4);   /* 0.02msec wait */
     PORTC=0x00;  /* both motor off */
-    wait00(500);  /* 0.20msec wait */
+    wait00(10);  /* 0.20msec wait */
 }
 
 int left_down(void){
     PORTC=0x03; /* both motor on */
-    wait00(0.1); /* 0.03msec wait */
+    wait00(0.3); /* 0.03msec wait */
     PORTC=0x02; /* right motor on */
-    wait00(20); /* 0.05msec wait */
+    wait00(15); /* 0.05msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(500); /* 0.2msec wait */
+    wait00(20); /* 0.2msec wait */
 }
 
 int small_left_down(void){
    PORTC=0x03;  /* both motor on */
-   wait00(0.1); /* 0.003msec wait */
+   wait00(0.3); /* 0.003msec wait */
    PORTC=0x02;  /* right motor on */
    wait00(8);   /* 0.02sec wait */
    PORTC=0x00;  /* both motor off */
-   wait00(500);  /* 0.20msec wait */
+   wait00(20);  /* 0.20msec wait */
 }
 
 int straight(void){
     PORTC=0x03; /* both motor on */
-    wait00(2); /* 0.08msec wait */
+    wait00(10); /* 0.08msec wait */
     PORTC=0x00; /* both motor off */
-    wait00(500); /* 0.2msec wait */
+    wait00(20); /* 0.2msec wait */
 }
 
-int led_sens(void)
-{
-PORTAbits.RA0 = PORTBbits.RB0;           
-PORTAbits.RA1 = PORTBbits.RB1;           
-PORTAbits.RA2 = PORTBbits.RB2;           
-PORTAbits.RA3 = PORTBbits.RB3;           
-PORTAbits.RA4 = PORTBbits.RB4;      
+int led_sens(void) {
+    PORTAbits.RA0 = PORTBbits.RB0;           
+    PORTAbits.RA1 = PORTBbits.RB1;           
+    PORTAbits.RA2 = PORTBbits.RB2;           
+    PORTAbits.RA3 = PORTBbits.RB3;           
+    PORTAbits.RA4 = PORTBbits.RB4;      
 }
 
-main(void)
-{
+main(void) {
+    
+    int background  = -1;
+    int status      = -1;
     //setting digital or analog pin
     ADCON1 = 0x0F;
 
@@ -93,10 +97,19 @@ main(void)
         led_sens();
         
         switch (PORTB) {
-            case 0b00000: 
-                straight(); /* go to straight */
+            case 0b00000:
+            case 0b11111:
+                if (status == STRAIGHT) {
+                    straight();
+                }
+                else if (status == RIGHT) {
+                    right_down();
+                }
+                else if (status == LEFT) {
+                    left_down();
+                }
                 break;
-             case 0b00001: 
+            case 0b00001: 
                 left_down();/* turn left */
                 break;
             case 0b00010: 
@@ -129,7 +142,9 @@ main(void)
                 straight();
                 break;
             case 0b01111: 
+                background = WHITE;
                 right_down();
+                status = RIGHT;
                 break;
             case 0b10000:  
                 right_down();
@@ -165,9 +180,6 @@ main(void)
                 break;
             case 0b11110: 
                 left_down();/* turn left */
-            case 0b11111: 
-                straight(); /* go to straight */
-                break;
             default: 
                 straight();
                 break;
